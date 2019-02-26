@@ -15,6 +15,25 @@ namespace Football_AdoNet
         public Form1()
         {
             InitializeComponent();
+            pLAYERSTableAdapter.Fill(footballDataSet.PLAYERS);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "footballDataSet.POSITIONS". При необходимости она может быть перемещена или удалена.
+            this.pOSITIONSTableAdapter.Fill(this.footballDataSet.POSITIONS);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "footballDataSet.CLUBS". При необходимости она может быть перемещена или удалена.
+            this.cLUBSTableAdapter.Fill(this.footballDataSet.CLUBS);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "footballDataSet.COUNTRIES". При необходимости она может быть перемещена или удалена.
+            this.cOUNTRIESTableAdapter.Fill(this.footballDataSet.COUNTRIES);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "footballDataSet.PLAYERS". При необходимости она может быть перемещена или удалена.
+            this.pLAYERSTableAdapter.Fill(this.footballDataSet.PLAYERS);
+
+        }
+
+        private void buttonSavePlayers_Click(object sender, EventArgs e)
+        {
+            pLAYERSTableAdapter.Update(footballDataSet.PLAYERS);
         }
     }
 }
