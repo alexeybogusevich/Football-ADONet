@@ -2,9 +2,11 @@
 {
 }
 
-namespace Football_AdoNet {
-    
-    
-    public partial class FootballDataSet {
+namespace Football_AdoNet
+{
+
+
+    public partial class FootballDataSet
+    {
     }
 }
