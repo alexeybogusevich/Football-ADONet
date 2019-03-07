@@ -12264,7 +12264,7 @@ SELECT TMC_ID, TMC_ClubID, TMC_TournamentID FROM T_CLUBS WHERE (TMC_ID = @TMC_ID
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
@@ -12277,7 +12277,7 @@ WHERE (CLUBS.C_Name LIKE @c_findname)";
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
@@ -12290,7 +12290,7 @@ WHERE (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LI
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
@@ -12304,7 +12304,7 @@ WHERE (CLUBS.C_Name LIKE @c2_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateO
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
@@ -12318,7 +12318,7 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @c3_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
@@ -12333,7 +12333,7 @@ WHERE (CLUBS.C_Name LIKE @c4_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateO
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
@@ -12346,7 +12346,7 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
@@ -12360,7 +12360,7 @@ WHERE (CLUBS.C_Name LIKE @c1_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry1_fi
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
