@@ -111,5 +111,11 @@ namespace Football_AdoNet
                 MessageBox.Show("Помилка видалення інформації!");
             }
         }
+
+        private void buttonSearchPlayers_Click(object sender, EventArgs e)
+        {
+            SearchPlayersForm searchForm = new SearchPlayersForm();
+            searchForm.Show();
+        }
     }
 }

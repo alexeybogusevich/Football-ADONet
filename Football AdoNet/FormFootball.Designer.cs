@@ -79,8 +79,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridViewTournaments = new System.Windows.Forms.DataGridView();
+            this.tNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_TypeID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tTYPESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.T_AssociationID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.aSSOCIATIONSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tAssociationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tOURNAMENTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pLAYERSTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.PLAYERSTableAdapter();
             this.cOUNTRIESTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.COUNTRIESTableAdapter();
@@ -97,12 +103,6 @@
             this.t_TYPESTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.T_TYPESTableAdapter();
             this.associationsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.ASSOCIATIONSTableAdapter();
             this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
-            this.tNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.T_TypeID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.T_AssociationID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.tAssociationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.PLAYERS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlayers)).BeginInit();
@@ -162,6 +162,7 @@
             this.buttonSearchPlayers.TabIndex = 3;
             this.buttonSearchPlayers.Text = "Пошук";
             this.buttonSearchPlayers.UseVisualStyleBackColor = false;
+            this.buttonSearchPlayers.Click += new System.EventHandler(this.buttonSearchPlayers_Click);
             // 
             // buttonDeletePlayers
             // 
@@ -572,15 +573,61 @@
             this.dataGridViewTournaments.Size = new System.Drawing.Size(696, 265);
             this.dataGridViewTournaments.TabIndex = 0;
             // 
+            // tNameDataGridViewTextBoxColumn
+            // 
+            this.tNameDataGridViewTextBoxColumn.DataPropertyName = "T_Name";
+            this.tNameDataGridViewTextBoxColumn.HeaderText = "Назва ";
+            this.tNameDataGridViewTextBoxColumn.Name = "tNameDataGridViewTextBoxColumn";
+            // 
+            // T_TypeID
+            // 
+            this.T_TypeID.DataPropertyName = "T_TypeID";
+            this.T_TypeID.DataSource = this.tTYPESBindingSource;
+            this.T_TypeID.DisplayMember = "TT_Name";
+            this.T_TypeID.HeaderText = "Формат";
+            this.T_TypeID.Name = "T_TypeID";
+            this.T_TypeID.ValueMember = "TT_ID";
+            // 
             // tTYPESBindingSource
             // 
             this.tTYPESBindingSource.DataMember = "T_TYPES";
             this.tTYPESBindingSource.DataSource = this.footballDataSet;
             // 
+            // T_AssociationID
+            // 
+            this.T_AssociationID.DataPropertyName = "T_AssociationID";
+            this.T_AssociationID.DataSource = this.aSSOCIATIONSBindingSource;
+            this.T_AssociationID.DisplayMember = "A_Name";
+            this.T_AssociationID.HeaderText = "Асоціація";
+            this.T_AssociationID.Name = "T_AssociationID";
+            this.T_AssociationID.ValueMember = "A_ID";
+            // 
             // aSSOCIATIONSBindingSource
             // 
             this.aSSOCIATIONSBindingSource.DataMember = "ASSOCIATIONS";
             this.aSSOCIATIONSBindingSource.DataSource = this.footballDataSet;
+            // 
+            // tAssociationIDDataGridViewTextBoxColumn
+            // 
+            this.tAssociationIDDataGridViewTextBoxColumn.DataPropertyName = "T_AssociationID";
+            this.tAssociationIDDataGridViewTextBoxColumn.HeaderText = "T_AssociationID";
+            this.tAssociationIDDataGridViewTextBoxColumn.Name = "tAssociationIDDataGridViewTextBoxColumn";
+            this.tAssociationIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tTypeIDDataGridViewTextBoxColumn
+            // 
+            this.tTypeIDDataGridViewTextBoxColumn.DataPropertyName = "T_TypeID";
+            this.tTypeIDDataGridViewTextBoxColumn.HeaderText = "T_TypeID";
+            this.tTypeIDDataGridViewTextBoxColumn.Name = "tTypeIDDataGridViewTextBoxColumn";
+            this.tTypeIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tIDDataGridViewTextBoxColumn
+            // 
+            this.tIDDataGridViewTextBoxColumn.DataPropertyName = "T_ID";
+            this.tIDDataGridViewTextBoxColumn.HeaderText = "T_ID";
+            this.tIDDataGridViewTextBoxColumn.Name = "tIDDataGridViewTextBoxColumn";
+            this.tIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // tOURNAMENTSBindingSource
             // 
@@ -639,52 +686,6 @@
             // 
             this.footballDataSet1.DataSetName = "FootballDataSet";
             this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tNameDataGridViewTextBoxColumn
-            // 
-            this.tNameDataGridViewTextBoxColumn.DataPropertyName = "T_Name";
-            this.tNameDataGridViewTextBoxColumn.HeaderText = "Назва ";
-            this.tNameDataGridViewTextBoxColumn.Name = "tNameDataGridViewTextBoxColumn";
-            // 
-            // T_TypeID
-            // 
-            this.T_TypeID.DataPropertyName = "T_TypeID";
-            this.T_TypeID.DataSource = this.tTYPESBindingSource;
-            this.T_TypeID.DisplayMember = "TT_Name";
-            this.T_TypeID.HeaderText = "Формат";
-            this.T_TypeID.Name = "T_TypeID";
-            this.T_TypeID.ValueMember = "TT_ID";
-            // 
-            // T_AssociationID
-            // 
-            this.T_AssociationID.DataPropertyName = "T_AssociationID";
-            this.T_AssociationID.DataSource = this.aSSOCIATIONSBindingSource;
-            this.T_AssociationID.DisplayMember = "A_Name";
-            this.T_AssociationID.HeaderText = "Асоціація";
-            this.T_AssociationID.Name = "T_AssociationID";
-            this.T_AssociationID.ValueMember = "A_ID";
-            // 
-            // tAssociationIDDataGridViewTextBoxColumn
-            // 
-            this.tAssociationIDDataGridViewTextBoxColumn.DataPropertyName = "T_AssociationID";
-            this.tAssociationIDDataGridViewTextBoxColumn.HeaderText = "T_AssociationID";
-            this.tAssociationIDDataGridViewTextBoxColumn.Name = "tAssociationIDDataGridViewTextBoxColumn";
-            this.tAssociationIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tTypeIDDataGridViewTextBoxColumn
-            // 
-            this.tTypeIDDataGridViewTextBoxColumn.DataPropertyName = "T_TypeID";
-            this.tTypeIDDataGridViewTextBoxColumn.HeaderText = "T_TypeID";
-            this.tTypeIDDataGridViewTextBoxColumn.Name = "tTypeIDDataGridViewTextBoxColumn";
-            this.tTypeIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tIDDataGridViewTextBoxColumn
-            // 
-            this.tIDDataGridViewTextBoxColumn.DataPropertyName = "T_ID";
-            this.tIDDataGridViewTextBoxColumn.HeaderText = "T_ID";
-            this.tIDDataGridViewTextBoxColumn.Name = "tIDDataGridViewTextBoxColumn";
-            this.tIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // FormFootball
             // 
