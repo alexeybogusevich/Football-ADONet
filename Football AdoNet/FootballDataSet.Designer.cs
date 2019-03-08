@@ -52,6 +52,8 @@ namespace Football_AdoNet {
         
         private DTSearchPlayersDataTable tableDTSearchPlayers;
         
+        private DTSearchClubsDataTable tableDTSearchClubs;
+        
         private global::System.Data.DataRelation relationFK_TOURNAMENTS_ASSOCIATIONS;
         
         private global::System.Data.DataRelation relationFK_TOURNAMENTS_T_TYPES;
@@ -83,6 +85,10 @@ namespace Football_AdoNet {
         private global::System.Data.DataRelation relationFK_PLAYERS_CLUBS1;
         
         private global::System.Data.DataRelation relationFK_T_CLUBS_CLUBS1;
+        
+        private global::System.Data.DataRelation relationFK_CLUBS_CITIES1;
+        
+        private global::System.Data.DataRelation relationFK_CITIES_COUNTRIES1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -153,6 +159,9 @@ namespace Football_AdoNet {
                 }
                 if ((ds.Tables["DTSearchPlayers"] != null)) {
                     base.Tables.Add(new DTSearchPlayersDataTable(ds.Tables["DTSearchPlayers"]));
+                }
+                if ((ds.Tables["DTSearchClubs"] != null)) {
+                    base.Tables.Add(new DTSearchClubsDataTable(ds.Tables["DTSearchClubs"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -314,6 +323,16 @@ namespace Football_AdoNet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTSearchClubsDataTable DTSearchClubs {
+            get {
+                return this.tableDTSearchClubs;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -420,6 +439,9 @@ namespace Football_AdoNet {
                 }
                 if ((ds.Tables["DTSearchPlayers"] != null)) {
                     base.Tables.Add(new DTSearchPlayersDataTable(ds.Tables["DTSearchPlayers"]));
+                }
+                if ((ds.Tables["DTSearchClubs"] != null)) {
+                    base.Tables.Add(new DTSearchClubsDataTable(ds.Tables["DTSearchClubs"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -538,6 +560,12 @@ namespace Football_AdoNet {
                     this.tableDTSearchPlayers.InitVars();
                 }
             }
+            this.tableDTSearchClubs = ((DTSearchClubsDataTable)(base.Tables["DTSearchClubs"]));
+            if ((initTable == true)) {
+                if ((this.tableDTSearchClubs != null)) {
+                    this.tableDTSearchClubs.InitVars();
+                }
+            }
             this.relationFK_TOURNAMENTS_ASSOCIATIONS = this.Relations["FK_TOURNAMENTS_ASSOCIATIONS"];
             this.relationFK_TOURNAMENTS_T_TYPES = this.Relations["FK_TOURNAMENTS_T_TYPES"];
             this.relationFK_CITIES_COUNTRIES = this.Relations["FK_CITIES_COUNTRIES"];
@@ -554,6 +582,8 @@ namespace Football_AdoNet {
             this.relationFK_T_CLUBS_TOURNAMENTS = this.Relations["FK_T_CLUBS_TOURNAMENTS"];
             this.relationFK_PLAYERS_CLUBS1 = this.Relations["FK_PLAYERS_CLUBS1"];
             this.relationFK_T_CLUBS_CLUBS1 = this.Relations["FK_T_CLUBS_CLUBS1"];
+            this.relationFK_CLUBS_CITIES1 = this.Relations["FK_CLUBS_CITIES1"];
+            this.relationFK_CITIES_COUNTRIES1 = this.Relations["FK_CITIES_COUNTRIES1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -592,6 +622,8 @@ namespace Football_AdoNet {
             base.Tables.Add(this.tableT_TYPES);
             this.tableDTSearchPlayers = new DTSearchPlayersDataTable();
             base.Tables.Add(this.tableDTSearchPlayers);
+            this.tableDTSearchClubs = new DTSearchClubsDataTable();
+            base.Tables.Add(this.tableDTSearchClubs);
             this.relationFK_TOURNAMENTS_ASSOCIATIONS = new global::System.Data.DataRelation("FK_TOURNAMENTS_ASSOCIATIONS", new global::System.Data.DataColumn[] {
                         this.tableASSOCIATIONS.A_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTOURNAMENTS.T_AssociationIDColumn}, false);
@@ -656,6 +688,14 @@ namespace Football_AdoNet {
                         this.tableDTSearchPlayers.C_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableT_CLUBS.TMC_ClubIDColumn}, false);
             this.Relations.Add(this.relationFK_T_CLUBS_CLUBS1);
+            this.relationFK_CLUBS_CITIES1 = new global::System.Data.DataRelation("FK_CLUBS_CITIES1", new global::System.Data.DataColumn[] {
+                        this.tableDTSearchClubs.CT_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCLUBS.C_CityIDColumn}, false);
+            this.Relations.Add(this.relationFK_CLUBS_CITIES1);
+            this.relationFK_CITIES_COUNTRIES1 = new global::System.Data.DataRelation("FK_CITIES_COUNTRIES1", new global::System.Data.DataColumn[] {
+                        this.tableCOUNTRIES.CNTRY_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDTSearchClubs.CT_CountryIDColumn}, false);
+            this.Relations.Add(this.relationFK_CITIES_COUNTRIES1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -739,6 +779,12 @@ namespace Football_AdoNet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeDTSearchPlayers() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeDTSearchClubs() {
             return false;
         }
         
@@ -838,6 +884,9 @@ namespace Football_AdoNet {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void DTSearchPlayersRowChangeEventHandler(object sender, DTSearchPlayersRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void DTSearchClubsRowChangeEventHandler(object sender, DTSearchClubsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5300,6 +5349,541 @@ namespace Football_AdoNet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTSearchClubsDataTable : global::System.Data.TypedTableBase<DTSearchClubsRow> {
+            
+            private global::System.Data.DataColumn columnC_ID;
+            
+            private global::System.Data.DataColumn columnC_Name;
+            
+            private global::System.Data.DataColumn columnC_HeadCoachID;
+            
+            private global::System.Data.DataColumn columnC_PresidentID;
+            
+            private global::System.Data.DataColumn columnC_LeagueID;
+            
+            private global::System.Data.DataColumn columnC_CityID;
+            
+            private global::System.Data.DataColumn columnCNTRY_Name;
+            
+            private global::System.Data.DataColumn columnCNTRY_ID;
+            
+            private global::System.Data.DataColumn columnL_ID;
+            
+            private global::System.Data.DataColumn columnL_Name;
+            
+            private global::System.Data.DataColumn columnCT_ID;
+            
+            private global::System.Data.DataColumn columnCT_Name;
+            
+            private global::System.Data.DataColumn columnCT_CountryID;
+            
+            private global::System.Data.DataColumn columnHC_ID;
+            
+            private global::System.Data.DataColumn columnHC_Name;
+            
+            private global::System.Data.DataColumn columnPr_ID;
+            
+            private global::System.Data.DataColumn columnPr_Name;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsDataTable() {
+                this.TableName = "DTSearchClubs";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DTSearchClubsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected DTSearchClubsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn C_IDColumn {
+                get {
+                    return this.columnC_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn C_NameColumn {
+                get {
+                    return this.columnC_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn C_HeadCoachIDColumn {
+                get {
+                    return this.columnC_HeadCoachID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn C_PresidentIDColumn {
+                get {
+                    return this.columnC_PresidentID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn C_LeagueIDColumn {
+                get {
+                    return this.columnC_LeagueID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn C_CityIDColumn {
+                get {
+                    return this.columnC_CityID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CNTRY_NameColumn {
+                get {
+                    return this.columnCNTRY_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CNTRY_IDColumn {
+                get {
+                    return this.columnCNTRY_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn L_IDColumn {
+                get {
+                    return this.columnL_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn L_NameColumn {
+                get {
+                    return this.columnL_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CT_IDColumn {
+                get {
+                    return this.columnCT_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CT_NameColumn {
+                get {
+                    return this.columnCT_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CT_CountryIDColumn {
+                get {
+                    return this.columnCT_CountryID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HC_IDColumn {
+                get {
+                    return this.columnHC_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HC_NameColumn {
+                get {
+                    return this.columnHC_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Pr_IDColumn {
+                get {
+                    return this.columnPr_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Pr_NameColumn {
+                get {
+                    return this.columnPr_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRow this[int index] {
+                get {
+                    return ((DTSearchClubsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTSearchClubsRowChangeEventHandler DTSearchClubsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTSearchClubsRowChangeEventHandler DTSearchClubsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTSearchClubsRowChangeEventHandler DTSearchClubsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTSearchClubsRowChangeEventHandler DTSearchClubsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddDTSearchClubsRow(DTSearchClubsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRow AddDTSearchClubsRow(string C_Name, int C_HeadCoachID, int C_PresidentID, int C_LeagueID, int C_CityID, string CNTRY_Name, string L_Name, string CT_Name, COUNTRIESRow parentCOUNTRIESRowByFK_CITIES_COUNTRIES1, string HC_Name, string Pr_Name) {
+                DTSearchClubsRow rowDTSearchClubsRow = ((DTSearchClubsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        C_Name,
+                        C_HeadCoachID,
+                        C_PresidentID,
+                        C_LeagueID,
+                        C_CityID,
+                        CNTRY_Name,
+                        null,
+                        null,
+                        L_Name,
+                        null,
+                        CT_Name,
+                        null,
+                        null,
+                        HC_Name,
+                        null,
+                        Pr_Name};
+                if ((parentCOUNTRIESRowByFK_CITIES_COUNTRIES1 != null)) {
+                    columnValuesArray[12] = parentCOUNTRIESRowByFK_CITIES_COUNTRIES1[0];
+                }
+                rowDTSearchClubsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTSearchClubsRow);
+                return rowDTSearchClubsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRow FindByC_IDCNTRY_IDL_IDCT_IDHC_IDPr_ID(int C_ID, int CNTRY_ID, int L_ID, int CT_ID, int HC_ID, int Pr_ID) {
+                return ((DTSearchClubsRow)(this.Rows.Find(new object[] {
+                            C_ID,
+                            CNTRY_ID,
+                            L_ID,
+                            CT_ID,
+                            HC_ID,
+                            Pr_ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTSearchClubsDataTable cln = ((DTSearchClubsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTSearchClubsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnC_ID = base.Columns["C_ID"];
+                this.columnC_Name = base.Columns["C_Name"];
+                this.columnC_HeadCoachID = base.Columns["C_HeadCoachID"];
+                this.columnC_PresidentID = base.Columns["C_PresidentID"];
+                this.columnC_LeagueID = base.Columns["C_LeagueID"];
+                this.columnC_CityID = base.Columns["C_CityID"];
+                this.columnCNTRY_Name = base.Columns["CNTRY_Name"];
+                this.columnCNTRY_ID = base.Columns["CNTRY_ID"];
+                this.columnL_ID = base.Columns["L_ID"];
+                this.columnL_Name = base.Columns["L_Name"];
+                this.columnCT_ID = base.Columns["CT_ID"];
+                this.columnCT_Name = base.Columns["CT_Name"];
+                this.columnCT_CountryID = base.Columns["CT_CountryID"];
+                this.columnHC_ID = base.Columns["HC_ID"];
+                this.columnHC_Name = base.Columns["HC_Name"];
+                this.columnPr_ID = base.Columns["Pr_ID"];
+                this.columnPr_Name = base.Columns["Pr_Name"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnC_ID = new global::System.Data.DataColumn("C_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC_ID);
+                this.columnC_Name = new global::System.Data.DataColumn("C_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC_Name);
+                this.columnC_HeadCoachID = new global::System.Data.DataColumn("C_HeadCoachID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC_HeadCoachID);
+                this.columnC_PresidentID = new global::System.Data.DataColumn("C_PresidentID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC_PresidentID);
+                this.columnC_LeagueID = new global::System.Data.DataColumn("C_LeagueID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC_LeagueID);
+                this.columnC_CityID = new global::System.Data.DataColumn("C_CityID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC_CityID);
+                this.columnCNTRY_Name = new global::System.Data.DataColumn("CNTRY_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCNTRY_Name);
+                this.columnCNTRY_ID = new global::System.Data.DataColumn("CNTRY_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCNTRY_ID);
+                this.columnL_ID = new global::System.Data.DataColumn("L_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnL_ID);
+                this.columnL_Name = new global::System.Data.DataColumn("L_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnL_Name);
+                this.columnCT_ID = new global::System.Data.DataColumn("CT_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCT_ID);
+                this.columnCT_Name = new global::System.Data.DataColumn("CT_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCT_Name);
+                this.columnCT_CountryID = new global::System.Data.DataColumn("CT_CountryID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCT_CountryID);
+                this.columnHC_ID = new global::System.Data.DataColumn("HC_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHC_ID);
+                this.columnHC_Name = new global::System.Data.DataColumn("HC_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHC_Name);
+                this.columnPr_ID = new global::System.Data.DataColumn("Pr_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPr_ID);
+                this.columnPr_Name = new global::System.Data.DataColumn("Pr_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPr_Name);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnC_ID,
+                                this.columnCNTRY_ID,
+                                this.columnL_ID,
+                                this.columnCT_ID,
+                                this.columnHC_ID,
+                                this.columnPr_ID}, true));
+                this.columnC_ID.AutoIncrement = true;
+                this.columnC_ID.AutoIncrementSeed = -1;
+                this.columnC_ID.AutoIncrementStep = -1;
+                this.columnC_ID.AllowDBNull = false;
+                this.columnC_ID.ReadOnly = true;
+                this.columnC_Name.AllowDBNull = false;
+                this.columnC_Name.MaxLength = 30;
+                this.columnCNTRY_Name.AllowDBNull = false;
+                this.columnCNTRY_Name.MaxLength = 30;
+                this.columnCNTRY_ID.AutoIncrement = true;
+                this.columnCNTRY_ID.AutoIncrementSeed = -1;
+                this.columnCNTRY_ID.AutoIncrementStep = -1;
+                this.columnCNTRY_ID.AllowDBNull = false;
+                this.columnCNTRY_ID.ReadOnly = true;
+                this.columnL_ID.AutoIncrement = true;
+                this.columnL_ID.AutoIncrementSeed = -1;
+                this.columnL_ID.AutoIncrementStep = -1;
+                this.columnL_ID.AllowDBNull = false;
+                this.columnL_ID.ReadOnly = true;
+                this.columnL_Name.AllowDBNull = false;
+                this.columnL_Name.MaxLength = 30;
+                this.columnCT_ID.AutoIncrement = true;
+                this.columnCT_ID.AutoIncrementSeed = -1;
+                this.columnCT_ID.AutoIncrementStep = -1;
+                this.columnCT_ID.AllowDBNull = false;
+                this.columnCT_ID.ReadOnly = true;
+                this.columnCT_Name.AllowDBNull = false;
+                this.columnCT_Name.MaxLength = 30;
+                this.columnHC_ID.AutoIncrement = true;
+                this.columnHC_ID.AutoIncrementSeed = -1;
+                this.columnHC_ID.AutoIncrementStep = -1;
+                this.columnHC_ID.AllowDBNull = false;
+                this.columnHC_ID.ReadOnly = true;
+                this.columnHC_Name.AllowDBNull = false;
+                this.columnHC_Name.MaxLength = 30;
+                this.columnPr_ID.AutoIncrement = true;
+                this.columnPr_ID.AutoIncrementSeed = -1;
+                this.columnPr_ID.AutoIncrementStep = -1;
+                this.columnPr_ID.AllowDBNull = false;
+                this.columnPr_ID.ReadOnly = true;
+                this.columnPr_Name.AllowDBNull = false;
+                this.columnPr_Name.MaxLength = 30;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRow NewDTSearchClubsRow() {
+                return ((DTSearchClubsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTSearchClubsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTSearchClubsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTSearchClubsRowChanged != null)) {
+                    this.DTSearchClubsRowChanged(this, new DTSearchClubsRowChangeEvent(((DTSearchClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTSearchClubsRowChanging != null)) {
+                    this.DTSearchClubsRowChanging(this, new DTSearchClubsRowChangeEvent(((DTSearchClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTSearchClubsRowDeleted != null)) {
+                    this.DTSearchClubsRowDeleted(this, new DTSearchClubsRowChangeEvent(((DTSearchClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTSearchClubsRowDeleting != null)) {
+                    this.DTSearchClubsRowDeleting(this, new DTSearchClubsRowChangeEvent(((DTSearchClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveDTSearchClubsRow(DTSearchClubsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FootballDataSet ds = new FootballDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTSearchClubsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ASSOCIATIONSRow : global::System.Data.DataRow {
@@ -5739,6 +6323,17 @@ namespace Football_AdoNet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRow DTSearchClubsRow {
+                get {
+                    return ((DTSearchClubsRow)(this.GetParentRow(this.Table.ParentRelations["FK_CLUBS_CITIES1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CLUBS_CITIES1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsC_CityIDNull() {
                 return this.IsNull(this.tableCLUBS.C_CityIDColumn);
             }
@@ -5874,6 +6469,17 @@ namespace Football_AdoNet {
                 }
                 else {
                     return ((PLAYERSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PLAYERS_COUNTRIES"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRow[] GetDTSearchClubsRows() {
+                if ((this.Table.ChildRelations["FK_CITIES_COUNTRIES1"] == null)) {
+                    return new DTSearchClubsRow[0];
+                }
+                else {
+                    return ((DTSearchClubsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CITIES_COUNTRIES1"])));
                 }
             }
         }
@@ -6866,6 +7472,315 @@ namespace Football_AdoNet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTSearchClubsRow : global::System.Data.DataRow {
+            
+            private DTSearchClubsDataTable tableDTSearchClubs;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DTSearchClubsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTSearchClubs = ((DTSearchClubsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int C_ID {
+                get {
+                    return ((int)(this[this.tableDTSearchClubs.C_IDColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.C_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string C_Name {
+                get {
+                    return ((string)(this[this.tableDTSearchClubs.C_NameColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.C_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int C_HeadCoachID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTSearchClubs.C_HeadCoachIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'C_HeadCoachID\' в таблице \'DTSearchClubs\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTSearchClubs.C_HeadCoachIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int C_PresidentID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTSearchClubs.C_PresidentIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'C_PresidentID\' в таблице \'DTSearchClubs\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTSearchClubs.C_PresidentIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int C_LeagueID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTSearchClubs.C_LeagueIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'C_LeagueID\' в таблице \'DTSearchClubs\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTSearchClubs.C_LeagueIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int C_CityID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTSearchClubs.C_CityIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'C_CityID\' в таблице \'DTSearchClubs\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTSearchClubs.C_CityIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CNTRY_Name {
+                get {
+                    return ((string)(this[this.tableDTSearchClubs.CNTRY_NameColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.CNTRY_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int CNTRY_ID {
+                get {
+                    return ((int)(this[this.tableDTSearchClubs.CNTRY_IDColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.CNTRY_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int L_ID {
+                get {
+                    return ((int)(this[this.tableDTSearchClubs.L_IDColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.L_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string L_Name {
+                get {
+                    return ((string)(this[this.tableDTSearchClubs.L_NameColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.L_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int CT_ID {
+                get {
+                    return ((int)(this[this.tableDTSearchClubs.CT_IDColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.CT_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CT_Name {
+                get {
+                    return ((string)(this[this.tableDTSearchClubs.CT_NameColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.CT_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int CT_CountryID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTSearchClubs.CT_CountryIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'CT_CountryID\' в таблице \'DTSearchClubs\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTSearchClubs.CT_CountryIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int HC_ID {
+                get {
+                    return ((int)(this[this.tableDTSearchClubs.HC_IDColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.HC_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string HC_Name {
+                get {
+                    return ((string)(this[this.tableDTSearchClubs.HC_NameColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.HC_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Pr_ID {
+                get {
+                    return ((int)(this[this.tableDTSearchClubs.Pr_IDColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.Pr_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Pr_Name {
+                get {
+                    return ((string)(this[this.tableDTSearchClubs.Pr_NameColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.Pr_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public COUNTRIESRow COUNTRIESRow {
+                get {
+                    return ((COUNTRIESRow)(this.GetParentRow(this.Table.ParentRelations["FK_CITIES_COUNTRIES1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CITIES_COUNTRIES1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsC_HeadCoachIDNull() {
+                return this.IsNull(this.tableDTSearchClubs.C_HeadCoachIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetC_HeadCoachIDNull() {
+                this[this.tableDTSearchClubs.C_HeadCoachIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsC_PresidentIDNull() {
+                return this.IsNull(this.tableDTSearchClubs.C_PresidentIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetC_PresidentIDNull() {
+                this[this.tableDTSearchClubs.C_PresidentIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsC_LeagueIDNull() {
+                return this.IsNull(this.tableDTSearchClubs.C_LeagueIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetC_LeagueIDNull() {
+                this[this.tableDTSearchClubs.C_LeagueIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsC_CityIDNull() {
+                return this.IsNull(this.tableDTSearchClubs.C_CityIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetC_CityIDNull() {
+                this[this.tableDTSearchClubs.C_CityIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCT_CountryIDNull() {
+                return this.IsNull(this.tableDTSearchClubs.CT_CountryIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCT_CountryIDNull() {
+                this[this.tableDTSearchClubs.CT_CountryIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public CLUBSRow[] GetCLUBSRows() {
+                if ((this.Table.ChildRelations["FK_CLUBS_CITIES1"] == null)) {
+                    return new CLUBSRow[0];
+                }
+                else {
+                    return ((CLUBSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CLUBS_CITIES1"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -7327,6 +8242,40 @@ namespace Football_AdoNet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DTSearchPlayersRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class DTSearchClubsRowChangeEvent : global::System.EventArgs {
+            
+            private DTSearchClubsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRowChangeEvent(DTSearchClubsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchClubsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -12621,6 +13570,606 @@ WHERE (POSITIONS.POS_Name LIKE @pos_findname) AND (COUNTRIES.CNTRY_Name LIKE @cn
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(c_findname));
             }
             FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class DTSearchClubsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public DTSearchClubsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "DTSearchClubs";
+            tableMapping.ColumnMappings.Add("C_ID", "C_ID");
+            tableMapping.ColumnMappings.Add("C_Name", "C_Name");
+            tableMapping.ColumnMappings.Add("C_HeadCoachID", "C_HeadCoachID");
+            tableMapping.ColumnMappings.Add("C_PresidentID", "C_PresidentID");
+            tableMapping.ColumnMappings.Add("C_LeagueID", "C_LeagueID");
+            tableMapping.ColumnMappings.Add("C_CityID", "C_CityID");
+            tableMapping.ColumnMappings.Add("CNTRY_Name", "CNTRY_Name");
+            tableMapping.ColumnMappings.Add("CNTRY_ID", "CNTRY_ID");
+            tableMapping.ColumnMappings.Add("L_ID", "L_ID");
+            tableMapping.ColumnMappings.Add("L_Name", "L_Name");
+            tableMapping.ColumnMappings.Add("CT_ID", "CT_ID");
+            tableMapping.ColumnMappings.Add("CT_Name", "CT_Name");
+            tableMapping.ColumnMappings.Add("CT_CountryID", "CT_CountryID");
+            tableMapping.ColumnMappings.Add("HC_ID", "HC_ID");
+            tableMapping.ColumnMappings.Add("HC_Name", "HC_Name");
+            tableMapping.ColumnMappings.Add("Pr_ID", "Pr_ID");
+            tableMapping.ColumnMappings.Add("Pr_Name", "Pr_Name");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Football_AdoNet.Properties.Settings.Default.FootballConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+FROM CLUBS INNER JOIN
+CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
+COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
+HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
+PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+FROM CLUBS INNER JOIN
+CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
+COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
+HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
+PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
+WHERE ((COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (LEAGUES.L_Name LIKE @l_findname))";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+FROM CLUBS INNER JOIN
+CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
+COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
+HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
+PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (LEAGUES.L_Name LIKE @l_findname) AND
+(
+CLUBS.C_ID IN
+(
+SELECT TMC_ID FROM T_CLUBS
+WHERE TMC_ID IN
+(
+SELECT T_ID FROM TOURNAMENTS
+WHERE T_Name LIKE @t_findname
+)
+)
+)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+FROM CLUBS INNER JOIN
+CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
+COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
+HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
+PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND
+(
+CLUBS.C_ID IN
+(
+SELECT TMC_ID FROM T_CLUBS
+WHERE TMC_ID IN
+(
+SELECT T_ID FROM TOURNAMENTS
+WHERE T_Name LIKE @t_findname
+)
+)
+)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+FROM CLUBS INNER JOIN
+CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
+COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
+HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
+PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
+WHERE (LEAGUES.L_Name LIKE @l_findname)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+FROM CLUBS INNER JOIN
+CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
+COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
+HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
+PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
+WHERE (LEAGUES.L_Name LIKE @l_findname) AND
+(
+CLUBS.C_ID IN
+(
+SELECT TMC_ID FROM T_CLUBS
+WHERE TMC_ID IN
+(
+SELECT T_ID FROM TOURNAMENTS
+WHERE T_Name LIKE @t_findname
+)
+)
+)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+FROM CLUBS INNER JOIN
+CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
+COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
+HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
+PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
+WHERE 
+(
+CLUBS.C_ID IN
+(
+SELECT TMC_ID FROM T_CLUBS
+WHERE TMC_ID IN
+(
+SELECT T_ID FROM TOURNAMENTS
+WHERE T_Name LIKE @t_findname
+)
+)
+)";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int FillByCountry(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountry(string cntry_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCountryANDLeague(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname, string l_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountryANDLeague(string cntry_findname, string l_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
+            }
+            FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCountryANDLeagueANDTournament(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname, string l_findname, string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
+            }
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(t_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountryANDLeagueANDTournament(string cntry_findname, string l_findname, string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
+            }
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(t_findname));
+            }
+            FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCountryANDTournament(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname, string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(t_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountryANDTournament(string cntry_findname, string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((cntry_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(t_findname));
+            }
+            FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByLeague(FootballDataSet.DTSearchClubsDataTable dataTable, string l_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByLeague(string l_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
+            }
+            FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByLeagueANDTournament(FootballDataSet.DTSearchClubsDataTable dataTable, string l_findname, string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
+            }
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(t_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByLeagueANDTournament(string l_findname, string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((l_findname == null)) {
+                throw new global::System.ArgumentNullException("l_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
+            }
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(t_findname));
+            }
+            FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTournament(FootballDataSet.DTSearchClubsDataTable dataTable, string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(t_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByTournament(string t_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((t_findname == null)) {
+                throw new global::System.ArgumentNullException("t_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(t_findname));
+            }
+            FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
