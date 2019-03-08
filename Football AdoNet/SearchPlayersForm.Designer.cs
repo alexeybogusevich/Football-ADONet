@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchPlayersForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.PStextBoxClub = new System.Windows.Forms.TextBox();
             this.PStextBoxPosition = new System.Windows.Forms.TextBox();
@@ -37,6 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonSearchPlayers = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
+            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
             this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNTRYNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,9 +55,6 @@
             this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
-            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
@@ -62,6 +63,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Navy;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pNameDataGridViewTextBoxColumn,
@@ -79,70 +81,94 @@
             this.pPositionIDDataGridViewTextBoxColumn,
             this.pOSIDDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 109);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 20;
-            this.dataGridView1.Size = new System.Drawing.Size(703, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(703, 329);
             this.dataGridView1.TabIndex = 0;
             // 
             // PStextBoxClub
             // 
-            this.PStextBoxClub.Location = new System.Drawing.Point(13, 42);
+            this.PStextBoxClub.Location = new System.Drawing.Point(13, 50);
             this.PStextBoxClub.Name = "PStextBoxClub";
-            this.PStextBoxClub.Size = new System.Drawing.Size(100, 20);
+            this.PStextBoxClub.Size = new System.Drawing.Size(140, 20);
             this.PStextBoxClub.TabIndex = 1;
             // 
             // PStextBoxPosition
             // 
-            this.PStextBoxPosition.Location = new System.Drawing.Point(169, 42);
+            this.PStextBoxPosition.Location = new System.Drawing.Point(188, 50);
             this.PStextBoxPosition.Name = "PStextBoxPosition";
-            this.PStextBoxPosition.Size = new System.Drawing.Size(100, 20);
+            this.PStextBoxPosition.Size = new System.Drawing.Size(140, 20);
             this.PStextBoxPosition.TabIndex = 2;
             // 
             // PStextBoxCountry
             // 
-            this.PStextBoxCountry.Location = new System.Drawing.Point(333, 42);
+            this.PStextBoxCountry.Location = new System.Drawing.Point(363, 50);
             this.PStextBoxCountry.Name = "PStextBoxCountry";
-            this.PStextBoxCountry.Size = new System.Drawing.Size(100, 20);
+            this.PStextBoxCountry.Size = new System.Drawing.Size(140, 20);
             this.PStextBoxCountry.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 26);
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(63, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Клуб";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(196, 26);
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(235, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Позиція";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 26);
+            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(360, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.Size = new System.Drawing.Size(122, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Національність";
+            this.label3.Text = "      Національність";
             // 
             // buttonSearchPlayers
             // 
-            this.buttonSearchPlayers.Location = new System.Drawing.Point(580, 32);
+            this.buttonSearchPlayers.BackColor = System.Drawing.Color.Navy;
+            this.buttonSearchPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearchPlayers.ForeColor = System.Drawing.Color.White;
+            this.buttonSearchPlayers.Location = new System.Drawing.Point(605, 10);
             this.buttonSearchPlayers.Name = "buttonSearchPlayers";
-            this.buttonSearchPlayers.Size = new System.Drawing.Size(95, 38);
+            this.buttonSearchPlayers.Size = new System.Drawing.Size(111, 91);
             this.buttonSearchPlayers.TabIndex = 7;
             this.buttonSearchPlayers.Text = "Знайти";
-            this.buttonSearchPlayers.UseVisualStyleBackColor = true;
+            this.buttonSearchPlayers.UseVisualStyleBackColor = false;
             this.buttonSearchPlayers.Click += new System.EventHandler(this.buttonSearchPlayers_Click);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "DTSearchPlayers";
+            this.bindingSource1.DataSource = this.footballDataSet1;
+            // 
+            // footballDataSet1
+            // 
+            this.footballDataSet1.DataSetName = "FootballDataSet";
+            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtSearchPlayersTableAdapter1
+            // 
+            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
             // 
             // pNameDataGridViewTextBoxColumn
             // 
@@ -185,7 +211,7 @@
             this.pNumberDataGridViewTextBoxColumn.HeaderText = "Номер";
             this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
             this.pNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pNumberDataGridViewTextBoxColumn.Width = 82;
+            this.pNumberDataGridViewTextBoxColumn.Width = 81;
             // 
             // lNameDataGridViewTextBoxColumn
             // 
@@ -250,24 +276,11 @@
             this.pOSIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pOSIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "DTSearchPlayers";
-            this.bindingSource1.DataSource = this.footballDataSet1;
-            // 
-            // footballDataSet1
-            // 
-            this.footballDataSet1.DataSetName = "FootballDataSet";
-            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtSearchPlayersTableAdapter1
-            // 
-            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
-            // 
             // SearchPlayersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(728, 450);
             this.Controls.Add(this.buttonSearchPlayers);
             this.Controls.Add(this.label3);
@@ -277,6 +290,7 @@
             this.Controls.Add(this.PStextBoxPosition);
             this.Controls.Add(this.PStextBoxClub);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
             this.Name = "SearchPlayersForm";
             this.Text = "Пошук гравців";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
