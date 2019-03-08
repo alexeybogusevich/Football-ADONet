@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
             this.PStextBoxClub = new System.Windows.Forms.TextBox();
             this.PStextBoxAge = new System.Windows.Forms.TextBox();
             this.PStextBoxCountry = new System.Windows.Forms.TextBox();
@@ -37,25 +39,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonSearchPlayers = new System.Windows.Forms.Button();
+            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
             this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNTRYNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOSNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pClubIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tMCClubIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tMCTournamentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
-            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
+            this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pOSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
@@ -68,20 +66,18 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pNameDataGridViewTextBoxColumn,
             this.pDateOfBirthDataGridViewTextBoxColumn,
-            this.pNumberDataGridViewTextBoxColumn,
-            this.cNameDataGridViewTextBoxColumn,
             this.cNTRYNameDataGridViewTextBoxColumn,
             this.pOSNameDataGridViewTextBoxColumn,
-            this.tNameDataGridViewTextBoxColumn,
+            this.cNameDataGridViewTextBoxColumn,
+            this.pNumberDataGridViewTextBoxColumn,
+            this.lNameDataGridViewTextBoxColumn,
+            this.lIDDataGridViewTextBoxColumn,
+            this.cIDDataGridViewTextBoxColumn,
             this.pClubIDDataGridViewTextBoxColumn,
             this.pCountryIDDataGridViewTextBoxColumn,
-            this.pOSIDDataGridViewTextBoxColumn,
-            this.tIDDataGridViewTextBoxColumn,
+            this.pIDDataGridViewTextBoxColumn,
             this.pPositionIDDataGridViewTextBoxColumn,
-            this.cIDDataGridViewTextBoxColumn,
-            this.tMCClubIDDataGridViewTextBoxColumn,
-            this.tMCTournamentIDDataGridViewTextBoxColumn,
-            this.pIDDataGridViewTextBoxColumn});
+            this.pOSIDDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(13, 91);
             this.dataGridView1.Name = "dataGridView1";
@@ -89,6 +85,16 @@
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.Size = new System.Drawing.Size(703, 347);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "DTSearchPlayers";
+            this.bindingSource1.DataSource = this.footballDataSet1;
+            // 
+            // footballDataSet1
+            // 
+            this.footballDataSet1.DataSetName = "FootballDataSet";
+            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // PStextBoxClub
             // 
@@ -148,6 +154,10 @@
             this.buttonSearchPlayers.UseVisualStyleBackColor = true;
             this.buttonSearchPlayers.Click += new System.EventHandler(this.buttonSearchPlayers_Click);
             // 
+            // dtSearchPlayersTableAdapter1
+            // 
+            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
+            // 
             // pNameDataGridViewTextBoxColumn
             // 
             this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
@@ -158,24 +168,9 @@
             // pDateOfBirthDataGridViewTextBoxColumn
             // 
             this.pDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "P_DateOfBirth";
-            this.pDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
+            this.pDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Вік";
             this.pDateOfBirthDataGridViewTextBoxColumn.Name = "pDateOfBirthDataGridViewTextBoxColumn";
             this.pDateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pNumberDataGridViewTextBoxColumn
-            // 
-            this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "P_Number";
-            this.pNumberDataGridViewTextBoxColumn.HeaderText = "Номер";
-            this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
-            this.pNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pNumberDataGridViewTextBoxColumn.Width = 81;
-            // 
-            // cNameDataGridViewTextBoxColumn
-            // 
-            this.cNameDataGridViewTextBoxColumn.DataPropertyName = "C_Name";
-            this.cNameDataGridViewTextBoxColumn.HeaderText = "Поточний клуб";
-            this.cNameDataGridViewTextBoxColumn.Name = "cNameDataGridViewTextBoxColumn";
-            this.cNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cNTRYNameDataGridViewTextBoxColumn
             // 
@@ -191,12 +186,43 @@
             this.pOSNameDataGridViewTextBoxColumn.Name = "pOSNameDataGridViewTextBoxColumn";
             this.pOSNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // tNameDataGridViewTextBoxColumn
+            // cNameDataGridViewTextBoxColumn
             // 
-            this.tNameDataGridViewTextBoxColumn.DataPropertyName = "T_Name";
-            this.tNameDataGridViewTextBoxColumn.HeaderText = "Турнір";
-            this.tNameDataGridViewTextBoxColumn.Name = "tNameDataGridViewTextBoxColumn";
-            this.tNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cNameDataGridViewTextBoxColumn.DataPropertyName = "C_Name";
+            this.cNameDataGridViewTextBoxColumn.HeaderText = "Клуб";
+            this.cNameDataGridViewTextBoxColumn.Name = "cNameDataGridViewTextBoxColumn";
+            this.cNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pNumberDataGridViewTextBoxColumn
+            // 
+            this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "P_Number";
+            this.pNumberDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
+            this.pNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pNumberDataGridViewTextBoxColumn.Width = 81;
+            // 
+            // lNameDataGridViewTextBoxColumn
+            // 
+            this.lNameDataGridViewTextBoxColumn.DataPropertyName = "L_Name";
+            this.lNameDataGridViewTextBoxColumn.HeaderText = "Ліга";
+            this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
+            this.lNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lIDDataGridViewTextBoxColumn
+            // 
+            this.lIDDataGridViewTextBoxColumn.DataPropertyName = "L_ID";
+            this.lIDDataGridViewTextBoxColumn.HeaderText = "L_ID";
+            this.lIDDataGridViewTextBoxColumn.Name = "lIDDataGridViewTextBoxColumn";
+            this.lIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cIDDataGridViewTextBoxColumn
+            // 
+            this.cIDDataGridViewTextBoxColumn.DataPropertyName = "C_ID";
+            this.cIDDataGridViewTextBoxColumn.HeaderText = "C_ID";
+            this.cIDDataGridViewTextBoxColumn.Name = "cIDDataGridViewTextBoxColumn";
+            this.cIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // pClubIDDataGridViewTextBoxColumn
             // 
@@ -214,21 +240,13 @@
             this.pCountryIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pCountryIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // pOSIDDataGridViewTextBoxColumn
+            // pIDDataGridViewTextBoxColumn
             // 
-            this.pOSIDDataGridViewTextBoxColumn.DataPropertyName = "POS_ID";
-            this.pOSIDDataGridViewTextBoxColumn.HeaderText = "POS_ID";
-            this.pOSIDDataGridViewTextBoxColumn.Name = "pOSIDDataGridViewTextBoxColumn";
-            this.pOSIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pOSIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tIDDataGridViewTextBoxColumn
-            // 
-            this.tIDDataGridViewTextBoxColumn.DataPropertyName = "T_ID";
-            this.tIDDataGridViewTextBoxColumn.HeaderText = "T_ID";
-            this.tIDDataGridViewTextBoxColumn.Name = "tIDDataGridViewTextBoxColumn";
-            this.tIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tIDDataGridViewTextBoxColumn.Visible = false;
+            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
+            this.pIDDataGridViewTextBoxColumn.HeaderText = "P_ID";
+            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
+            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // pPositionIDDataGridViewTextBoxColumn
             // 
@@ -238,51 +256,13 @@
             this.pPositionIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pPositionIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // cIDDataGridViewTextBoxColumn
+            // pOSIDDataGridViewTextBoxColumn
             // 
-            this.cIDDataGridViewTextBoxColumn.DataPropertyName = "C_ID";
-            this.cIDDataGridViewTextBoxColumn.HeaderText = "C_ID";
-            this.cIDDataGridViewTextBoxColumn.Name = "cIDDataGridViewTextBoxColumn";
-            this.cIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tMCClubIDDataGridViewTextBoxColumn
-            // 
-            this.tMCClubIDDataGridViewTextBoxColumn.DataPropertyName = "TMC_ClubID";
-            this.tMCClubIDDataGridViewTextBoxColumn.HeaderText = "TMC_ClubID";
-            this.tMCClubIDDataGridViewTextBoxColumn.Name = "tMCClubIDDataGridViewTextBoxColumn";
-            this.tMCClubIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tMCClubIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tMCTournamentIDDataGridViewTextBoxColumn
-            // 
-            this.tMCTournamentIDDataGridViewTextBoxColumn.DataPropertyName = "TMC_TournamentID";
-            this.tMCTournamentIDDataGridViewTextBoxColumn.HeaderText = "TMC_TournamentID";
-            this.tMCTournamentIDDataGridViewTextBoxColumn.Name = "tMCTournamentIDDataGridViewTextBoxColumn";
-            this.tMCTournamentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tMCTournamentIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pIDDataGridViewTextBoxColumn
-            // 
-            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
-            this.pIDDataGridViewTextBoxColumn.HeaderText = "P_ID";
-            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
-            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "DTSearchPlayers";
-            this.bindingSource1.DataSource = this.footballDataSet1;
-            // 
-            // footballDataSet1
-            // 
-            this.footballDataSet1.DataSetName = "FootballDataSet";
-            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtSearchPlayersTableAdapter1
-            // 
-            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
+            this.pOSIDDataGridViewTextBoxColumn.DataPropertyName = "POS_ID";
+            this.pOSIDDataGridViewTextBoxColumn.HeaderText = "POS_ID";
+            this.pOSIDDataGridViewTextBoxColumn.Name = "pOSIDDataGridViewTextBoxColumn";
+            this.pOSIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pOSIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // SearchPlayersForm
             // 
@@ -320,21 +300,23 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonSearchPlayers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pDateOfBirthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNTRYNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pOSNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pClubIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pCountryIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pOSIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pPositionIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tMCClubIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tMCTournamentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pDateOfBirthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNTRYNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOSNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pClubIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pCountryIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pPositionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOSIDDataGridViewTextBoxColumn;
     }
 }

@@ -4869,13 +4869,9 @@ namespace Football_AdoNet {
             
             private global::System.Data.DataColumn columnPOS_Name;
             
-            private global::System.Data.DataColumn columnT_ID;
+            private global::System.Data.DataColumn columnL_ID;
             
-            private global::System.Data.DataColumn columnTMC_ClubID;
-            
-            private global::System.Data.DataColumn columnTMC_TournamentID;
-            
-            private global::System.Data.DataColumn columnT_Name;
+            private global::System.Data.DataColumn columnL_Name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -5008,33 +5004,17 @@ namespace Football_AdoNet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn T_IDColumn {
+            public global::System.Data.DataColumn L_IDColumn {
                 get {
-                    return this.columnT_ID;
+                    return this.columnL_ID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TMC_ClubIDColumn {
+            public global::System.Data.DataColumn L_NameColumn {
                 get {
-                    return this.columnTMC_ClubID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TMC_TournamentIDColumn {
-                get {
-                    return this.columnTMC_TournamentID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn T_NameColumn {
-                get {
-                    return this.columnT_Name;
+                    return this.columnL_Name;
                 }
             }
             
@@ -5075,7 +5055,7 @@ namespace Football_AdoNet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSearchPlayersRow AddDTSearchPlayersRow(string P_Name, System.DateTime P_DateOfBirth, int P_Number, int P_PositionID, int P_ClubID, int P_CountryID, string C_Name, string CNTRY_Name, string POS_Name, int TMC_ClubID, int TMC_TournamentID, string T_Name) {
+            public DTSearchPlayersRow AddDTSearchPlayersRow(string P_Name, System.DateTime P_DateOfBirth, int P_Number, int P_PositionID, int P_ClubID, int P_CountryID, string C_Name, string CNTRY_Name, string POS_Name, string L_Name) {
                 DTSearchPlayersRow rowDTSearchPlayersRow = ((DTSearchPlayersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5091,9 +5071,7 @@ namespace Football_AdoNet {
                         CNTRY_Name,
                         POS_Name,
                         null,
-                        TMC_ClubID,
-                        TMC_TournamentID,
-                        T_Name};
+                        L_Name};
                 rowDTSearchPlayersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDTSearchPlayersRow);
                 return rowDTSearchPlayersRow;
@@ -5128,10 +5106,8 @@ namespace Football_AdoNet {
                 this.columnC_Name = base.Columns["C_Name"];
                 this.columnCNTRY_Name = base.Columns["CNTRY_Name"];
                 this.columnPOS_Name = base.Columns["POS_Name"];
-                this.columnT_ID = base.Columns["T_ID"];
-                this.columnTMC_ClubID = base.Columns["TMC_ClubID"];
-                this.columnTMC_TournamentID = base.Columns["TMC_TournamentID"];
-                this.columnT_Name = base.Columns["T_Name"];
+                this.columnL_ID = base.Columns["L_ID"];
+                this.columnL_Name = base.Columns["L_Name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5161,14 +5137,10 @@ namespace Football_AdoNet {
                 base.Columns.Add(this.columnCNTRY_Name);
                 this.columnPOS_Name = new global::System.Data.DataColumn("POS_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPOS_Name);
-                this.columnT_ID = new global::System.Data.DataColumn("T_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnT_ID);
-                this.columnTMC_ClubID = new global::System.Data.DataColumn("TMC_ClubID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTMC_ClubID);
-                this.columnTMC_TournamentID = new global::System.Data.DataColumn("TMC_TournamentID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTMC_TournamentID);
-                this.columnT_Name = new global::System.Data.DataColumn("T_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnT_Name);
+                this.columnL_ID = new global::System.Data.DataColumn("L_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnL_ID);
+                this.columnL_Name = new global::System.Data.DataColumn("L_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnL_Name);
                 this.columnP_ID.AutoIncrement = true;
                 this.columnP_ID.AutoIncrementSeed = -1;
                 this.columnP_ID.AutoIncrementStep = -1;
@@ -5194,13 +5166,13 @@ namespace Football_AdoNet {
                 this.columnCNTRY_Name.MaxLength = 30;
                 this.columnPOS_Name.AllowDBNull = false;
                 this.columnPOS_Name.MaxLength = 30;
-                this.columnT_ID.AutoIncrement = true;
-                this.columnT_ID.AutoIncrementSeed = -1;
-                this.columnT_ID.AutoIncrementStep = -1;
-                this.columnT_ID.AllowDBNull = false;
-                this.columnT_ID.ReadOnly = true;
-                this.columnT_Name.AllowDBNull = false;
-                this.columnT_Name.MaxLength = 30;
+                this.columnL_ID.AutoIncrement = true;
+                this.columnL_ID.AutoIncrementSeed = -1;
+                this.columnL_ID.AutoIncrementStep = -1;
+                this.columnL_ID.AllowDBNull = false;
+                this.columnL_ID.ReadOnly = true;
+                this.columnL_Name.AllowDBNull = false;
+                this.columnL_Name.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6814,56 +6786,23 @@ namespace Football_AdoNet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int T_ID {
+            public int L_ID {
                 get {
-                    return ((int)(this[this.tableDTSearchPlayers.T_IDColumn]));
+                    return ((int)(this[this.tableDTSearchPlayers.L_IDColumn]));
                 }
                 set {
-                    this[this.tableDTSearchPlayers.T_IDColumn] = value;
+                    this[this.tableDTSearchPlayers.L_IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int TMC_ClubID {
+            public string L_Name {
                 get {
-                    try {
-                        return ((int)(this[this.tableDTSearchPlayers.TMC_ClubIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TMC_ClubID\' в таблице \'DTSearchPlayers\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tableDTSearchPlayers.L_NameColumn]));
                 }
                 set {
-                    this[this.tableDTSearchPlayers.TMC_ClubIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int TMC_TournamentID {
-                get {
-                    try {
-                        return ((int)(this[this.tableDTSearchPlayers.TMC_TournamentIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TMC_TournamentID\' в таблице \'DTSearchPlayers\' равно DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableDTSearchPlayers.TMC_TournamentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string T_Name {
-                get {
-                    return ((string)(this[this.tableDTSearchPlayers.T_NameColumn]));
-                }
-                set {
-                    this[this.tableDTSearchPlayers.T_NameColumn] = value;
+                    this[this.tableDTSearchPlayers.L_NameColumn] = value;
                 }
             }
             
@@ -6901,30 +6840,6 @@ namespace Football_AdoNet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetP_CountryIDNull() {
                 this[this.tableDTSearchPlayers.P_CountryIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTMC_ClubIDNull() {
-                return this.IsNull(this.tableDTSearchPlayers.TMC_ClubIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTMC_ClubIDNull() {
-                this[this.tableDTSearchPlayers.TMC_ClubIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTMC_TournamentIDNull() {
-                return this.IsNull(this.tableDTSearchPlayers.TMC_TournamentIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTMC_TournamentIDNull() {
-                this[this.tableDTSearchPlayers.TMC_TournamentIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12243,10 +12158,8 @@ SELECT TMC_ID, TMC_ClubID, TMC_TournamentID FROM T_CLUBS WHERE (TMC_ID = @TMC_ID
             tableMapping.ColumnMappings.Add("C_Name", "C_Name");
             tableMapping.ColumnMappings.Add("CNTRY_Name", "CNTRY_Name");
             tableMapping.ColumnMappings.Add("POS_Name", "POS_Name");
-            tableMapping.ColumnMappings.Add("T_ID", "T_ID");
-            tableMapping.ColumnMappings.Add("TMC_ClubID", "TMC_ClubID");
-            tableMapping.ColumnMappings.Add("TMC_TournamentID", "TMC_TournamentID");
-            tableMapping.ColumnMappings.Add("T_Name", "T_Name");
+            tableMapping.ColumnMappings.Add("L_ID", "L_ID");
+            tableMapping.ColumnMappings.Add("L_Name", "L_Name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12264,39 +12177,36 @@ SELECT TMC_ID, TMC_ClubID, TMC_TournamentID FROM T_CLUBS WHERE (TMC_ID = @TMC_ID
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (CLUBS.C_Name LIKE @c_findname)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age_findname)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@age_findname", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (CLUBS.C_Name LIKE @c2_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age2_findname)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c2_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12304,13 +12214,12 @@ WHERE (CLUBS.C_Name LIKE @c2_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateO
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (COUNTRIES.CNTRY_Name LIKE @c3_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age3_findname)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c3_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12318,13 +12227,12 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @c3_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (CLUBS.C_Name LIKE @c4_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age4_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry4_findname)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c4_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12333,26 +12241,24 @@ WHERE (CLUBS.C_Name LIKE @c4_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateO
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (CLUBS.C_Name LIKE @c1_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry1_findname)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c1_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12360,13 +12266,12 @@ WHERE (CLUBS.C_Name LIKE @c1_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry1_fi
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
-CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, TOURNAMENTS.T_ID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_TournamentID, TOURNAMENTS.T_Name
+CLUBS.C_Name, COUNTRIES.CNTRY_Name, POSITIONS.POS_Name, LEAGUES.L_ID, LEAGUES.L_Name
 FROM PLAYERS INNER JOIN
 CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
-T_CLUBS ON CLUBS.C_ID = T_CLUBS.TMC_ClubID INNER JOIN
-TOURNAMENTS ON T_CLUBS.TMC_TournamentID = TOURNAMENTS.T_ID
+LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
 WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
