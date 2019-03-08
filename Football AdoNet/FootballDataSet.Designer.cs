@@ -12195,9 +12195,9 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age_findname)";
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@age_findname", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
@@ -12207,10 +12207,10 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (CLUBS.C_Name LIKE @c2_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age2_findname)";
+WHERE ((CLUBS.C_Name LIKE @c1_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry1_findname))";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c2_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@age2_findname", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c1_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry1_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
@@ -12220,10 +12220,9 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @c3_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age3_findname)";
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c3_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@age3_findname", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
@@ -12233,11 +12232,9 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (CLUBS.C_Name LIKE @c4_findname) AND (ROUND((DATEDIFF(YEAR,PLAYERS.P_DateOfBirth,SYSDATETIME()) / 365.25),0) LIKE @age4_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry4_findname)";
+WHERE (POSITIONS.POS_Name LIKE @pos_findname)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c4_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@age4_findname", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry4_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pos_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
@@ -12247,9 +12244,10 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
+WHERE ((POSITIONS.POS_Name LIKE @pos_findname) AND (CLUBS.C_Name LIKE @c_findname))";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pos_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
@@ -12259,10 +12257,10 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (CLUBS.C_Name LIKE @c1_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry1_findname)";
+WHERE (COUNTRIES.CNTRY_Name LIKE @c3_findname) AND (POSITIONS.POS_Name LIKE @age_findname)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c1_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry1_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c3_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@age_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = @"SELECT PLAYERS.P_ID, PLAYERS.P_Name, PLAYERS.P_DateOfBirth, PLAYERS.P_Number, PLAYERS.P_PositionID, POSITIONS.POS_ID, PLAYERS.P_ClubID, PLAYERS.P_CountryID, CLUBS.C_ID,
@@ -12272,9 +12270,11 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
+WHERE (POSITIONS.POS_Name LIKE @pos_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry4_findname) AND (CLUBS.C_Name LIKE @c_findname)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pos_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry4_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12317,160 +12317,8 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAge(FootballDataSet.DTSearchPlayersDataTable dataTable, decimal age_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(age_findname));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByAge(decimal age_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(age_findname));
-            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAgeANDClub(FootballDataSet.DTSearchPlayersDataTable dataTable, string c2_findname, decimal age2_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((c2_findname == null)) {
-                throw new global::System.ArgumentNullException("c2_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c2_findname));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(age2_findname));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByAgeANDClub(string c2_findname, decimal age2_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((c2_findname == null)) {
-                throw new global::System.ArgumentNullException("c2_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c2_findname));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(age2_findname));
-            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAgeANDCountry(FootballDataSet.DTSearchPlayersDataTable dataTable, string c3_findname, decimal age3_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((c3_findname == null)) {
-                throw new global::System.ArgumentNullException("c3_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c3_findname));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(age3_findname));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByAgeANDCountry(string c3_findname, decimal age3_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((c3_findname == null)) {
-                throw new global::System.ArgumentNullException("c3_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c3_findname));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(age3_findname));
-            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAgeANDCountryANDClub(FootballDataSet.DTSearchPlayersDataTable dataTable, string c4_findname, decimal age4_findname, string cntry4_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((c4_findname == null)) {
-                throw new global::System.ArgumentNullException("c4_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c4_findname));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(age4_findname));
-            if ((cntry4_findname == null)) {
-                throw new global::System.ArgumentNullException("cntry4_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(cntry4_findname));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByAgeANDCountryANDClub(string c4_findname, decimal age4_findname, string cntry4_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((c4_findname == null)) {
-                throw new global::System.ArgumentNullException("c4_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c4_findname));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(age4_findname));
-            if ((cntry4_findname == null)) {
-                throw new global::System.ArgumentNullException("cntry4_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(cntry4_findname));
-            }
-            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByCountry(FootballDataSet.DTSearchPlayersDataTable dataTable, string cntry_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
             }
@@ -12489,7 +12337,7 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByCountry(string cntry_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
             }
@@ -12506,7 +12354,7 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByCountryANDClub(FootballDataSet.DTSearchPlayersDataTable dataTable, string c1_findname, string cntry1_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((c1_findname == null)) {
                 throw new global::System.ArgumentNullException("c1_findname");
             }
@@ -12531,7 +12379,7 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByCountryANDClub(string c1_findname, string cntry1_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((c1_findname == null)) {
                 throw new global::System.ArgumentNullException("c1_findname");
             }
@@ -12554,7 +12402,7 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByCountryName(FootballDataSet.DTSearchPlayersDataTable dataTable, string cntry_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
             }
@@ -12573,12 +12421,204 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByCountryName(string cntry_findname) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
+            }
+            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPosition(FootballDataSet.DTSearchPlayersDataTable dataTable, string pos_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((pos_findname == null)) {
+                throw new global::System.ArgumentNullException("pos_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(pos_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByPosition(string pos_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((pos_findname == null)) {
+                throw new global::System.ArgumentNullException("pos_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(pos_findname));
+            }
+            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPositionANDClub(FootballDataSet.DTSearchPlayersDataTable dataTable, string pos_findname, string c_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((pos_findname == null)) {
+                throw new global::System.ArgumentNullException("pos_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(pos_findname));
+            }
+            if ((c_findname == null)) {
+                throw new global::System.ArgumentNullException("c_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(c_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByPositionANDClub(string pos_findname, string c_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((pos_findname == null)) {
+                throw new global::System.ArgumentNullException("pos_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(pos_findname));
+            }
+            if ((c_findname == null)) {
+                throw new global::System.ArgumentNullException("c_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(c_findname));
+            }
+            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPositionANDCountry(FootballDataSet.DTSearchPlayersDataTable dataTable, string c3_findname, string age_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((c3_findname == null)) {
+                throw new global::System.ArgumentNullException("c3_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c3_findname));
+            }
+            if ((age_findname == null)) {
+                throw new global::System.ArgumentNullException("age_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(age_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByPositionANDCountry(string c3_findname, string age_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((c3_findname == null)) {
+                throw new global::System.ArgumentNullException("c3_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(c3_findname));
+            }
+            if ((age_findname == null)) {
+                throw new global::System.ArgumentNullException("age_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(age_findname));
+            }
+            FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPositionANDCountryANDClub(FootballDataSet.DTSearchPlayersDataTable dataTable, string pos_findname, string cntry4_findname, string c_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((pos_findname == null)) {
+                throw new global::System.ArgumentNullException("pos_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(pos_findname));
+            }
+            if ((cntry4_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry4_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cntry4_findname));
+            }
+            if ((c_findname == null)) {
+                throw new global::System.ArgumentNullException("c_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(c_findname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FootballDataSet.DTSearchPlayersDataTable GetDataByPositionANDCountryANDClub(string pos_findname, string cntry4_findname, string c_findname) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((pos_findname == null)) {
+                throw new global::System.ArgumentNullException("pos_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(pos_findname));
+            }
+            if ((cntry4_findname == null)) {
+                throw new global::System.ArgumentNullException("cntry4_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cntry4_findname));
+            }
+            if ((c_findname == null)) {
+                throw new global::System.ArgumentNullException("c_findname");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(c_findname));
             }
             FootballDataSet.DTSearchPlayersDataTable dataTable = new FootballDataSet.DTSearchPlayersDataTable();
             this.Adapter.Fill(dataTable);

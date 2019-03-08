@@ -22,34 +22,34 @@ namespace Football_AdoNet
         {
             string findCountry = (PStextBoxCountry.Text != "") ? "%" + PStextBoxCountry.Text + "%" : "";
             string findClub = (PStextBoxClub.Text != "") ? "%" + PStextBoxClub.Text + "%" : "";
-            int findAge = (PStextBoxAge.Text != "") ? Convert.ToInt32(PStextBoxAge.Text) : 0;
+            string findPosition = (PStextBoxPosition.Text != "") ? "%" + PStextBoxPosition.Text + "%" : "";
 
-            if (PStextBoxAge.Text == "" && PStextBoxClub.Text == "" && PStextBoxCountry.Text == "")
+            if (PStextBoxPosition.Text == "" && PStextBoxClub.Text == "" && PStextBoxCountry.Text == "")
             {
                 MessageBox.Show("Виберіть критерії пошуку!");
                 return;
             }
             else
             {
-                if(PStextBoxAge.Text != "" && PStextBoxClub.Text != "" && PStextBoxCountry.Text != "")
+                if(PStextBoxPosition.Text != "" && PStextBoxClub.Text != "" && PStextBoxCountry.Text != "")
                 {
-                    dtSearchPlayersTableAdapter1.FillByAgeANDCountryANDClub(footballDataSet1.DTSearchPlayers, findClub, findAge, findCountry);
+                    dtSearchPlayersTableAdapter1.FillByPositionANDCountryANDClub(footballDataSet1.DTSearchPlayers, findPosition, findCountry, findClub);
                 }
-                else if (PStextBoxAge.Text != "" && PStextBoxClub.Text != "")
+                else if (PStextBoxPosition.Text != "" && PStextBoxClub.Text != "")
                 {
-                    dtSearchPlayersTableAdapter1.FillByAgeANDClub(footballDataSet1.DTSearchPlayers, findClub, findAge);
+                    dtSearchPlayersTableAdapter1.FillByPositionANDClub(footballDataSet1.DTSearchPlayers, findPosition, findClub);
                 }
                 else if (PStextBoxClub.Text != "" && PStextBoxCountry.Text != "")
                 {
                     dtSearchPlayersTableAdapter1.FillByCountryANDClub(footballDataSet1.DTSearchPlayers, findClub, findCountry);
                 }
-                else if (PStextBoxAge.Text != "" && PStextBoxCountry.Text != "")
+                else if (PStextBoxPosition.Text != "" && PStextBoxCountry.Text != "")
                 {
-                    dtSearchPlayersTableAdapter1.FillByAgeANDCountry(footballDataSet1.DTSearchPlayers, findCountry, findAge);
+                    dtSearchPlayersTableAdapter1.FillByPositionANDCountry(footballDataSet1.DTSearchPlayers, findCountry, findPosition);
                 }
-                else if (PStextBoxAge.Text != "")
+                else if (PStextBoxPosition.Text != "")
                 {
-                    dtSearchPlayersTableAdapter1.FillByAge(footballDataSet1.DTSearchPlayers, findAge);
+                    dtSearchPlayersTableAdapter1.FillByPosition(footballDataSet1.DTSearchPlayers, findPosition);
                 }
                 else if (PStextBoxClub.Text != "")
                 {
