@@ -316,6 +316,8 @@
             this.Controls.Add(this.CStextBoxTournament);
             this.Controls.Add(this.CStextBoxCountry);
             this.Controls.Add(this.dataGridViewSearchClubs);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "SearchClubsForm";
             this.Text = "Пошук клубів";
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).EndInit();

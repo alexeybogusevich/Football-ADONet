@@ -76,7 +76,7 @@ namespace Football_AdoNet
                 }
                 else
                 {
-                    MessageBox.Show("У вашому клубі є гравці!" + "Видалення неможливе.");
+                    MessageBox.Show("У вашому клубі є гравці!\n" + "Видалення неможливе.");
                 }
             }
             catch
@@ -103,7 +103,7 @@ namespace Football_AdoNet
                 }
                 else
                 {
-                    MessageBox.Show("У змаганні беруть участь одна або більше команд!" + "Видалення неможливе!");
+                    MessageBox.Show("У змаганні беруть участь одна або більше команд!\n" + "Видалення неможливе.");
                 }
             }
             catch

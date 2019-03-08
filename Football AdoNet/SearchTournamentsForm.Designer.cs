@@ -229,6 +229,8 @@
             this.Controls.Add(this.TStextBoxAssociation);
             this.Controls.Add(this.TStextBoxType);
             this.Controls.Add(this.dataGridViewSearchTournaments);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "SearchTournamentsForm";
             this.Text = "Пошук змагань";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

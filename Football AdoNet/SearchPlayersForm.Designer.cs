@@ -38,9 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonSearchPlayers = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
-            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
             this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNTRYNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +52,9 @@
             this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
+            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
@@ -155,20 +155,6 @@
             this.buttonSearchPlayers.Text = "Знайти";
             this.buttonSearchPlayers.UseVisualStyleBackColor = false;
             this.buttonSearchPlayers.Click += new System.EventHandler(this.buttonSearchPlayers_Click);
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "DTSearchPlayers";
-            this.bindingSource1.DataSource = this.footballDataSet1;
-            // 
-            // footballDataSet1
-            // 
-            this.footballDataSet1.DataSetName = "FootballDataSet";
-            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtSearchPlayersTableAdapter1
-            // 
-            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
             // 
             // pNameDataGridViewTextBoxColumn
             // 
@@ -276,6 +262,20 @@
             this.pOSIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pOSIDDataGridViewTextBoxColumn.Visible = false;
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "DTSearchPlayers";
+            this.bindingSource1.DataSource = this.footballDataSet1;
+            // 
+            // footballDataSet1
+            // 
+            this.footballDataSet1.DataSetName = "FootballDataSet";
+            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtSearchPlayersTableAdapter1
+            // 
+            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
+            // 
             // SearchPlayersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,6 +290,7 @@
             this.Controls.Add(this.PStextBoxPosition);
             this.Controls.Add(this.PStextBoxClub);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "SearchPlayersForm";
             this.Text = "Пошук гравців";
