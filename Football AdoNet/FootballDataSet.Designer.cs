@@ -15038,7 +15038,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int FillByAssociations(FootballDataSet.DTSearchTournamentsDataTable dataTable, string a_findname) {
+        public virtual int FillByAssociation(FootballDataSet.DTSearchTournamentsDataTable dataTable, string a_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((a_findname == null)) {
                 throw new global::System.ArgumentNullException("a_findname");
@@ -15057,7 +15057,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByAssociations(string a_findname) {
+        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByAssociation(string a_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((a_findname == null)) {
                 throw new global::System.ArgumentNullException("a_findname");
@@ -15122,7 +15122,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAssociationsANDTeamsANDTypes(FootballDataSet.DTSearchTournamentsDataTable dataTable, string a_findname, string t_findname, string c_findname) {
+        public virtual int FillByAssociationANDTeamANDType(FootballDataSet.DTSearchTournamentsDataTable dataTable, string a_findname, string t_findname, string c_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((a_findname == null)) {
                 throw new global::System.ArgumentNullException("a_findname");
@@ -15153,7 +15153,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByAssociationsANDTeamsANDTypes(string a_findname, string t_findname, string c_findname) {
+        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByAssociationANDTeamANDType(string a_findname, string t_findname, string c_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((a_findname == null)) {
                 throw new global::System.ArgumentNullException("a_findname");
@@ -15182,7 +15182,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAssociationsANDTypes(FootballDataSet.DTSearchTournamentsDataTable dataTable, string a_findname, string t_findname) {
+        public virtual int FillByAssociationANDType(FootballDataSet.DTSearchTournamentsDataTable dataTable, string a_findname, string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((a_findname == null)) {
                 throw new global::System.ArgumentNullException("a_findname");
@@ -15207,7 +15207,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByAssociationsANDTypes(string a_findname, string t_findname) {
+        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByAssociationANDType(string a_findname, string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((a_findname == null)) {
                 throw new global::System.ArgumentNullException("a_findname");
@@ -15314,7 +15314,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTypes(FootballDataSet.DTSearchTournamentsDataTable dataTable, string t_findname) {
+        public virtual int FillByType(FootballDataSet.DTSearchTournamentsDataTable dataTable, string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((t_findname == null)) {
                 throw new global::System.ArgumentNullException("t_findname");
@@ -15333,7 +15333,7 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByTypes(string t_findname) {
+        public virtual FootballDataSet.DTSearchTournamentsDataTable GetDataByType(string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((t_findname == null)) {
                 throw new global::System.ArgumentNullException("t_findname");

@@ -76,7 +76,7 @@ namespace Football_AdoNet
                 }
                 else
                 {
-                    MessageBox.Show("Присутні зв'язані таблиці");
+                    MessageBox.Show("У вашому клубі є гравці!" + "Видалення неможливе.");
                 }
             }
             catch
@@ -103,7 +103,7 @@ namespace Football_AdoNet
                 }
                 else
                 {
-                    MessageBox.Show("Присутні зв'язані таблиці");
+                    MessageBox.Show("У змаганні беруть участь одна або більше команд!" + "Видалення неможливе!");
                 }
             }
             catch
@@ -121,6 +121,12 @@ namespace Football_AdoNet
         private void buttonSearchClubs_Click(object sender, EventArgs e)
         {
             SearchClubsForm searchForm = new SearchClubsForm();
+            searchForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SearchTournamentsForm searchForm = new SearchTournamentsForm();
             searchForm.Show();
         }
     }

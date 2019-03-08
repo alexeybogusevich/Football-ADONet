@@ -1107,7 +1107,7 @@ WHERE T_Name LIKE @t_findname
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DTSearchTournamentsTableAdapter" GeneratorDataComponentClassName="DTSearchTournamentsTableAdapter" Name="DTSearchTournaments" UserDataComponentName="DTSearchTournamentsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAssociations" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByAssociations" GeneratorSourceName="FillByAssociations" GetMethodModifier="Public" GetMethodName="GetDataByAssociations" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssociations" UserSourceName="FillByAssociations">
+              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAssociation" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByAssociation" GeneratorSourceName="FillByAssociation" GetMethodModifier="Public" GetMethodName="GetDataByAssociation" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByAssociation" UserSourceName="FillByAssociation">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOURNAMENTS.T_ID, TOURNAMENTS.T_Name, TOURNAMENTS.T_AssociationID, TOURNAMENTS.T_TypeID, ASSOCIATIONS.A_ID, ASSOCIATIONS.A_Name, T_TYPES.TT_ID, T_TYPES.TT_Name
@@ -1159,7 +1159,7 @@ WHERE C_Name LIKE @c_findname
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAssociationsANDTeamsANDTypes" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssociationsANDTeamsANDTypes" GeneratorSourceName="FillByAssociationsANDTeamsANDTypes" GetMethodModifier="Public" GetMethodName="GetDataByAssociationsANDTeamsANDTypes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssociationsANDTeamsANDTypes" UserSourceName="FillByAssociationsANDTeamsANDTypes">
+              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAssociationANDTeamANDType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssociationANDTeamANDType" GeneratorSourceName="FillByAssociationANDTeamANDType" GetMethodModifier="Public" GetMethodName="GetDataByAssociationANDTeamANDType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssociationANDTeamANDType" UserSourceName="FillByAssociationANDTeamANDType">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOURNAMENTS.T_ID, TOURNAMENTS.T_Name, TOURNAMENTS.T_AssociationID, TOURNAMENTS.T_TypeID, ASSOCIATIONS.A_ID, ASSOCIATIONS.A_Name, T_TYPES.TT_ID, T_TYPES.TT_Name
@@ -1186,7 +1186,7 @@ WHERE C_Name LIKE @c_findname
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAssociationsANDTypes" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssociationsANDTypes" GeneratorSourceName="FillByAssociationsANDTypes" GetMethodModifier="Public" GetMethodName="GetDataByAssociationsANDTypes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssociationsANDTypes" UserSourceName="FillByAssociationsANDTypes">
+              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAssociationANDType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssociationANDType" GeneratorSourceName="FillByAssociationANDType" GetMethodModifier="Public" GetMethodName="GetDataByAssociationANDType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssociationANDType" UserSourceName="FillByAssociationANDType">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOURNAMENTS.T_ID, TOURNAMENTS.T_Name, TOURNAMENTS.T_AssociationID, TOURNAMENTS.T_TypeID, ASSOCIATIONS.A_ID, ASSOCIATIONS.A_Name, T_TYPES.TT_ID, T_TYPES.TT_Name
@@ -1252,7 +1252,7 @@ WHERE C_Name LIKE @c_findname
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByTypes" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByTypes" GeneratorSourceName="FillByTypes" GetMethodModifier="Public" GetMethodName="GetDataByTypes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByTypes" UserSourceName="FillByTypes">
+              <DbSource ConnectionRef="FootballConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByType" GeneratorSourceName="FillByType" GetMethodModifier="Public" GetMethodName="GetDataByType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByType" UserSourceName="FillByType">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOURNAMENTS.T_ID, TOURNAMENTS.T_Name, TOURNAMENTS.T_AssociationID, TOURNAMENTS.T_TypeID, ASSOCIATIONS.A_ID, ASSOCIATIONS.A_Name, T_TYPES.TT_ID, T_TYPES.TT_Name
