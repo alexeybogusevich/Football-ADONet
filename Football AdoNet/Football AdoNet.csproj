@@ -74,6 +74,12 @@
     <Compile Include="SearchPlayersForm.Designer.cs">
       <DependentUpon>SearchPlayersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchTournamentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchTournamentsForm.Designer.cs">
+      <DependentUpon>SearchTournamentsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormFootball.resx">
       <DependentUpon>FormFootball.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchPlayersForm.resx">
       <DependentUpon>SearchPlayersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchTournamentsForm.resx">
+      <DependentUpon>SearchTournamentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FootballDataSet.xsc">
       <DependentUpon>FootballDataSet.xsd</DependentUpon>
