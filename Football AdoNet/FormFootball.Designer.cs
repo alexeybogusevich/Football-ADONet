@@ -337,6 +337,7 @@
             this.buttonSearchClubs.TabIndex = 3;
             this.buttonSearchClubs.Text = "Пошук";
             this.buttonSearchClubs.UseVisualStyleBackColor = false;
+            this.buttonSearchClubs.Click += new System.EventHandler(this.buttonSearchClubs_Click);
             // 
             // buttonDeleteClubs
             // 

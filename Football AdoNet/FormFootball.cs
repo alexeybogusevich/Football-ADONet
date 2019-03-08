@@ -117,5 +117,11 @@ namespace Football_AdoNet
             SearchPlayersForm searchForm = new SearchPlayersForm();
             searchForm.Show();
         }
+
+        private void buttonSearchClubs_Click(object sender, EventArgs e)
+        {
+            SearchClubsForm searchForm = new SearchClubsForm();
+            searchForm.Show();
+        }
     }
 }

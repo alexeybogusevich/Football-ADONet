@@ -26,7 +26,7 @@ namespace Football_AdoNet
 
             if (PStextBoxPosition.Text == "" && PStextBoxClub.Text == "" && PStextBoxCountry.Text == "")
             {
-                MessageBox.Show("Виберіть критерії пошуку!");
+                MessageBox.Show("Оберіть критерії пошуку!");
                 return;
             }
             else

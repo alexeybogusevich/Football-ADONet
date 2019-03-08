@@ -5389,6 +5389,8 @@ namespace Football_AdoNet {
             
             private global::System.Data.DataColumn columnPr_Name;
             
+            private global::System.Data.DataColumn columnC_DateOfFoundation;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DTSearchClubsDataTable() {
@@ -5560,6 +5562,14 @@ namespace Football_AdoNet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn C_DateOfFoundationColumn {
+                get {
+                    return this.columnC_DateOfFoundation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5595,7 +5605,7 @@ namespace Football_AdoNet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSearchClubsRow AddDTSearchClubsRow(string C_Name, int C_HeadCoachID, int C_PresidentID, int C_LeagueID, int C_CityID, string CNTRY_Name, string L_Name, string CT_Name, COUNTRIESRow parentCOUNTRIESRowByFK_CITIES_COUNTRIES1, string HC_Name, string Pr_Name) {
+            public DTSearchClubsRow AddDTSearchClubsRow(string C_Name, int C_HeadCoachID, int C_PresidentID, int C_LeagueID, int C_CityID, string CNTRY_Name, string L_Name, string CT_Name, COUNTRIESRow parentCOUNTRIESRowByFK_CITIES_COUNTRIES1, string HC_Name, string Pr_Name, int C_DateOfFoundation) {
                 DTSearchClubsRow rowDTSearchClubsRow = ((DTSearchClubsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5614,7 +5624,8 @@ namespace Football_AdoNet {
                         null,
                         HC_Name,
                         null,
-                        Pr_Name};
+                        Pr_Name,
+                        C_DateOfFoundation};
                 if ((parentCOUNTRIESRowByFK_CITIES_COUNTRIES1 != null)) {
                     columnValuesArray[12] = parentCOUNTRIESRowByFK_CITIES_COUNTRIES1[0];
                 }
@@ -5669,6 +5680,7 @@ namespace Football_AdoNet {
                 this.columnHC_Name = base.Columns["HC_Name"];
                 this.columnPr_ID = base.Columns["Pr_ID"];
                 this.columnPr_Name = base.Columns["Pr_Name"];
+                this.columnC_DateOfFoundation = base.Columns["C_DateOfFoundation"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5708,6 +5720,8 @@ namespace Football_AdoNet {
                 base.Columns.Add(this.columnPr_ID);
                 this.columnPr_Name = new global::System.Data.DataColumn("Pr_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPr_Name);
+                this.columnC_DateOfFoundation = new global::System.Data.DataColumn("C_DateOfFoundation", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC_DateOfFoundation);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnC_ID,
                                 this.columnCNTRY_ID,
@@ -5757,6 +5771,7 @@ namespace Football_AdoNet {
                 this.columnPr_ID.ReadOnly = true;
                 this.columnPr_Name.AllowDBNull = false;
                 this.columnPr_Name.MaxLength = 30;
+                this.columnC_DateOfFoundation.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7694,6 +7709,17 @@ namespace Football_AdoNet {
                 }
                 set {
                     this[this.tableDTSearchClubs.Pr_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int C_DateOfFoundation {
+                get {
+                    return ((int)(this[this.tableDTSearchClubs.C_DateOfFoundationColumn]));
+                }
+                set {
+                    this[this.tableDTSearchClubs.C_DateOfFoundationColumn] = value;
                 }
             }
             
@@ -13713,6 +13739,7 @@ WHERE (POSITIONS.POS_Name LIKE @pos_findname) AND (COUNTRIES.CNTRY_Name LIKE @cn
             tableMapping.ColumnMappings.Add("HC_Name", "HC_Name");
             tableMapping.ColumnMappings.Add("Pr_ID", "Pr_ID");
             tableMapping.ColumnMappings.Add("Pr_Name", "Pr_Name");
+            tableMapping.ColumnMappings.Add("C_DateOfFoundation", "C_DateOfFoundation");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -13729,7 +13756,7 @@ WHERE (POSITIONS.POS_Name LIKE @pos_findname) AND (COUNTRIES.CNTRY_Name LIKE @cn
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+            this._commandCollection[0].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, CLUBS.C_DateOfFoundation, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
 FROM CLUBS INNER JOIN
 CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
 COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
@@ -13741,32 +13768,32 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+            this._commandCollection[1].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, CLUBS.C_DateOfFoundation, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
 FROM CLUBS INNER JOIN
 CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
 COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
 PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE ((COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (LEAGUES.L_Name LIKE @l_findname))";
+WHERE ((COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (CLUBS.C_DateOfFoundation = @df_findname))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+            this._commandCollection[2].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, CLUBS.C_DateOfFoundation, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
 FROM CLUBS INNER JOIN
 CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
 COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
 PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (LEAGUES.L_Name LIKE @l_findname) AND
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (CLUBS.C_DateOfFoundation = @df_findname) AND
 (
 CLUBS.C_ID IN
 (
-SELECT TMC_ID FROM T_CLUBS
-WHERE TMC_ID IN
+SELECT TMC_ClubID FROM T_CLUBS
+WHERE TMC_TournamentID IN
 (
 SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
@@ -13775,11 +13802,11 @@ WHERE T_Name LIKE @t_findname
 )";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+            this._commandCollection[3].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID,CLUBS.C_DateOfFoundation, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
 FROM CLUBS INNER JOIN
 CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
 COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
@@ -13790,8 +13817,8 @@ WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND
 (
 CLUBS.C_ID IN
 (
-SELECT TMC_ID FROM T_CLUBS
-WHERE TMC_ID IN
+SELECT TMC_ClubID FROM T_CLUBS
+WHERE TMC_TournamentID IN
 (
 SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
@@ -13803,31 +13830,31 @@ WHERE T_Name LIKE @t_findname
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+            this._commandCollection[4].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, CLUBS.C_DateOfFoundation, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
 FROM CLUBS INNER JOIN
 CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
 COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
 PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (LEAGUES.L_Name LIKE @l_findname)";
+WHERE (CLUBS.C_DateOfFoundation = @df_findname)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+            this._commandCollection[5].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, CLUBS.C_DateOfFoundation, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
 FROM CLUBS INNER JOIN
 CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
 COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
 PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (LEAGUES.L_Name LIKE @l_findname) AND
+WHERE (CLUBS.C_DateOfFoundation = @df_findname) AND
 (
 CLUBS.C_ID IN
 (
-SELECT TMC_ID FROM T_CLUBS
-WHERE TMC_ID IN
+SELECT TMC_ClubID FROM T_CLUBS
+WHERE TMC_TournamentID IN
 (
 SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
@@ -13835,11 +13862,11 @@ WHERE T_Name LIKE @t_findname
 )
 )";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@l_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "L_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
+            this._commandCollection[6].CommandText = @"SELECT CLUBS.C_ID, CLUBS.C_Name, CLUBS.C_HeadCoachID, CLUBS.C_PresidentID, CLUBS.C_LeagueID, CLUBS.C_CityID, CLUBS.C_DateOfFoundation, COUNTRIES.CNTRY_Name, COUNTRIES.CNTRY_ID, LEAGUES.L_ID, LEAGUES.L_Name, CITIES.CT_ID, CITIES.CT_Name, CITIES.CT_CountryID, HEADCOACHES.HC_ID, HEADCOACHES.HC_Name, PRESIDENTS.Pr_ID, PRESIDENTS.Pr_Name
 FROM CLUBS INNER JOIN
 CITIES ON CLUBS.C_CityID = CITIES.CT_ID INNER JOIN
 COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
@@ -13850,8 +13877,8 @@ WHERE
 (
 CLUBS.C_ID IN
 (
-SELECT TMC_ID FROM T_CLUBS
-WHERE TMC_ID IN
+SELECT TMC_ClubID FROM T_CLUBS
+WHERE TMC_TournamentID IN
 (
 SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
@@ -13902,7 +13929,7 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCountryANDLeague(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname, string l_findname) {
+        public virtual int FillByCountryANDDate(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname, int df_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
@@ -13910,12 +13937,7 @@ WHERE T_Name LIKE @t_findname
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
             }
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(df_findname));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -13927,7 +13949,7 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountryANDLeague(string cntry_findname, string l_findname) {
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountryANDDate(string cntry_findname, int df_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
@@ -13935,12 +13957,7 @@ WHERE T_Name LIKE @t_findname
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
             }
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(df_findname));
             FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -13950,7 +13967,7 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCountryANDLeagueANDTournament(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname, string l_findname, string t_findname) {
+        public virtual int FillByCountryANDDateANDTournament(FootballDataSet.DTSearchClubsDataTable dataTable, string cntry_findname, int df_findname, string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
@@ -13958,12 +13975,7 @@ WHERE T_Name LIKE @t_findname
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
             }
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(df_findname));
             if ((t_findname == null)) {
                 throw new global::System.ArgumentNullException("t_findname");
             }
@@ -13981,7 +13993,7 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountryANDLeagueANDTournament(string cntry_findname, string l_findname, string t_findname) {
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByCountryANDDateANDTournament(string cntry_findname, int df_findname, string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((cntry_findname == null)) {
                 throw new global::System.ArgumentNullException("cntry_findname");
@@ -13989,12 +14001,7 @@ WHERE T_Name LIKE @t_findname
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cntry_findname));
             }
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(df_findname));
             if ((t_findname == null)) {
                 throw new global::System.ArgumentNullException("t_findname");
             }
@@ -14058,14 +14065,9 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByLeague(FootballDataSet.DTSearchClubsDataTable dataTable, string l_findname) {
+        public virtual int FillByDate(FootballDataSet.DTSearchClubsDataTable dataTable, int df_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(df_findname));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -14077,14 +14079,9 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByLeague(string l_findname) {
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByDate(int df_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(df_findname));
             FootballDataSet.DTSearchClubsDataTable dataTable = new FootballDataSet.DTSearchClubsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -14094,14 +14091,9 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByLeagueANDTournament(FootballDataSet.DTSearchClubsDataTable dataTable, string l_findname, string t_findname) {
+        public virtual int FillByDateANDTournament(FootballDataSet.DTSearchClubsDataTable dataTable, int df_findname, string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(df_findname));
             if ((t_findname == null)) {
                 throw new global::System.ArgumentNullException("t_findname");
             }
@@ -14119,14 +14111,9 @@ WHERE T_Name LIKE @t_findname
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByLeagueANDTournament(string l_findname, string t_findname) {
+        public virtual FootballDataSet.DTSearchClubsDataTable GetDataByDateANDTournament(int df_findname, string t_findname) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((l_findname == null)) {
-                throw new global::System.ArgumentNullException("l_findname");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(l_findname));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(df_findname));
             if ((t_findname == null)) {
                 throw new global::System.ArgumentNullException("t_findname");
             }
