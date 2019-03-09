@@ -133,8 +133,14 @@ namespace Football_AdoNet
         private void buttonAddCountry_Click(object sender, EventArgs e)
         {
             AddCountryForm addForm = new AddCountryForm();
-            addForm.FormClosed += new FormClosedEventHandler(addForm_FormClosed); 
+            addForm.FormClosed += addCountryForm_Closed; 
             addForm.Show();
+        }
+
+        private void addCountryForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            cOUNTRIESTableAdapter.Fill(footballDataSet1.COUNTRIES);
+            cOUNTRIESTableAdapter.Update(footballDataSet1.COUNTRIES);
         }
 
         private void buttonAddClubs_Click(object sender, EventArgs e)
