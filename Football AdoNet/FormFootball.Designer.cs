@@ -33,14 +33,27 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFootball));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PLAYERS = new System.Windows.Forms.TabPage();
+            this.buttonAddPosition = new System.Windows.Forms.Button();
+            this.buttonAddCountry = new System.Windows.Forms.Button();
+            this.buttonAddClubs = new System.Windows.Forms.Button();
             this.buttonSearchPlayers = new System.Windows.Forms.Button();
             this.buttonDeletePlayers = new System.Windows.Forms.Button();
             this.buttonSavePlayers = new System.Windows.Forms.Button();
             this.dataGridViewPlayers = new System.Windows.Forms.DataGridView();
+            this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_ClubID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cLUBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.footballDataSet = new Football_AdoNet.FootballDataSet();
+            this.pNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_CountryID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cOUNTRIESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.P_PositionID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pOSITIONSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pClubIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pLAYERSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CLUBS = new System.Windows.Forms.TabPage();
             this.buttonSearchClubs = new System.Windows.Forms.Button();
@@ -93,16 +106,6 @@
             this.t_TYPESTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.T_TYPESTableAdapter();
             this.associationsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.ASSOCIATIONSTableAdapter();
             this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
-            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_ClubID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_CountryID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.P_PositionID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pClubIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.PLAYERS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlayers)).BeginInit();
@@ -139,6 +142,9 @@
             // 
             // PLAYERS
             // 
+            this.PLAYERS.Controls.Add(this.buttonAddPosition);
+            this.PLAYERS.Controls.Add(this.buttonAddCountry);
+            this.PLAYERS.Controls.Add(this.buttonAddClubs);
             this.PLAYERS.Controls.Add(this.buttonSearchPlayers);
             this.PLAYERS.Controls.Add(this.buttonDeletePlayers);
             this.PLAYERS.Controls.Add(this.buttonSavePlayers);
@@ -150,6 +156,34 @@
             this.PLAYERS.TabIndex = 0;
             this.PLAYERS.Text = "Гравці";
             this.PLAYERS.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddPosition
+            // 
+            this.buttonAddPosition.Location = new System.Drawing.Point(677, 65);
+            this.buttonAddPosition.Name = "buttonAddPosition";
+            this.buttonAddPosition.Size = new System.Drawing.Size(17, 32);
+            this.buttonAddPosition.TabIndex = 6;
+            this.buttonAddPosition.Text = "+";
+            this.buttonAddPosition.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddCountry
+            // 
+            this.buttonAddCountry.Location = new System.Drawing.Point(567, 65);
+            this.buttonAddCountry.Name = "buttonAddCountry";
+            this.buttonAddCountry.Size = new System.Drawing.Size(17, 32);
+            this.buttonAddCountry.TabIndex = 5;
+            this.buttonAddCountry.Text = "+";
+            this.buttonAddCountry.UseVisualStyleBackColor = true;
+            this.buttonAddCountry.Click += new System.EventHandler(this.buttonAddCountry_Click);
+            // 
+            // buttonAddClubs
+            // 
+            this.buttonAddClubs.Location = new System.Drawing.Point(343, 65);
+            this.buttonAddClubs.Name = "buttonAddClubs";
+            this.buttonAddClubs.Size = new System.Drawing.Size(17, 32);
+            this.buttonAddClubs.TabIndex = 4;
+            this.buttonAddClubs.Text = "+";
+            this.buttonAddClubs.UseVisualStyleBackColor = true;
             // 
             // buttonSearchPlayers
             // 
@@ -196,7 +230,6 @@
             this.dataGridViewPlayers.BackgroundColor = System.Drawing.Color.Navy;
             this.dataGridViewPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPlayers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pIDDataGridViewTextBoxColumn,
             this.pNameDataGridViewTextBoxColumn,
             this.pDateOfBirthDataGridViewTextBoxColumn,
             this.P_ClubID,
@@ -205,13 +238,39 @@
             this.P_PositionID,
             this.pCountryIDDataGridViewTextBoxColumn,
             this.pClubIDDataGridViewTextBoxColumn,
-            this.pPositionIDDataGridViewTextBoxColumn});
+            this.pPositionIDDataGridViewTextBoxColumn,
+            this.pIDDataGridViewTextBoxColumn});
             this.dataGridViewPlayers.DataSource = this.pLAYERSBindingSource;
             this.dataGridViewPlayers.Location = new System.Drawing.Point(0, 63);
             this.dataGridViewPlayers.Name = "dataGridViewPlayers";
             this.dataGridViewPlayers.RowHeadersWidth = 20;
             this.dataGridViewPlayers.Size = new System.Drawing.Size(696, 265);
             this.dataGridViewPlayers.TabIndex = 0;
+            // 
+            // pNameDataGridViewTextBoxColumn
+            // 
+            this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
+            this.pNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
+            this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
+            this.pNameDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // pDateOfBirthDataGridViewTextBoxColumn
+            // 
+            this.pDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "P_DateOfBirth";
+            this.pDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
+            this.pDateOfBirthDataGridViewTextBoxColumn.Name = "pDateOfBirthDataGridViewTextBoxColumn";
+            this.pDateOfBirthDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // P_ClubID
+            // 
+            this.P_ClubID.DataPropertyName = "P_ClubID";
+            this.P_ClubID.DataSource = this.cLUBSBindingSource;
+            this.P_ClubID.DisplayMember = "C_Name";
+            this.P_ClubID.HeaderText = "Клуб";
+            this.P_ClubID.Name = "P_ClubID";
+            this.P_ClubID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.P_ClubID.ValueMember = "C_ID";
+            this.P_ClubID.Width = 115;
             // 
             // cLUBSBindingSource
             // 
@@ -223,15 +282,73 @@
             this.footballDataSet.DataSetName = "FootballDataSet";
             this.footballDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // pNumberDataGridViewTextBoxColumn
+            // 
+            this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "P_Number";
+            this.pNumberDataGridViewTextBoxColumn.HeaderText = "Ігровий номер";
+            this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
+            this.pNumberDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // P_CountryID
+            // 
+            this.P_CountryID.DataPropertyName = "P_CountryID";
+            this.P_CountryID.DataSource = this.cOUNTRIESBindingSource;
+            this.P_CountryID.DisplayMember = "CNTRY_Name";
+            this.P_CountryID.HeaderText = "Національність";
+            this.P_CountryID.Name = "P_CountryID";
+            this.P_CountryID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.P_CountryID.ValueMember = "CNTRY_ID";
+            this.P_CountryID.Width = 114;
+            // 
             // cOUNTRIESBindingSource
             // 
             this.cOUNTRIESBindingSource.DataMember = "COUNTRIES";
             this.cOUNTRIESBindingSource.DataSource = this.footballDataSet;
             // 
+            // P_PositionID
+            // 
+            this.P_PositionID.DataPropertyName = "P_PositionID";
+            this.P_PositionID.DataSource = this.pOSITIONSBindingSource;
+            this.P_PositionID.DisplayMember = "POS_Name";
+            this.P_PositionID.HeaderText = "Позиція";
+            this.P_PositionID.Name = "P_PositionID";
+            this.P_PositionID.ValueMember = "POS_ID";
+            this.P_PositionID.Width = 110;
+            // 
             // pOSITIONSBindingSource
             // 
             this.pOSITIONSBindingSource.DataMember = "POSITIONS";
             this.pOSITIONSBindingSource.DataSource = this.footballDataSet;
+            // 
+            // pCountryIDDataGridViewTextBoxColumn
+            // 
+            this.pCountryIDDataGridViewTextBoxColumn.DataPropertyName = "P_CountryID";
+            this.pCountryIDDataGridViewTextBoxColumn.HeaderText = "P_CountryID";
+            this.pCountryIDDataGridViewTextBoxColumn.Name = "pCountryIDDataGridViewTextBoxColumn";
+            this.pCountryIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pClubIDDataGridViewTextBoxColumn
+            // 
+            this.pClubIDDataGridViewTextBoxColumn.DataPropertyName = "P_ClubID";
+            this.pClubIDDataGridViewTextBoxColumn.HeaderText = "P_ClubID";
+            this.pClubIDDataGridViewTextBoxColumn.Name = "pClubIDDataGridViewTextBoxColumn";
+            this.pClubIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pPositionIDDataGridViewTextBoxColumn
+            // 
+            this.pPositionIDDataGridViewTextBoxColumn.DataPropertyName = "P_PositionID";
+            this.pPositionIDDataGridViewTextBoxColumn.HeaderText = "P_PositionID";
+            this.pPositionIDDataGridViewTextBoxColumn.Name = "pPositionIDDataGridViewTextBoxColumn";
+            this.pPositionIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pIDDataGridViewTextBoxColumn
+            // 
+            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
+            this.pIDDataGridViewTextBoxColumn.HeaderText = "P_ID";
+            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
+            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pIDDataGridViewTextBoxColumn.Visible = false;
+            this.pIDDataGridViewTextBoxColumn.Width = 110;
             // 
             // pLAYERSBindingSource
             // 
@@ -506,6 +623,7 @@
             this.tNameDataGridViewTextBoxColumn.DataPropertyName = "T_Name";
             this.tNameDataGridViewTextBoxColumn.HeaderText = "Назва ";
             this.tNameDataGridViewTextBoxColumn.Name = "tNameDataGridViewTextBoxColumn";
+            this.tNameDataGridViewTextBoxColumn.Width = 225;
             // 
             // T_TypeID
             // 
@@ -515,6 +633,7 @@
             this.T_TypeID.HeaderText = "Формат";
             this.T_TypeID.Name = "T_TypeID";
             this.T_TypeID.ValueMember = "TT_ID";
+            this.T_TypeID.Width = 225;
             // 
             // tTYPESBindingSource
             // 
@@ -529,6 +648,7 @@
             this.T_AssociationID.HeaderText = "Асоціація";
             this.T_AssociationID.Name = "T_AssociationID";
             this.T_AssociationID.ValueMember = "A_ID";
+            this.T_AssociationID.Width = 224;
             // 
             // aSSOCIATIONSBindingSource
             // 
@@ -614,82 +734,6 @@
             // 
             this.footballDataSet1.DataSetName = "FootballDataSet";
             this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pIDDataGridViewTextBoxColumn
-            // 
-            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
-            this.pIDDataGridViewTextBoxColumn.HeaderText = "P_ID";
-            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
-            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pNameDataGridViewTextBoxColumn
-            // 
-            this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
-            this.pNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
-            this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
-            // 
-            // pDateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.pDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "P_DateOfBirth";
-            this.pDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
-            this.pDateOfBirthDataGridViewTextBoxColumn.Name = "pDateOfBirthDataGridViewTextBoxColumn";
-            // 
-            // P_ClubID
-            // 
-            this.P_ClubID.DataPropertyName = "P_ClubID";
-            this.P_ClubID.DataSource = this.cLUBSBindingSource;
-            this.P_ClubID.DisplayMember = "C_Name";
-            this.P_ClubID.HeaderText = "Клуб";
-            this.P_ClubID.Name = "P_ClubID";
-            this.P_ClubID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.P_ClubID.ValueMember = "C_ID";
-            // 
-            // pNumberDataGridViewTextBoxColumn
-            // 
-            this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "P_Number";
-            this.pNumberDataGridViewTextBoxColumn.HeaderText = "Ігровий номер";
-            this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
-            // 
-            // P_CountryID
-            // 
-            this.P_CountryID.DataPropertyName = "P_CountryID";
-            this.P_CountryID.DataSource = this.cOUNTRIESBindingSource;
-            this.P_CountryID.DisplayMember = "CNTRY_Name";
-            this.P_CountryID.HeaderText = "Національність";
-            this.P_CountryID.Name = "P_CountryID";
-            this.P_CountryID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.P_CountryID.ValueMember = "CNTRY_ID";
-            // 
-            // P_PositionID
-            // 
-            this.P_PositionID.DataPropertyName = "P_PositionID";
-            this.P_PositionID.DataSource = this.pOSITIONSBindingSource;
-            this.P_PositionID.DisplayMember = "POS_Name";
-            this.P_PositionID.HeaderText = "Позиція";
-            this.P_PositionID.Name = "P_PositionID";
-            this.P_PositionID.ValueMember = "POS_ID";
-            // 
-            // pCountryIDDataGridViewTextBoxColumn
-            // 
-            this.pCountryIDDataGridViewTextBoxColumn.DataPropertyName = "P_CountryID";
-            this.pCountryIDDataGridViewTextBoxColumn.HeaderText = "P_CountryID";
-            this.pCountryIDDataGridViewTextBoxColumn.Name = "pCountryIDDataGridViewTextBoxColumn";
-            this.pCountryIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pClubIDDataGridViewTextBoxColumn
-            // 
-            this.pClubIDDataGridViewTextBoxColumn.DataPropertyName = "P_ClubID";
-            this.pClubIDDataGridViewTextBoxColumn.HeaderText = "P_ClubID";
-            this.pClubIDDataGridViewTextBoxColumn.Name = "pClubIDDataGridViewTextBoxColumn";
-            this.pClubIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pPositionIDDataGridViewTextBoxColumn
-            // 
-            this.pPositionIDDataGridViewTextBoxColumn.DataPropertyName = "P_PositionID";
-            this.pPositionIDDataGridViewTextBoxColumn.HeaderText = "P_PositionID";
-            this.pPositionIDDataGridViewTextBoxColumn.Name = "pPositionIDDataGridViewTextBoxColumn";
-            this.pPositionIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // FormFootball
             // 
@@ -792,7 +836,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tAssociationIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tTypeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pDateOfBirthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn P_ClubID;
@@ -802,6 +845,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pCountryIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pClubIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pPositionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonAddPosition;
+        private System.Windows.Forms.Button buttonAddCountry;
+        private System.Windows.Forms.Button buttonAddClubs;
     }
 }
 

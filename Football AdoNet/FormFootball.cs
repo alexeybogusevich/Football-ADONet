@@ -129,5 +129,11 @@ namespace Football_AdoNet
             SearchTournamentsForm searchForm = new SearchTournamentsForm();
             searchForm.Show();
         }
+
+        private void buttonAddCountry_Click(object sender, EventArgs e)
+        {
+            AddCountryForm addForm = new AddCountryForm();
+            addForm.Show();
+        }
     }
 }

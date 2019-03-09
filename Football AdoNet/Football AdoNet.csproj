@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCountryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCountryForm.Designer.cs">
+      <DependentUpon>AddCountryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FootballDataSet.cs">
       <DependentUpon>FootballDataSet.xsd</DependentUpon>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="SearchTournamentsForm.Designer.cs">
       <DependentUpon>SearchTournamentsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCountryForm.resx">
+      <DependentUpon>AddCountryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFootball.resx">
       <DependentUpon>FormFootball.cs</DependentUpon>
     </EmbeddedResource>
