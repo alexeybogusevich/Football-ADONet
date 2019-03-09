@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,6 +40,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFootball));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PLAYERS = new System.Windows.Forms.TabPage();
@@ -94,16 +94,6 @@
             this.buttonAddHeadcoaches = new System.Windows.Forms.Button();
             this.buttonAddPresident = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_ClubID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_CountryID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.P_PositionID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pClubIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_CityID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cStadiumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,6 +113,16 @@
             this.tAssociationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_ClubID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_CountryID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.P_PositionID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pClubIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.PLAYERS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlayers)).BeginInit();
@@ -552,109 +552,6 @@
             this.buttonAddPresident.UseVisualStyleBackColor = false;
             this.buttonAddPresident.Click += new System.EventHandler(this.buttonAddPresident_Click);
             // 
-            // pNameDataGridViewTextBoxColumn
-            // 
-            this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Navy;
-            this.pNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.pNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
-            this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
-            this.pNameDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // pDateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.pDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "P_DateOfBirth";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
-            this.pDateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.pDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
-            this.pDateOfBirthDataGridViewTextBoxColumn.Name = "pDateOfBirthDataGridViewTextBoxColumn";
-            this.pDateOfBirthDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // P_ClubID
-            // 
-            this.P_ClubID.DataPropertyName = "P_ClubID";
-            this.P_ClubID.DataSource = this.cLUBSBindingSource;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Navy;
-            this.P_ClubID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.P_ClubID.DisplayMember = "C_Name";
-            this.P_ClubID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_ClubID.HeaderText = "Клуб";
-            this.P_ClubID.Name = "P_ClubID";
-            this.P_ClubID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.P_ClubID.ValueMember = "C_ID";
-            this.P_ClubID.Width = 115;
-            // 
-            // pNumberDataGridViewTextBoxColumn
-            // 
-            this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "P_Number";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Navy;
-            this.pNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.pNumberDataGridViewTextBoxColumn.HeaderText = "Ігровий номер";
-            this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
-            this.pNumberDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // P_CountryID
-            // 
-            this.P_CountryID.DataPropertyName = "P_CountryID";
-            this.P_CountryID.DataSource = this.cOUNTRIESBindingSource;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Navy;
-            this.P_CountryID.DefaultCellStyle = dataGridViewCellStyle5;
-            this.P_CountryID.DisplayMember = "CNTRY_Name";
-            this.P_CountryID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_CountryID.HeaderText = "Національність";
-            this.P_CountryID.Name = "P_CountryID";
-            this.P_CountryID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.P_CountryID.ValueMember = "CNTRY_ID";
-            this.P_CountryID.Width = 114;
-            // 
-            // P_PositionID
-            // 
-            this.P_PositionID.DataPropertyName = "P_PositionID";
-            this.P_PositionID.DataSource = this.pOSITIONSBindingSource;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Navy;
-            this.P_PositionID.DefaultCellStyle = dataGridViewCellStyle6;
-            this.P_PositionID.DisplayMember = "POS_Name";
-            this.P_PositionID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_PositionID.HeaderText = "Позиція";
-            this.P_PositionID.Name = "P_PositionID";
-            this.P_PositionID.ValueMember = "POS_ID";
-            this.P_PositionID.Width = 110;
-            // 
-            // pCountryIDDataGridViewTextBoxColumn
-            // 
-            this.pCountryIDDataGridViewTextBoxColumn.DataPropertyName = "P_CountryID";
-            this.pCountryIDDataGridViewTextBoxColumn.HeaderText = "P_CountryID";
-            this.pCountryIDDataGridViewTextBoxColumn.Name = "pCountryIDDataGridViewTextBoxColumn";
-            this.pCountryIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pClubIDDataGridViewTextBoxColumn
-            // 
-            this.pClubIDDataGridViewTextBoxColumn.DataPropertyName = "P_ClubID";
-            this.pClubIDDataGridViewTextBoxColumn.HeaderText = "P_ClubID";
-            this.pClubIDDataGridViewTextBoxColumn.Name = "pClubIDDataGridViewTextBoxColumn";
-            this.pClubIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pPositionIDDataGridViewTextBoxColumn
-            // 
-            this.pPositionIDDataGridViewTextBoxColumn.DataPropertyName = "P_PositionID";
-            this.pPositionIDDataGridViewTextBoxColumn.HeaderText = "P_PositionID";
-            this.pPositionIDDataGridViewTextBoxColumn.Name = "pPositionIDDataGridViewTextBoxColumn";
-            this.pPositionIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pIDDataGridViewTextBoxColumn
-            // 
-            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
-            this.pIDDataGridViewTextBoxColumn.HeaderText = "P_ID";
-            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
-            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pIDDataGridViewTextBoxColumn.Visible = false;
-            this.pIDDataGridViewTextBoxColumn.Width = 110;
-            // 
             // cNameDataGridViewTextBoxColumn
             // 
             this.cNameDataGridViewTextBoxColumn.DataPropertyName = "C_Name";
@@ -840,6 +737,116 @@
             this.tIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.tIDDataGridViewTextBoxColumn.Visible = false;
             // 
+            // pNameDataGridViewTextBoxColumn
+            // 
+            this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Navy;
+            this.pNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.pNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
+            this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
+            this.pNameDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // pDateOfBirthDataGridViewTextBoxColumn
+            // 
+            this.pDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "P_DateOfBirth";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
+            this.pDateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.pDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
+            this.pDateOfBirthDataGridViewTextBoxColumn.Name = "pDateOfBirthDataGridViewTextBoxColumn";
+            this.pDateOfBirthDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // P_ClubID
+            // 
+            this.P_ClubID.DataPropertyName = "P_ClubID";
+            this.P_ClubID.DataSource = this.cLUBSBindingSource;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Navy;
+            this.P_ClubID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.P_ClubID.DisplayMember = "C_Name";
+            this.P_ClubID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_ClubID.HeaderText = "Клуб";
+            this.P_ClubID.Name = "P_ClubID";
+            this.P_ClubID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.P_ClubID.ValueMember = "C_ID";
+            this.P_ClubID.Width = 115;
+            // 
+            // pNumberDataGridViewTextBoxColumn
+            // 
+            this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "P_Number";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Navy;
+            this.pNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.pNumberDataGridViewTextBoxColumn.HeaderText = "Ігровий номер";
+            this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
+            this.pNumberDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // P_CountryID
+            // 
+            this.P_CountryID.DataPropertyName = "P_CountryID";
+            this.P_CountryID.DataSource = this.cOUNTRIESBindingSource;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Navy;
+            this.P_CountryID.DefaultCellStyle = dataGridViewCellStyle5;
+            this.P_CountryID.DisplayMember = "CNTRY_Name";
+            this.P_CountryID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_CountryID.HeaderText = "Національність";
+            this.P_CountryID.Name = "P_CountryID";
+            this.P_CountryID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.P_CountryID.ValueMember = "CNTRY_ID";
+            this.P_CountryID.Width = 114;
+            // 
+            // P_PositionID
+            // 
+            this.P_PositionID.DataPropertyName = "P_PositionID";
+            this.P_PositionID.DataSource = this.pOSITIONSBindingSource;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Navy;
+            this.P_PositionID.DefaultCellStyle = dataGridViewCellStyle6;
+            this.P_PositionID.DisplayMember = "POS_Name";
+            this.P_PositionID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_PositionID.HeaderText = "Позиція";
+            this.P_PositionID.Name = "P_PositionID";
+            this.P_PositionID.ValueMember = "POS_ID";
+            this.P_PositionID.Width = 110;
+            // 
+            // pCountryIDDataGridViewTextBoxColumn
+            // 
+            this.pCountryIDDataGridViewTextBoxColumn.DataPropertyName = "P_CountryID";
+            this.pCountryIDDataGridViewTextBoxColumn.HeaderText = "P_CountryID";
+            this.pCountryIDDataGridViewTextBoxColumn.Name = "pCountryIDDataGridViewTextBoxColumn";
+            this.pCountryIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pClubIDDataGridViewTextBoxColumn
+            // 
+            this.pClubIDDataGridViewTextBoxColumn.DataPropertyName = "P_ClubID";
+            this.pClubIDDataGridViewTextBoxColumn.HeaderText = "P_ClubID";
+            this.pClubIDDataGridViewTextBoxColumn.Name = "pClubIDDataGridViewTextBoxColumn";
+            this.pClubIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pPositionIDDataGridViewTextBoxColumn
+            // 
+            this.pPositionIDDataGridViewTextBoxColumn.DataPropertyName = "P_PositionID";
+            this.pPositionIDDataGridViewTextBoxColumn.HeaderText = "P_PositionID";
+            this.pPositionIDDataGridViewTextBoxColumn.Name = "pPositionIDDataGridViewTextBoxColumn";
+            this.pPositionIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pIDDataGridViewTextBoxColumn
+            // 
+            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
+            this.pIDDataGridViewTextBoxColumn.HeaderText = "P_ID";
+            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
+            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pIDDataGridViewTextBoxColumn.Visible = false;
+            this.pIDDataGridViewTextBoxColumn.Width = 110;
+            // 
             // FormFootball
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -926,16 +933,6 @@
         private System.Windows.Forms.Button buttonAddClubs;
         private System.Windows.Forms.Button buttonAddHeadcoaches;
         private System.Windows.Forms.Button buttonAddPresident;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pDateOfBirthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_ClubID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_CountryID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_PositionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pCountryIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pClubIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pPositionIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn C_CityID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cStadiumDataGridViewTextBoxColumn;
@@ -955,6 +952,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tAssociationIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tTypeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pDateOfBirthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_ClubID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_CountryID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_PositionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pCountryIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pClubIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pPositionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
     }
 }
 

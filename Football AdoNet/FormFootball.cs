@@ -133,6 +133,7 @@ namespace Football_AdoNet
         private void buttonAddCountry_Click(object sender, EventArgs e)
         {
             AddCountryForm addForm = new AddCountryForm();
+            addForm.FormClosed += new FormClosedEventHandler(addForm_FormClosed); 
             addForm.Show();
         }
 
