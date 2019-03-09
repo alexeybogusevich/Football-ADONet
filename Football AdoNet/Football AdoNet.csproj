@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCityForm.Designer.cs">
+      <DependentUpon>AddCityForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCountryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="SearchTournamentsForm.Designer.cs">
       <DependentUpon>SearchTournamentsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCityForm.resx">
+      <DependentUpon>AddCityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCountryForm.resx">
       <DependentUpon>AddCountryForm.cs</DependentUpon>
     </EmbeddedResource>

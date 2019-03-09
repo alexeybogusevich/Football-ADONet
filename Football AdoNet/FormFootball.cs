@@ -135,5 +135,11 @@ namespace Football_AdoNet
             AddCountryForm addForm = new AddCountryForm();
             addForm.Show();
         }
+
+        private void buttonAddClubs_Click(object sender, EventArgs e)
+        {
+            AddCityForm addForm = new AddCityForm();
+            addForm.Show();
+        }
     }
 }
