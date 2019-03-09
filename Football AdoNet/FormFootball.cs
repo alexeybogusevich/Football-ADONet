@@ -141,5 +141,17 @@ namespace Football_AdoNet
             AddCityForm addForm = new AddCityForm();
             addForm.Show();
         }
+
+        private void buttonAddHeadcoaches_Click(object sender, EventArgs e)
+        {
+            AddHeadcoachForm addForm = new AddHeadcoachForm();
+            addForm.Show();
+        }
+
+        private void buttonAddPresident_Click(object sender, EventArgs e)
+        {
+            AddPresidentForm addForm = new AddPresidentForm();
+            addForm.Show();
+        }
     }
 }

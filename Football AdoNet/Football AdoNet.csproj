@@ -58,6 +58,18 @@
     <Compile Include="AddCountryForm.Designer.cs">
       <DependentUpon>AddCountryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddHeadcoachForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddHeadcoachForm.Designer.cs">
+      <DependentUpon>AddHeadcoachForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPresidentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPresidentForm.Designer.cs">
+      <DependentUpon>AddPresidentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FootballDataSet.cs">
       <DependentUpon>FootballDataSet.xsd</DependentUpon>
     </Compile>
@@ -97,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddCountryForm.resx">
       <DependentUpon>AddCountryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddHeadcoachForm.resx">
+      <DependentUpon>AddHeadcoachForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPresidentForm.resx">
+      <DependentUpon>AddPresidentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFootball.resx">
       <DependentUpon>FormFootball.cs</DependentUpon>
