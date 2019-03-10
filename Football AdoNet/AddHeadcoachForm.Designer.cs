@@ -36,12 +36,12 @@
             this.headcoachesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.HEADCOACHESTableAdapter();
             this.queriesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.QueriesTableAdapter();
             this.dataGridViewHeadcoaches = new System.Windows.Forms.DataGridView();
-            this.hEADCOACHESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.hCNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hCBirthdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hCIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hEADCOACHESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHeadcoaches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hEADCOACHESBindingSource)).BeginInit();
@@ -70,6 +70,33 @@
             this.dataGridViewHeadcoaches.Name = "dataGridViewHeadcoaches";
             this.dataGridViewHeadcoaches.Size = new System.Drawing.Size(359, 242);
             this.dataGridViewHeadcoaches.TabIndex = 0;
+            this.dataGridViewHeadcoaches.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewHeadcoaches_DataError);
+            // 
+            // hCNameDataGridViewTextBoxColumn
+            // 
+            this.hCNameDataGridViewTextBoxColumn.DataPropertyName = "HC_Name";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.hCNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.hCNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
+            this.hCNameDataGridViewTextBoxColumn.Name = "hCNameDataGridViewTextBoxColumn";
+            this.hCNameDataGridViewTextBoxColumn.Width = 158;
+            // 
+            // hCBirthdayDataGridViewTextBoxColumn
+            // 
+            this.hCBirthdayDataGridViewTextBoxColumn.DataPropertyName = "HC_Birthday";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.hCBirthdayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.hCBirthdayDataGridViewTextBoxColumn.HeaderText = "Дата народження";
+            this.hCBirthdayDataGridViewTextBoxColumn.Name = "hCBirthdayDataGridViewTextBoxColumn";
+            this.hCBirthdayDataGridViewTextBoxColumn.Width = 158;
+            // 
+            // hCIDDataGridViewTextBoxColumn
+            // 
+            this.hCIDDataGridViewTextBoxColumn.DataPropertyName = "HC_ID";
+            this.hCIDDataGridViewTextBoxColumn.HeaderText = "HC_ID";
+            this.hCIDDataGridViewTextBoxColumn.Name = "hCIDDataGridViewTextBoxColumn";
+            this.hCIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hCIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // hEADCOACHESBindingSource
             // 
@@ -99,32 +126,6 @@
             this.buttonDelete.Text = "Видалити";
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // hCNameDataGridViewTextBoxColumn
-            // 
-            this.hCNameDataGridViewTextBoxColumn.DataPropertyName = "HC_Name";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            this.hCNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.hCNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
-            this.hCNameDataGridViewTextBoxColumn.Name = "hCNameDataGridViewTextBoxColumn";
-            this.hCNameDataGridViewTextBoxColumn.Width = 158;
-            // 
-            // hCBirthdayDataGridViewTextBoxColumn
-            // 
-            this.hCBirthdayDataGridViewTextBoxColumn.DataPropertyName = "HC_Birthday";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            this.hCBirthdayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.hCBirthdayDataGridViewTextBoxColumn.HeaderText = "Дата народження";
-            this.hCBirthdayDataGridViewTextBoxColumn.Name = "hCBirthdayDataGridViewTextBoxColumn";
-            this.hCBirthdayDataGridViewTextBoxColumn.Width = 158;
-            // 
-            // hCIDDataGridViewTextBoxColumn
-            // 
-            this.hCIDDataGridViewTextBoxColumn.DataPropertyName = "HC_ID";
-            this.hCIDDataGridViewTextBoxColumn.HeaderText = "HC_ID";
-            this.hCIDDataGridViewTextBoxColumn.Name = "hCIDDataGridViewTextBoxColumn";
-            this.hCIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hCIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // AddHeadcoachForm
             // 

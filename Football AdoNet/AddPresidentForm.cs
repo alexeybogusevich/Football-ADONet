@@ -51,5 +51,10 @@ namespace Football_AdoNet
                 MessageBox.Show("Помилка видалення інформації!");
             }
         }
+
+        private void dataGridViewPresidents_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+        }
     }
 }

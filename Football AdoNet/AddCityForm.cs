@@ -51,5 +51,10 @@ namespace Football_AdoNet
             this.cOUNTRIESTableAdapter.Fill(this.footballDataSet1.COUNTRIES);
 
         }
+
+        private void dataGridViewAddCity_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+        }
     }
 }

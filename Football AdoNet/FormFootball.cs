@@ -160,5 +160,20 @@ namespace Football_AdoNet
             AddPresidentForm addForm = new AddPresidentForm();
             addForm.Show();
         }
+
+        private void dataGridViewPlayers_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+        }
+
+        private void dataGridViewClubs_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+        }
+
+        private void dataGridViewTournaments_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+        }
     }
 }

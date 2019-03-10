@@ -36,18 +36,18 @@
             this.queriesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.QueriesTableAdapter();
             this.citiesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.CITIESTableAdapter();
             this.dataGridViewAddCity = new System.Windows.Forms.DataGridView();
+            this.cTNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cOUNTRIESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cTIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cITIESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.cOUNTRIESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cOUNTRIESTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.COUNTRIESTableAdapter();
-            this.cTNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cTIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddCity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cITIESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOUNTRIESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cITIESBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // footballDataSet1
@@ -73,6 +73,46 @@
             this.dataGridViewAddCity.Name = "dataGridViewAddCity";
             this.dataGridViewAddCity.Size = new System.Drawing.Size(359, 242);
             this.dataGridViewAddCity.TabIndex = 0;
+            this.dataGridViewAddCity.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewAddCity_DataError);
+            // 
+            // cTNameDataGridViewTextBoxColumn
+            // 
+            this.cTNameDataGridViewTextBoxColumn.DataPropertyName = "CT_Name";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.cTNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.cTNameDataGridViewTextBoxColumn.HeaderText = "Назва міста";
+            this.cTNameDataGridViewTextBoxColumn.Name = "cTNameDataGridViewTextBoxColumn";
+            this.cTNameDataGridViewTextBoxColumn.Width = 159;
+            // 
+            // cTCountryIDDataGridViewTextBoxColumn
+            // 
+            this.cTCountryIDDataGridViewTextBoxColumn.DataPropertyName = "CT_CountryID";
+            this.cTCountryIDDataGridViewTextBoxColumn.DataSource = this.cOUNTRIESBindingSource;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.cTCountryIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cTCountryIDDataGridViewTextBoxColumn.DisplayMember = "CNTRY_Name";
+            this.cTCountryIDDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.cTCountryIDDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cTCountryIDDataGridViewTextBoxColumn.HeaderText = "Країна";
+            this.cTCountryIDDataGridViewTextBoxColumn.Name = "cTCountryIDDataGridViewTextBoxColumn";
+            this.cTCountryIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cTCountryIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cTCountryIDDataGridViewTextBoxColumn.ValueMember = "CNTRY_ID";
+            this.cTCountryIDDataGridViewTextBoxColumn.Width = 157;
+            // 
+            // cOUNTRIESBindingSource
+            // 
+            this.cOUNTRIESBindingSource.DataMember = "COUNTRIES";
+            this.cOUNTRIESBindingSource.DataSource = this.footballDataSet1;
+            // 
+            // cTIDDataGridViewTextBoxColumn
+            // 
+            this.cTIDDataGridViewTextBoxColumn.DataPropertyName = "CT_ID";
+            this.cTIDDataGridViewTextBoxColumn.HeaderText = "CT_ID";
+            this.cTIDDataGridViewTextBoxColumn.Name = "cTIDDataGridViewTextBoxColumn";
+            this.cTIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cTIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // cITIESBindingSource
             // 
@@ -105,48 +145,9 @@
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // cOUNTRIESBindingSource
-            // 
-            this.cOUNTRIESBindingSource.DataMember = "COUNTRIES";
-            this.cOUNTRIESBindingSource.DataSource = this.footballDataSet1;
-            // 
             // cOUNTRIESTableAdapter
             // 
             this.cOUNTRIESTableAdapter.ClearBeforeFill = true;
-            // 
-            // cTNameDataGridViewTextBoxColumn
-            // 
-            this.cTNameDataGridViewTextBoxColumn.DataPropertyName = "CT_Name";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            this.cTNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.cTNameDataGridViewTextBoxColumn.HeaderText = "Назва міста";
-            this.cTNameDataGridViewTextBoxColumn.Name = "cTNameDataGridViewTextBoxColumn";
-            this.cTNameDataGridViewTextBoxColumn.Width = 159;
-            // 
-            // cTCountryIDDataGridViewTextBoxColumn
-            // 
-            this.cTCountryIDDataGridViewTextBoxColumn.DataPropertyName = "CT_CountryID";
-            this.cTCountryIDDataGridViewTextBoxColumn.DataSource = this.cOUNTRIESBindingSource;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            this.cTCountryIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.cTCountryIDDataGridViewTextBoxColumn.DisplayMember = "CNTRY_Name";
-            this.cTCountryIDDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.cTCountryIDDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cTCountryIDDataGridViewTextBoxColumn.HeaderText = "Країна";
-            this.cTCountryIDDataGridViewTextBoxColumn.Name = "cTCountryIDDataGridViewTextBoxColumn";
-            this.cTCountryIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cTCountryIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cTCountryIDDataGridViewTextBoxColumn.ValueMember = "CNTRY_ID";
-            this.cTCountryIDDataGridViewTextBoxColumn.Width = 157;
-            // 
-            // cTIDDataGridViewTextBoxColumn
-            // 
-            this.cTIDDataGridViewTextBoxColumn.DataPropertyName = "CT_ID";
-            this.cTIDDataGridViewTextBoxColumn.HeaderText = "CT_ID";
-            this.cTIDDataGridViewTextBoxColumn.Name = "cTIDDataGridViewTextBoxColumn";
-            this.cTIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cTIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // AddCityForm
             // 
@@ -164,8 +165,8 @@
             this.Load += new System.EventHandler(this.AddCityForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddCity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cITIESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOUNTRIESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cITIESBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -36,13 +36,13 @@
             this.presidentsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.PRESIDENTSTableAdapter();
             this.queriesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.QueriesTableAdapter();
             this.dataGridViewPresidents = new System.Windows.Forms.DataGridView();
-            this.hEADCOACHESTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.HEADCOACHESTableAdapter();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.pRESIDENTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRESIDENTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hEADCOACHESTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.HEADCOACHESTableAdapter();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPresidents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRESIDENTSBindingSource)).BeginInit();
@@ -71,6 +71,38 @@
             this.dataGridViewPresidents.Name = "dataGridViewPresidents";
             this.dataGridViewPresidents.Size = new System.Drawing.Size(359, 242);
             this.dataGridViewPresidents.TabIndex = 0;
+            this.dataGridViewPresidents.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewPresidents_DataError);
+            // 
+            // prNameDataGridViewTextBoxColumn
+            // 
+            this.prNameDataGridViewTextBoxColumn.DataPropertyName = "Pr_Name";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.prNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.prNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
+            this.prNameDataGridViewTextBoxColumn.Name = "prNameDataGridViewTextBoxColumn";
+            this.prNameDataGridViewTextBoxColumn.Width = 158;
+            // 
+            // prDateOfBirthDataGridViewTextBoxColumn
+            // 
+            this.prDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "Pr_DateOfBirth";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.prDateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.prDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
+            this.prDateOfBirthDataGridViewTextBoxColumn.Name = "prDateOfBirthDataGridViewTextBoxColumn";
+            this.prDateOfBirthDataGridViewTextBoxColumn.Width = 158;
+            // 
+            // prIDDataGridViewTextBoxColumn
+            // 
+            this.prIDDataGridViewTextBoxColumn.DataPropertyName = "Pr_ID";
+            this.prIDDataGridViewTextBoxColumn.HeaderText = "Pr_ID";
+            this.prIDDataGridViewTextBoxColumn.Name = "prIDDataGridViewTextBoxColumn";
+            this.prIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pRESIDENTSBindingSource
+            // 
+            this.pRESIDENTSBindingSource.DataMember = "PRESIDENTS";
+            this.pRESIDENTSBindingSource.DataSource = this.footballDataSet1;
             // 
             // hEADCOACHESTableAdapter
             // 
@@ -99,37 +131,6 @@
             this.buttonDelete.Text = "Видалити";
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // pRESIDENTSBindingSource
-            // 
-            this.pRESIDENTSBindingSource.DataMember = "PRESIDENTS";
-            this.pRESIDENTSBindingSource.DataSource = this.footballDataSet1;
-            // 
-            // prNameDataGridViewTextBoxColumn
-            // 
-            this.prNameDataGridViewTextBoxColumn.DataPropertyName = "Pr_Name";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            this.prNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.prNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
-            this.prNameDataGridViewTextBoxColumn.Name = "prNameDataGridViewTextBoxColumn";
-            this.prNameDataGridViewTextBoxColumn.Width = 158;
-            // 
-            // prDateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.prDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "Pr_DateOfBirth";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            this.prDateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.prDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
-            this.prDateOfBirthDataGridViewTextBoxColumn.Name = "prDateOfBirthDataGridViewTextBoxColumn";
-            this.prDateOfBirthDataGridViewTextBoxColumn.Width = 158;
-            // 
-            // prIDDataGridViewTextBoxColumn
-            // 
-            this.prIDDataGridViewTextBoxColumn.DataPropertyName = "Pr_ID";
-            this.prIDDataGridViewTextBoxColumn.HeaderText = "Pr_ID";
-            this.prIDDataGridViewTextBoxColumn.Name = "prIDDataGridViewTextBoxColumn";
-            this.prIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // AddPresidentForm
             // 
