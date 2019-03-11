@@ -42,6 +42,9 @@ namespace Football_AdoNet
             this.cOUNTRIESTableAdapter.Fill(this.footballDataSet.COUNTRIES);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "footballDataSet.PLAYERS". При необходимости она может быть перемещена или удалена.
             this.pLAYERSTableAdapter.Fill(this.footballDataSet.PLAYERS);
+            this.dataGridViewPlayers.Sort(this.dataGridViewPlayers.Columns["pNameDataGridViewTextBoxColumn"], ListSortDirection.Ascending);
+            this.dataGridViewClubs.Sort(this.dataGridViewClubs.Columns["cNameDataGridViewTextBoxColumn"], ListSortDirection.Ascending);
+            this.dataGridViewTournaments.Sort(this.dataGridViewTournaments.Columns["tNameDataGridViewTextBoxColumn"], ListSortDirection.Ascending);
 
         }
 
