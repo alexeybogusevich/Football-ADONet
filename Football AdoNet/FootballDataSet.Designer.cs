@@ -100,6 +100,8 @@ namespace Football_AdoNet {
         
         private global::System.Data.DataRelation relationFK_T_CLUBS_TOURNAMENTS1;
         
+        private global::System.Data.DataRelation relationFK_T_CLUBS_CLUBS3;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -641,6 +643,7 @@ namespace Football_AdoNet {
             this.relationFK_TOURNAMENTS_ASSOCIATIONS1 = this.Relations["FK_TOURNAMENTS_ASSOCIATIONS1"];
             this.relationFK_T_CLUBS_CLUBS2 = this.Relations["FK_T_CLUBS_CLUBS2"];
             this.relationFK_T_CLUBS_TOURNAMENTS1 = this.Relations["FK_T_CLUBS_TOURNAMENTS1"];
+            this.relationFK_T_CLUBS_CLUBS3 = this.Relations["FK_T_CLUBS_CLUBS3"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -769,6 +772,10 @@ namespace Football_AdoNet {
                         this.tableTOURNAMENTS.T_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableDTTournamentsClubs.TMC_TournamentIDColumn}, false);
             this.Relations.Add(this.relationFK_T_CLUBS_TOURNAMENTS1);
+            this.relationFK_T_CLUBS_CLUBS3 = new global::System.Data.DataRelation("FK_T_CLUBS_CLUBS3", new global::System.Data.DataColumn[] {
+                        this.tableDTSearchPlayers.C_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDTTournamentsClubs.TMC_ClubIDColumn}, false);
+            this.Relations.Add(this.relationFK_T_CLUBS_CLUBS3);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8281,6 +8288,17 @@ namespace Football_AdoNet {
                     return ((T_CLUBSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_T_CLUBS_CLUBS1"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow[] GetDTTournamentsClubsRows() {
+                if ((this.Table.ChildRelations["FK_T_CLUBS_CLUBS3"] == null)) {
+                    return new DTTournamentsClubsRow[0];
+                }
+                else {
+                    return ((DTTournamentsClubsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_T_CLUBS_CLUBS3"])));
+                }
+            }
         }
         
         /// <summary>
@@ -8829,6 +8847,17 @@ namespace Football_AdoNet {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_T_CLUBS_TOURNAMENTS1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTSearchPlayersRow DTSearchPlayersRow {
+                get {
+                    return ((DTSearchPlayersRow)(this.GetParentRow(this.Table.ParentRelations["FK_T_CLUBS_CLUBS3"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_T_CLUBS_CLUBS3"]);
                 }
             }
             
@@ -14277,7 +14306,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (CLUBS.C_Name LIKE @c_findname)";
+WHERE (CLUBS.C_Name LIKE @c_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
@@ -14289,7 +14319,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -14301,7 +14332,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE ((CLUBS.C_Name LIKE @c1_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry1_findname))";
+WHERE ((CLUBS.C_Name LIKE @c1_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry1_findname))
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c1_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry1_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14314,7 +14346,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
@@ -14326,7 +14359,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (POSITIONS.POS_Name LIKE @pos_findname)";
+WHERE (POSITIONS.POS_Name LIKE @pos_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pos_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
@@ -14338,7 +14372,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE ((POSITIONS.POS_Name LIKE @pos_findname) AND (CLUBS.C_Name LIKE @c_findname))";
+WHERE ((POSITIONS.POS_Name LIKE @pos_findname) AND (CLUBS.C_Name LIKE @c_findname))
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pos_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "C_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14351,7 +14386,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @c3_findname) AND (POSITIONS.POS_Name LIKE @age_findname)";
+WHERE (COUNTRIES.CNTRY_Name LIKE @c3_findname) AND (POSITIONS.POS_Name LIKE @age_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c3_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@age_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14364,7 +14400,8 @@ CLUBS ON PLAYERS.P_ClubID = CLUBS.C_ID INNER JOIN
 POSITIONS ON PLAYERS.P_PositionID = POSITIONS.POS_ID INNER JOIN
 COUNTRIES ON PLAYERS.P_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (POSITIONS.POS_Name LIKE @pos_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry4_findname) AND (CLUBS.C_Name LIKE @c_findname)";
+WHERE (POSITIONS.POS_Name LIKE @pos_findname) AND (COUNTRIES.CNTRY_Name LIKE @cntry4_findname) AND (CLUBS.C_Name LIKE @c_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC, PLAYERS.P_Name ASC";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pos_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "POS_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry4_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14882,7 +14919,8 @@ COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
 PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)";
+WHERE (COUNTRIES.CNTRY_Name LIKE @cntry_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
@@ -14894,7 +14932,8 @@ COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
 PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE ((COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (CLUBS.C_DateOfFoundation = @df_findname))";
+WHERE ((COUNTRIES.CNTRY_Name LIKE @cntry_findname) AND (CLUBS.C_DateOfFoundation = @df_findname))
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14918,7 +14957,8 @@ SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
 )
 )
-)";
+)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14943,7 +14983,8 @@ SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
 )
 )
-)";
+)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cntry_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CNTRY_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14956,7 +14997,8 @@ COUNTRIES ON CITIES.CT_CountryID = COUNTRIES.CNTRY_ID INNER JOIN
 HEADCOACHES ON CLUBS.C_HeadCoachID = HEADCOACHES.HC_ID INNER JOIN
 PRESIDENTS ON CLUBS.C_PresidentID = PRESIDENTS.Pr_ID INNER JOIN
 LEAGUES ON CLUBS.C_LeagueID = LEAGUES.L_ID
-WHERE (CLUBS.C_DateOfFoundation = @df_findname)";
+WHERE (CLUBS.C_DateOfFoundation = @df_findname)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
@@ -14979,7 +15021,8 @@ SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
 )
 )
-)";
+)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@df_findname", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "C_DateOfFoundation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15003,7 +15046,8 @@ SELECT T_ID FROM TOURNAMENTS
 WHERE T_Name LIKE @t_findname
 )
 )
-)";
+)
+ORDER BY COUNTRIES.CNTRY_Name ASC, CLUBS.C_Name ASC";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -15430,7 +15474,8 @@ WHERE T_Name LIKE @t_findname
 FROM TOURNAMENTS INNER JOIN
 ASSOCIATIONS ON TOURNAMENTS.T_AssociationID = ASSOCIATIONS.A_ID INNER JOIN
 T_TYPES ON TOURNAMENTS.T_TypeID = T_TYPES.TT_ID 
-WHERE (ASSOCIATIONS.A_Name LIKE @a_findname)";
+WHERE (ASSOCIATIONS.A_Name LIKE @a_findname)
+ORDER BY ASSOCIATIONS.A_Name ASC, TOURNAMENTS.T_Name ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@a_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "A_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
@@ -15450,7 +15495,8 @@ SELECT C_ID FROM CLUBS
 WHERE C_Name LIKE @c_findname
 )
 )
-)";
+)
+ORDER BY ASSOCIATIONS.A_Name ASC, TOURNAMENTS.T_Name ASC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@a_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "A_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15471,7 +15517,8 @@ SELECT C_ID FROM CLUBS
 WHERE C_Name LIKE @c_findname
 )
 )
-)";
+)
+ORDER BY ASSOCIATIONS.A_Name ASC, TOURNAMENTS.T_Name ASC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@a_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "A_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TT_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15482,7 +15529,8 @@ WHERE C_Name LIKE @c_findname
 FROM TOURNAMENTS INNER JOIN
 ASSOCIATIONS ON TOURNAMENTS.T_AssociationID = ASSOCIATIONS.A_ID INNER JOIN
 T_TYPES ON TOURNAMENTS.T_TypeID = T_TYPES.TT_ID 
-WHERE ((ASSOCIATIONS.A_Name LIKE @a_findname) AND (T_TYPES.TT_Name LIKE @t_findname))";
+WHERE ((ASSOCIATIONS.A_Name LIKE @a_findname) AND (T_TYPES.TT_Name LIKE @t_findname))
+ORDER BY ASSOCIATIONS.A_Name ASC, TOURNAMENTS.T_Name ASC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@a_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "A_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TT_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15503,7 +15551,8 @@ SELECT C_ID FROM CLUBS
 WHERE C_Name LIKE @c_findname
 )
 )
-)";
+)
+ORDER BY ASSOCIATIONS.A_Name ASC, TOURNAMENTS.T_Name ASC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
@@ -15523,7 +15572,8 @@ SELECT C_ID FROM CLUBS
 WHERE C_Name LIKE @c_findname
 )
 )
-)";
+)
+ORDER BY ASSOCIATIONS.A_Name ASC, TOURNAMENTS.T_Name ASC";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TT_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c_findname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15533,7 +15583,8 @@ WHERE C_Name LIKE @c_findname
 FROM TOURNAMENTS INNER JOIN
 ASSOCIATIONS ON TOURNAMENTS.T_AssociationID = ASSOCIATIONS.A_ID INNER JOIN
 T_TYPES ON TOURNAMENTS.T_TypeID = T_TYPES.TT_ID 
-WHERE (T_TYPES.TT_Name LIKE @t_findname)";
+WHERE (T_TYPES.TT_Name LIKE @t_findname)
+ORDER BY ASSOCIATIONS.A_Name ASC, TOURNAMENTS.T_Name ASC";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_findname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TT_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
