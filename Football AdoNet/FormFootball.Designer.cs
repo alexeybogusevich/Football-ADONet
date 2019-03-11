@@ -249,6 +249,7 @@
             this.dataGridViewPlayers.RowHeadersWidth = 20;
             this.dataGridViewPlayers.Size = new System.Drawing.Size(696, 265);
             this.dataGridViewPlayers.TabIndex = 0;
+            this.dataGridViewPlayers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPlayers_CellDoubleClick);
             this.dataGridViewPlayers.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewPlayers_DataError);
             // 
             // pNameDataGridViewTextBoxColumn

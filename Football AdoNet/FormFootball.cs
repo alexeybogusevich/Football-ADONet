@@ -206,7 +206,8 @@ namespace Football_AdoNet
             {
                 int id = (int)dataGridViewTournaments.CurrentRow.Cells["tIDDataGridViewTextBoxColumn"].Value;
                 ClubsTournamentsForm tclubsForm = new ClubsTournamentsForm(id);
-                tclubsForm.ShowDialog();
+                tclubsForm.ShowDialog(this);
+                tclubsForm.Dispose();
             }
             catch(Exception)
             {
@@ -225,6 +226,14 @@ namespace Football_AdoNet
         private void addLeagueForm_Closed(object sender, FormClosedEventArgs e)
         {
             lEAGUESTableAdapter.Fill(footballDataSet.LEAGUES);
+        }
+
+        private void dataGridViewPlayers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dataGridViewPlayers.CurrentRow.Cells["pIDDataGridViewTextBoxColumn"].Value;
+            PlayersCardForm cardForm = new PlayersCardForm(id);
+            cardForm.ShowDialog(this);
+            cardForm.Dispose();
         }
     }
 }

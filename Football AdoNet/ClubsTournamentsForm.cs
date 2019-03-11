@@ -24,7 +24,7 @@ namespace Football_AdoNet
         {
             InitializeComponent();
             this.id = id;
-            t_CLUBSTableAdapter1.Fill(footballDataSet1.T_CLUBS);
+            dTTournamentsClubsTableAdapter.FillByExactTournament(footballDataSet1.DTTournamentsClubs, id);
         }
 
         private void ClubsTournamentsForm_Load(object sender, EventArgs e)
@@ -33,26 +33,39 @@ namespace Football_AdoNet
             this.tOURNAMENTSTableAdapter.Fill(this.footballDataSet1.TOURNAMENTS);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "footballDataSet1.CLUBS". При необходимости она может быть перемещена или удалена.
             this.cLUBSTableAdapter.Fill(this.footballDataSet1.CLUBS);
-            for(int i = 0; i< dataGridViewTclubs.Rows.Count - 1; ++i)
-            {
-                if ((int)dataGridViewTclubs.Rows[i].Cells["tMCTournamentIDDataGridViewTextBoxColumn"].Value != id)
-                {
-                    CurrencyManager cManager = dataGridViewTclubs.BindingContext[dataGridViewTclubs.DataSource, dataGridViewTclubs.DataMember] as CurrencyManager;
-                    cManager.SuspendBinding();
-                    dataGridViewTclubs.Rows[i].Visible = false;
-                    cManager.ResumeBinding();
-                }
-            }
         }
 
+        //buttonAdd_Click
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            t_CLUBSTableAdapter1.Update(footballDataSet1.T_CLUBS);
+            if (comboBoxClubs.SelectedItem != null)
+            {
+                int x = (int)comboBoxClubs.SelectedValue;
+                int tc_count = (int)dTTournamentsClubsTableAdapter.ScalarQueryCount(id, x); ;
+                if(tc_count != 0)
+                {
+                    MessageBox.Show("Дублювання інформації!");
+                    return;
+                }
+                int tmc_id = (int)dTTournamentsClubsTableAdapter.ScalarQueryMax() + 1;
+                dTTournamentsClubsTableAdapter.InsertQuery(id, x, tmc_id);
+                dTTournamentsClubsTableAdapter.FillByExactTournament(footballDataSet1.DTTournamentsClubs, id);
+            }
+           else
+            {
+                MessageBox.Show("Виберіть клуб!");
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            tCLUBSBindingSource.RemoveCurrent();
+            dTTournamentsClubsTableAdapter.DeleteQuery((int)dataGridViewTclubs.CurrentRow.Cells["tMCIDDataGridViewTextBoxColumn"].Value);
+            dTTournamentsClubsTableAdapter.FillByExactTournament(footballDataSet1.DTTournamentsClubs, id);
+        }
+
+        private void dataGridViewTclubs_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            return;
         }
     }
 }
