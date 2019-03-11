@@ -16070,13 +16070,22 @@ SELECT TMC_TournamentID, TMC_ClubID, TMC_ID FROM T_CLUBS WHERE (TMC_ID = @TMC_ID
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT T_CLUBS.TMC_TournamentID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_ID\r\nFROM T_CLUBS" +
                 "\r\nWHERE (T_CLUBS.TMC_TournamentID = @t_id)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO [T_CLUBS] ([TMC_TournamentID], [TMC_ClubID], [TMC_ID]) VALUES (@TMC_T" +
+                "ournamentID, @TMC_ClubID, (MAX(TMC_ID)+1));\r\nSELECT TMC_TournamentID, TMC_ClubID" +
+                ", TMC_ID FROM T_CLUBS WHERE (TMC_ID = @TMC_ID)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_TournamentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_ClubID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ClubID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16273,6 +16282,42 @@ SELECT TMC_TournamentID, TMC_ClubID, TMC_ID FROM T_CLUBS WHERE (TMC_ID = @TMC_ID
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<int> TMC_TournamentID, global::System.Nullable<int> TMC_ClubID, global::System.Nullable<int> Original_TMC_TournamentID, global::System.Nullable<int> Original_TMC_ClubID, int Original_TMC_ID) {
             return this.Update(TMC_TournamentID, TMC_ClubID, Original_TMC_ID, Original_TMC_TournamentID, Original_TMC_ClubID, Original_TMC_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(global::System.Nullable<int> TMC_TournamentID, global::System.Nullable<int> TMC_ClubID, int TMC_ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((TMC_TournamentID.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(TMC_TournamentID.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((TMC_ClubID.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(TMC_ClubID.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[2].Value = ((int)(TMC_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
