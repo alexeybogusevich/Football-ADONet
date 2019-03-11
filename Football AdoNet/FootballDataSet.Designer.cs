@@ -2079,6 +2079,7 @@ namespace Football_AdoNet {
                 this.columnC_Name.MaxLength = 30;
                 this.columnC_DateOfFoundation.AllowDBNull = false;
                 this.columnC_Budget.AllowDBNull = false;
+                this.columnC_Budget.DefaultValue = ((int)(0));
                 this.columnC_Stadium.AllowDBNull = false;
                 this.columnC_Stadium.MaxLength = 30;
             }

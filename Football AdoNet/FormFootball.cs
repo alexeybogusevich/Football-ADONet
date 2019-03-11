@@ -210,5 +210,18 @@ namespace Football_AdoNet
                 MessageBox.Show("Помилка переходу до таблиці з командами-учасниками!");
             }
         }
+
+        private void buttonAddLeague_Click(object sender, EventArgs e)
+        {
+            AddLeagueForm addForm = new AddLeagueForm();
+            addForm.FormClosed += addLeagueForm_Closed;
+            addForm.ShowDialog(this);
+            addForm.Dispose();
+        }
+
+        private void addLeagueForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            lEAGUESTableAdapter.Fill(footballDataSet.LEAGUES);
+        }
     }
 }

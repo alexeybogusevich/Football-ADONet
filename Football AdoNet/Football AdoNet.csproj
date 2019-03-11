@@ -65,6 +65,12 @@
     <Compile Include="AddHeadcoachForm.Designer.cs">
       <DependentUpon>AddHeadcoachForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddLeagueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLeagueForm.Designer.cs">
+      <DependentUpon>AddLeagueForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPresidentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddHeadcoachForm.resx">
       <DependentUpon>AddHeadcoachForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddLeagueForm.resx">
+      <DependentUpon>AddLeagueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPresidentForm.resx">
       <DependentUpon>AddPresidentForm.cs</DependentUpon>
