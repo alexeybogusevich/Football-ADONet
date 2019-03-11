@@ -11571,17 +11571,17 @@ SELECT C_ID, C_Name, C_DateOfFoundation, C_Budget, C_CityID, C_Stadium, C_HeadCo
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_PlayerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE Customers\r\nSET FR_Pace = @pace, FR_Shooting = @shooting, FR_Passing =@pass" +
-                "ing, FR_Dribling = @dribling, FR_Defense = @defense, FR_Physical = @physical\r\nWH" +
-                "ERE FR_PlayerID = @p_id;";
+            this._commandCollection[4].CommandText = "UPDATE FIFA_RATINGS\r\nSET FR_Pace = @pace, FR_Shooting = @shooting, FR_Passing =@p" +
+                "assing, FR_Dribbling = @dribling, FR_Defense = @defense, FR_Physical = @physical" +
+                "\r\nWHERE FR_PlayerID = @p_id;";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pace", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Pace", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shooting", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Shooting", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@passing", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Passing", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dribling", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Dribling", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@defense", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Defense", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@physical", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Physical", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_id", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pace", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Pace", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shooting", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Shooting", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@passing", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Passing", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dribling", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Dribbling", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@defense", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Defense", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@physical", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_Physical", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FR_PlayerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11742,50 +11742,15 @@ SELECT C_ID, C_Name, C_DateOfFoundation, C_Budget, C_CityID, C_Stadium, C_HeadCo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(object pace, object shooting, object passing, object dribling, object defense, object physical, object p_id) {
+        public virtual int UpdateQuery(int pace, int shooting, int passing, int dribling, int defense, int physical, int p_id) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            if ((pace == null)) {
-                throw new global::System.ArgumentNullException("pace");
-            }
-            else {
-                command.Parameters[0].Value = ((object)(pace));
-            }
-            if ((shooting == null)) {
-                throw new global::System.ArgumentNullException("shooting");
-            }
-            else {
-                command.Parameters[1].Value = ((object)(shooting));
-            }
-            if ((passing == null)) {
-                throw new global::System.ArgumentNullException("passing");
-            }
-            else {
-                command.Parameters[2].Value = ((object)(passing));
-            }
-            if ((dribling == null)) {
-                throw new global::System.ArgumentNullException("dribling");
-            }
-            else {
-                command.Parameters[3].Value = ((object)(dribling));
-            }
-            if ((defense == null)) {
-                throw new global::System.ArgumentNullException("defense");
-            }
-            else {
-                command.Parameters[4].Value = ((object)(defense));
-            }
-            if ((physical == null)) {
-                throw new global::System.ArgumentNullException("physical");
-            }
-            else {
-                command.Parameters[5].Value = ((object)(physical));
-            }
-            if ((p_id == null)) {
-                throw new global::System.ArgumentNullException("p_id");
-            }
-            else {
-                command.Parameters[6].Value = ((object)(p_id));
-            }
+            command.Parameters[0].Value = ((int)(pace));
+            command.Parameters[1].Value = ((int)(shooting));
+            command.Parameters[2].Value = ((int)(passing));
+            command.Parameters[3].Value = ((int)(dribling));
+            command.Parameters[4].Value = ((int)(defense));
+            command.Parameters[5].Value = ((int)(physical));
+            command.Parameters[6].Value = ((int)(p_id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

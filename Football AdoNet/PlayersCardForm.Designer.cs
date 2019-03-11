@@ -849,7 +849,7 @@
             this.labelCountry.AutoSize = true;
             this.labelCountry.BackColor = System.Drawing.Color.Transparent;
             this.labelCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCountry.Location = new System.Drawing.Point(16, 226);
+            this.labelCountry.Location = new System.Drawing.Point(16, 219);
             this.labelCountry.Name = "labelCountry";
             this.labelCountry.Size = new System.Drawing.Size(28, 13);
             this.labelCountry.TabIndex = 16;

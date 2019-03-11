@@ -187,17 +187,17 @@ namespace Football_AdoNet
 
         private void dataGridViewPlayers_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!", "Помилка");
         }
 
         private void dataGridViewClubs_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!", "Помилка");
         }
 
         private void dataGridViewTournaments_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+            MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!", "Помилка");
         }
 
         private void dataGridViewTournaments_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -211,7 +211,7 @@ namespace Football_AdoNet
             }
             catch(Exception)
             {
-                MessageBox.Show("Помилка переходу до таблиці з командами-учасниками!");
+                MessageBox.Show("Помилка переходу до таблиці з командами-учасниками!", "Помилка");
             }
         }
 

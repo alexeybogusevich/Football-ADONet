@@ -16,7 +16,7 @@ namespace Football_AdoNet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormFootball());
+            Application.Run(new MainForm());
         }
     }
 }
