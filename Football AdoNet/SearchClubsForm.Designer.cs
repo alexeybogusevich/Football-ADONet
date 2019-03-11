@@ -105,6 +105,7 @@
             this.dataGridViewSearchClubs.DataSource = this.bindingSource1;
             this.dataGridViewSearchClubs.Location = new System.Drawing.Point(13, 109);
             this.dataGridViewSearchClubs.Name = "dataGridViewSearchClubs";
+            this.dataGridViewSearchClubs.ReadOnly = true;
             this.dataGridViewSearchClubs.RowHeadersWidth = 20;
             this.dataGridViewSearchClubs.Size = new System.Drawing.Size(703, 329);
             this.dataGridViewSearchClubs.TabIndex = 0;
@@ -114,42 +115,49 @@
             this.cNameDataGridViewTextBoxColumn.DataPropertyName = "C_Name";
             this.cNameDataGridViewTextBoxColumn.HeaderText = "Назва";
             this.cNameDataGridViewTextBoxColumn.Name = "cNameDataGridViewTextBoxColumn";
+            this.cNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cTNameDataGridViewTextBoxColumn
             // 
             this.cTNameDataGridViewTextBoxColumn.DataPropertyName = "CT_Name";
             this.cTNameDataGridViewTextBoxColumn.HeaderText = "Місто";
             this.cTNameDataGridViewTextBoxColumn.Name = "cTNameDataGridViewTextBoxColumn";
+            this.cTNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cNTRYNameDataGridViewTextBoxColumn
             // 
             this.cNTRYNameDataGridViewTextBoxColumn.DataPropertyName = "CNTRY_Name";
             this.cNTRYNameDataGridViewTextBoxColumn.HeaderText = "Країна";
             this.cNTRYNameDataGridViewTextBoxColumn.Name = "cNTRYNameDataGridViewTextBoxColumn";
+            this.cNTRYNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lNameDataGridViewTextBoxColumn
             // 
             this.lNameDataGridViewTextBoxColumn.DataPropertyName = "L_Name";
             this.lNameDataGridViewTextBoxColumn.HeaderText = "Ліга";
             this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
+            this.lNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // hCNameDataGridViewTextBoxColumn
             // 
             this.hCNameDataGridViewTextBoxColumn.DataPropertyName = "HC_Name";
             this.hCNameDataGridViewTextBoxColumn.HeaderText = "Тренер";
             this.hCNameDataGridViewTextBoxColumn.Name = "hCNameDataGridViewTextBoxColumn";
+            this.hCNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // prNameDataGridViewTextBoxColumn
             // 
             this.prNameDataGridViewTextBoxColumn.DataPropertyName = "Pr_Name";
             this.prNameDataGridViewTextBoxColumn.HeaderText = "Президент";
             this.prNameDataGridViewTextBoxColumn.Name = "prNameDataGridViewTextBoxColumn";
+            this.prNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cDateOfFoundationDataGridViewTextBoxColumn
             // 
             this.cDateOfFoundationDataGridViewTextBoxColumn.DataPropertyName = "C_DateOfFoundation";
             this.cDateOfFoundationDataGridViewTextBoxColumn.HeaderText = "Рік заснування";
             this.cDateOfFoundationDataGridViewTextBoxColumn.Name = "cDateOfFoundationDataGridViewTextBoxColumn";
+            this.cDateOfFoundationDataGridViewTextBoxColumn.ReadOnly = true;
             this.cDateOfFoundationDataGridViewTextBoxColumn.Width = 81;
             // 
             // cIDDataGridViewTextBoxColumn
@@ -165,6 +173,7 @@
             this.cHeadCoachIDDataGridViewTextBoxColumn.DataPropertyName = "C_HeadCoachID";
             this.cHeadCoachIDDataGridViewTextBoxColumn.HeaderText = "C_HeadCoachID";
             this.cHeadCoachIDDataGridViewTextBoxColumn.Name = "cHeadCoachIDDataGridViewTextBoxColumn";
+            this.cHeadCoachIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.cHeadCoachIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // cPresidentIDDataGridViewTextBoxColumn
@@ -172,6 +181,7 @@
             this.cPresidentIDDataGridViewTextBoxColumn.DataPropertyName = "C_PresidentID";
             this.cPresidentIDDataGridViewTextBoxColumn.HeaderText = "C_PresidentID";
             this.cPresidentIDDataGridViewTextBoxColumn.Name = "cPresidentIDDataGridViewTextBoxColumn";
+            this.cPresidentIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.cPresidentIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // cLeagueIDDataGridViewTextBoxColumn
@@ -179,6 +189,7 @@
             this.cLeagueIDDataGridViewTextBoxColumn.DataPropertyName = "C_LeagueID";
             this.cLeagueIDDataGridViewTextBoxColumn.HeaderText = "C_LeagueID";
             this.cLeagueIDDataGridViewTextBoxColumn.Name = "cLeagueIDDataGridViewTextBoxColumn";
+            this.cLeagueIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.cLeagueIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // cCityIDDataGridViewTextBoxColumn
@@ -186,6 +197,7 @@
             this.cCityIDDataGridViewTextBoxColumn.DataPropertyName = "C_CityID";
             this.cCityIDDataGridViewTextBoxColumn.HeaderText = "C_CityID";
             this.cCityIDDataGridViewTextBoxColumn.Name = "cCityIDDataGridViewTextBoxColumn";
+            this.cCityIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.cCityIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // cTCountryIDDataGridViewTextBoxColumn
@@ -193,6 +205,7 @@
             this.cTCountryIDDataGridViewTextBoxColumn.DataPropertyName = "CT_CountryID";
             this.cTCountryIDDataGridViewTextBoxColumn.HeaderText = "CT_CountryID";
             this.cTCountryIDDataGridViewTextBoxColumn.Name = "cTCountryIDDataGridViewTextBoxColumn";
+            this.cTCountryIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.cTCountryIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // cTIDDataGridViewTextBoxColumn

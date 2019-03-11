@@ -85,6 +85,7 @@
             this.dataGridViewSearchTournaments.DataSource = this.bindingSource1;
             this.dataGridViewSearchTournaments.Location = new System.Drawing.Point(12, 109);
             this.dataGridViewSearchTournaments.Name = "dataGridViewSearchTournaments";
+            this.dataGridViewSearchTournaments.ReadOnly = true;
             this.dataGridViewSearchTournaments.RowHeadersWidth = 20;
             this.dataGridViewSearchTournaments.Size = new System.Drawing.Size(703, 329);
             this.dataGridViewSearchTournaments.TabIndex = 0;
@@ -94,6 +95,7 @@
             this.tNameDataGridViewTextBoxColumn.DataPropertyName = "T_Name";
             this.tNameDataGridViewTextBoxColumn.HeaderText = "Назва турніру";
             this.tNameDataGridViewTextBoxColumn.Name = "tNameDataGridViewTextBoxColumn";
+            this.tNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.tNameDataGridViewTextBoxColumn.Width = 227;
             // 
             // aNameDataGridViewTextBoxColumn
@@ -101,6 +103,7 @@
             this.aNameDataGridViewTextBoxColumn.DataPropertyName = "A_Name";
             this.aNameDataGridViewTextBoxColumn.HeaderText = "Асоціація";
             this.aNameDataGridViewTextBoxColumn.Name = "aNameDataGridViewTextBoxColumn";
+            this.aNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.aNameDataGridViewTextBoxColumn.Width = 227;
             // 
             // tTNameDataGridViewTextBoxColumn
@@ -108,6 +111,7 @@
             this.tTNameDataGridViewTextBoxColumn.DataPropertyName = "TT_Name";
             this.tTNameDataGridViewTextBoxColumn.HeaderText = "Тип змагання";
             this.tTNameDataGridViewTextBoxColumn.Name = "tTNameDataGridViewTextBoxColumn";
+            this.tTNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.tTNameDataGridViewTextBoxColumn.Width = 227;
             // 
             // tIDDataGridViewTextBoxColumn
@@ -123,6 +127,7 @@
             this.tAssociationIDDataGridViewTextBoxColumn.DataPropertyName = "T_AssociationID";
             this.tAssociationIDDataGridViewTextBoxColumn.HeaderText = "T_AssociationID";
             this.tAssociationIDDataGridViewTextBoxColumn.Name = "tAssociationIDDataGridViewTextBoxColumn";
+            this.tAssociationIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.tAssociationIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // tTypeIDDataGridViewTextBoxColumn
@@ -130,6 +135,7 @@
             this.tTypeIDDataGridViewTextBoxColumn.DataPropertyName = "T_TypeID";
             this.tTypeIDDataGridViewTextBoxColumn.HeaderText = "T_TypeID";
             this.tTypeIDDataGridViewTextBoxColumn.Name = "tTypeIDDataGridViewTextBoxColumn";
+            this.tTypeIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.tTypeIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // tTIDDataGridViewTextBoxColumn

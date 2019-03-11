@@ -71,6 +71,12 @@
     <Compile Include="AddPresidentForm.Designer.cs">
       <DependentUpon>AddPresidentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClubsTournamentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClubsTournamentsForm.Designer.cs">
+      <DependentUpon>ClubsTournamentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FootballDataSet.cs">
       <DependentUpon>FootballDataSet.xsd</DependentUpon>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="FormFootball.Designer.cs">
       <DependentUpon>FormFootball.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayersCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayersCardForm.Designer.cs">
+      <DependentUpon>PlayersCardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,8 +129,14 @@
     <EmbeddedResource Include="AddPresidentForm.resx">
       <DependentUpon>AddPresidentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClubsTournamentsForm.resx">
+      <DependentUpon>ClubsTournamentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFootball.resx">
       <DependentUpon>FormFootball.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayersCardForm.resx">
+      <DependentUpon>PlayersCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

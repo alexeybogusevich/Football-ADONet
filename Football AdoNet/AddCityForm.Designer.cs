@@ -44,6 +44,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.cOUNTRIESTableAdapter = new Football_AdoNet.FootballDataSetTableAdapters.COUNTRIESTableAdapter();
+            this.buttonAddCities = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddCity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOUNTRIESBindingSource)).BeginInit();
@@ -149,12 +150,27 @@
             // 
             this.cOUNTRIESTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonAddCities
+            // 
+            this.buttonAddCities.BackColor = System.Drawing.Color.White;
+            this.buttonAddCities.FlatAppearance.BorderSize = 0;
+            this.buttonAddCities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddCities.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddCities.Location = new System.Drawing.Point(353, 109);
+            this.buttonAddCities.Name = "buttonAddCities";
+            this.buttonAddCities.Size = new System.Drawing.Size(18, 18);
+            this.buttonAddCities.TabIndex = 5;
+            this.buttonAddCities.Text = "+";
+            this.buttonAddCities.UseVisualStyleBackColor = false;
+            this.buttonAddCities.Click += new System.EventHandler(this.buttonAddCities_Click);
+            // 
             // AddCityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(384, 361);
+            this.Controls.Add(this.buttonAddCities);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridViewAddCity);
@@ -185,5 +201,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cTNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn cTCountryIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonAddCities;
     }
 }

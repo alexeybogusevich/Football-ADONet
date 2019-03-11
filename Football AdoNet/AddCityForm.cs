@@ -56,5 +56,18 @@ namespace Football_AdoNet
         {
             MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
         }
+
+        private void buttonAddCities_Click(object sender, EventArgs e)
+        {
+            AddCountryForm addForm = new AddCountryForm();
+            addForm.FormClosed += addCountryForm_Closed;
+            addForm.ShowDialog(this);
+            addForm.Dispose();
+        }
+
+        private void addCountryForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            cOUNTRIESTableAdapter.Fill(footballDataSet1.COUNTRIES);
+        }
     }
 }

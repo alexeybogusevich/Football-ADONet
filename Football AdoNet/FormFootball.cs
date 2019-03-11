@@ -134,31 +134,52 @@ namespace Football_AdoNet
         {
             AddCountryForm addForm = new AddCountryForm();
             addForm.FormClosed += addCountryForm_Closed; 
-            addForm.Show();
+            addForm.ShowDialog(this);
+            addForm.Dispose();
         }
 
         private void addCountryForm_Closed(object sender, FormClosedEventArgs e)
         {
-            cOUNTRIESTableAdapter.Fill(footballDataSet1.COUNTRIES);
-            cOUNTRIESTableAdapter.Update(footballDataSet1.COUNTRIES);
+            cOUNTRIESTableAdapter.Fill(footballDataSet.COUNTRIES);
         }
 
         private void buttonAddClubs_Click(object sender, EventArgs e)
         {
             AddCityForm addForm = new AddCityForm();
-            addForm.Show();
+            addForm.FormClosed += addCitiesForm_Closed;
+            addForm.ShowDialog(this);
+            addForm.Dispose();
+        }
+
+        private void addCitiesForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            cITIESTableAdapter.Fill(footballDataSet.CITIES);
         }
 
         private void buttonAddHeadcoaches_Click(object sender, EventArgs e)
         {
             AddHeadcoachForm addForm = new AddHeadcoachForm();
-            addForm.Show();
+            addForm.FormClosed += addHeadcoachesForm_Closed;
+            addForm.ShowDialog(this);
+            addForm.Dispose();
+        }
+
+        private void addHeadcoachesForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            hEADCOACHESTableAdapter.Fill(footballDataSet.HEADCOACHES);
         }
 
         private void buttonAddPresident_Click(object sender, EventArgs e)
         {
             AddPresidentForm addForm = new AddPresidentForm();
-            addForm.Show();
+            addForm.FormClosed += addPresidentsForm_Closed;
+            addForm.ShowDialog(this);
+            addForm.Dispose();
+        }
+
+        private void addPresidentsForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            pRESIDENTSTableAdapter.Fill(footballDataSet.PRESIDENTS);
         }
 
         private void dataGridViewPlayers_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -174,6 +195,20 @@ namespace Football_AdoNet
         private void dataGridViewTournaments_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("Порушення правил заповнення таблиці!\nРядок, що не відповідає вимогам форматування, буде видалено!");
+        }
+
+        private void dataGridViewTournaments_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int id = (int)dataGridViewTournaments.CurrentRow.Cells["tIDDataGridViewTextBoxColumn"].Value;
+                ClubsTournamentsForm tclubsForm = new ClubsTournamentsForm(id);
+                tclubsForm.ShowDialog();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Помилка переходу до таблиці з командами-учасниками!");
+            }
         }
     }
 }
