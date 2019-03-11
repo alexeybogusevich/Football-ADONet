@@ -29,8 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchPlayersForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
             this.PStextBoxClub = new System.Windows.Forms.TextBox();
             this.PStextBoxPosition = new System.Windows.Forms.TextBox();
             this.PStextBoxCountry = new System.Windows.Forms.TextBox();
@@ -38,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonSearchPlayers = new System.Windows.Forms.Button();
+            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
             this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pDateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNTRYNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +63,6 @@
             this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pPositionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
-            this.dtSearchPlayersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchPlayersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
@@ -87,6 +95,16 @@
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.Size = new System.Drawing.Size(703, 329);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "DTSearchPlayers";
+            this.bindingSource1.DataSource = this.footballDataSet1;
+            // 
+            // footballDataSet1
+            // 
+            this.footballDataSet1.DataSetName = "FootballDataSet";
+            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // PStextBoxClub
             // 
@@ -156,9 +174,15 @@
             this.buttonSearchPlayers.UseVisualStyleBackColor = false;
             this.buttonSearchPlayers.Click += new System.EventHandler(this.buttonSearchPlayers_Click);
             // 
+            // dtSearchPlayersTableAdapter1
+            // 
+            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
+            // 
             // pNameDataGridViewTextBoxColumn
             // 
             this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.pNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.pNameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
             this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
             this.pNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -166,6 +190,8 @@
             // pDateOfBirthDataGridViewTextBoxColumn
             // 
             this.pDateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "P_DateOfBirth";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.pDateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.pDateOfBirthDataGridViewTextBoxColumn.HeaderText = "Вік";
             this.pDateOfBirthDataGridViewTextBoxColumn.Name = "pDateOfBirthDataGridViewTextBoxColumn";
             this.pDateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
@@ -173,6 +199,8 @@
             // cNTRYNameDataGridViewTextBoxColumn
             // 
             this.cNTRYNameDataGridViewTextBoxColumn.DataPropertyName = "CNTRY_Name";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.cNTRYNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.cNTRYNameDataGridViewTextBoxColumn.HeaderText = "Національність";
             this.cNTRYNameDataGridViewTextBoxColumn.Name = "cNTRYNameDataGridViewTextBoxColumn";
             this.cNTRYNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -180,6 +208,8 @@
             // pOSNameDataGridViewTextBoxColumn
             // 
             this.pOSNameDataGridViewTextBoxColumn.DataPropertyName = "POS_Name";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.pOSNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.pOSNameDataGridViewTextBoxColumn.HeaderText = "Позиція";
             this.pOSNameDataGridViewTextBoxColumn.Name = "pOSNameDataGridViewTextBoxColumn";
             this.pOSNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -187,6 +217,8 @@
             // cNameDataGridViewTextBoxColumn
             // 
             this.cNameDataGridViewTextBoxColumn.DataPropertyName = "C_Name";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.cNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.cNameDataGridViewTextBoxColumn.HeaderText = "Клуб";
             this.cNameDataGridViewTextBoxColumn.Name = "cNameDataGridViewTextBoxColumn";
             this.cNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -194,6 +226,8 @@
             // pNumberDataGridViewTextBoxColumn
             // 
             this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "P_Number";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.pNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.pNumberDataGridViewTextBoxColumn.HeaderText = "Номер";
             this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
             this.pNumberDataGridViewTextBoxColumn.ReadOnly = true;
@@ -202,6 +236,8 @@
             // lNameDataGridViewTextBoxColumn
             // 
             this.lNameDataGridViewTextBoxColumn.DataPropertyName = "L_Name";
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.lNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.lNameDataGridViewTextBoxColumn.HeaderText = "Ліга";
             this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
             this.lNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -209,6 +245,8 @@
             // lIDDataGridViewTextBoxColumn
             // 
             this.lIDDataGridViewTextBoxColumn.DataPropertyName = "L_ID";
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.lIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.lIDDataGridViewTextBoxColumn.HeaderText = "L_ID";
             this.lIDDataGridViewTextBoxColumn.Name = "lIDDataGridViewTextBoxColumn";
             this.lIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -261,20 +299,6 @@
             this.pOSIDDataGridViewTextBoxColumn.Name = "pOSIDDataGridViewTextBoxColumn";
             this.pOSIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pOSIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "DTSearchPlayers";
-            this.bindingSource1.DataSource = this.footballDataSet1;
-            // 
-            // footballDataSet1
-            // 
-            this.footballDataSet1.DataSetName = "FootballDataSet";
-            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtSearchPlayersTableAdapter1
-            // 
-            this.dtSearchPlayersTableAdapter1.ClearBeforeFill = true;
             // 
             // SearchPlayersForm
             // 

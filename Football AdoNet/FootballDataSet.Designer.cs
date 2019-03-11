@@ -56,6 +56,8 @@ namespace Football_AdoNet {
         
         private DTSearchTournamentsDataTable tableDTSearchTournaments;
         
+        private DTTournamentsClubsDataTable tableDTTournamentsClubs;
+        
         private global::System.Data.DataRelation relationFK_TOURNAMENTS_ASSOCIATIONS;
         
         private global::System.Data.DataRelation relationFK_TOURNAMENTS_T_TYPES;
@@ -93,6 +95,10 @@ namespace Football_AdoNet {
         private global::System.Data.DataRelation relationFK_CITIES_COUNTRIES1;
         
         private global::System.Data.DataRelation relationFK_TOURNAMENTS_ASSOCIATIONS1;
+        
+        private global::System.Data.DataRelation relationFK_T_CLUBS_CLUBS2;
+        
+        private global::System.Data.DataRelation relationFK_T_CLUBS_TOURNAMENTS1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -169,6 +175,9 @@ namespace Football_AdoNet {
                 }
                 if ((ds.Tables["DTSearchTournaments"] != null)) {
                     base.Tables.Add(new DTSearchTournamentsDataTable(ds.Tables["DTSearchTournaments"]));
+                }
+                if ((ds.Tables["DTTournamentsClubs"] != null)) {
+                    base.Tables.Add(new DTTournamentsClubsDataTable(ds.Tables["DTTournamentsClubs"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -350,6 +359,16 @@ namespace Football_AdoNet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTTournamentsClubsDataTable DTTournamentsClubs {
+            get {
+                return this.tableDTTournamentsClubs;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -462,6 +481,9 @@ namespace Football_AdoNet {
                 }
                 if ((ds.Tables["DTSearchTournaments"] != null)) {
                     base.Tables.Add(new DTSearchTournamentsDataTable(ds.Tables["DTSearchTournaments"]));
+                }
+                if ((ds.Tables["DTTournamentsClubs"] != null)) {
+                    base.Tables.Add(new DTTournamentsClubsDataTable(ds.Tables["DTTournamentsClubs"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -592,6 +614,12 @@ namespace Football_AdoNet {
                     this.tableDTSearchTournaments.InitVars();
                 }
             }
+            this.tableDTTournamentsClubs = ((DTTournamentsClubsDataTable)(base.Tables["DTTournamentsClubs"]));
+            if ((initTable == true)) {
+                if ((this.tableDTTournamentsClubs != null)) {
+                    this.tableDTTournamentsClubs.InitVars();
+                }
+            }
             this.relationFK_TOURNAMENTS_ASSOCIATIONS = this.Relations["FK_TOURNAMENTS_ASSOCIATIONS"];
             this.relationFK_TOURNAMENTS_T_TYPES = this.Relations["FK_TOURNAMENTS_T_TYPES"];
             this.relationFK_CITIES_COUNTRIES = this.Relations["FK_CITIES_COUNTRIES"];
@@ -611,6 +639,8 @@ namespace Football_AdoNet {
             this.relationFK_CLUBS_CITIES1 = this.Relations["FK_CLUBS_CITIES1"];
             this.relationFK_CITIES_COUNTRIES1 = this.Relations["FK_CITIES_COUNTRIES1"];
             this.relationFK_TOURNAMENTS_ASSOCIATIONS1 = this.Relations["FK_TOURNAMENTS_ASSOCIATIONS1"];
+            this.relationFK_T_CLUBS_CLUBS2 = this.Relations["FK_T_CLUBS_CLUBS2"];
+            this.relationFK_T_CLUBS_TOURNAMENTS1 = this.Relations["FK_T_CLUBS_TOURNAMENTS1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -653,6 +683,8 @@ namespace Football_AdoNet {
             base.Tables.Add(this.tableDTSearchClubs);
             this.tableDTSearchTournaments = new DTSearchTournamentsDataTable();
             base.Tables.Add(this.tableDTSearchTournaments);
+            this.tableDTTournamentsClubs = new DTTournamentsClubsDataTable();
+            base.Tables.Add(this.tableDTTournamentsClubs);
             this.relationFK_TOURNAMENTS_ASSOCIATIONS = new global::System.Data.DataRelation("FK_TOURNAMENTS_ASSOCIATIONS", new global::System.Data.DataColumn[] {
                         this.tableASSOCIATIONS.A_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTOURNAMENTS.T_AssociationIDColumn}, false);
@@ -729,6 +761,14 @@ namespace Football_AdoNet {
                         this.tableDTSearchTournaments.A_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTOURNAMENTS.T_AssociationIDColumn}, false);
             this.Relations.Add(this.relationFK_TOURNAMENTS_ASSOCIATIONS1);
+            this.relationFK_T_CLUBS_CLUBS2 = new global::System.Data.DataRelation("FK_T_CLUBS_CLUBS2", new global::System.Data.DataColumn[] {
+                        this.tableCLUBS.C_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDTTournamentsClubs.TMC_ClubIDColumn}, false);
+            this.Relations.Add(this.relationFK_T_CLUBS_CLUBS2);
+            this.relationFK_T_CLUBS_TOURNAMENTS1 = new global::System.Data.DataRelation("FK_T_CLUBS_TOURNAMENTS1", new global::System.Data.DataColumn[] {
+                        this.tableTOURNAMENTS.T_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDTTournamentsClubs.TMC_TournamentIDColumn}, false);
+            this.Relations.Add(this.relationFK_T_CLUBS_TOURNAMENTS1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -824,6 +864,12 @@ namespace Football_AdoNet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeDTSearchTournaments() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeDTTournamentsClubs() {
             return false;
         }
         
@@ -929,6 +975,9 @@ namespace Football_AdoNet {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void DTSearchTournamentsRowChangeEventHandler(object sender, DTSearchTournamentsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void DTTournamentsClubsRowChangeEventHandler(object sender, DTTournamentsClubsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4467,10 +4516,10 @@ namespace Football_AdoNet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public T_CLUBSRow AddT_CLUBSRow(int TMC_ID, CLUBSRow parentCLUBSRowByFK_T_CLUBS_CLUBS, TOURNAMENTSRow parentTOURNAMENTSRowByFK_T_CLUBS_TOURNAMENTS) {
+            public T_CLUBSRow AddT_CLUBSRow(CLUBSRow parentCLUBSRowByFK_T_CLUBS_CLUBS, TOURNAMENTSRow parentTOURNAMENTSRowByFK_T_CLUBS_TOURNAMENTS) {
                 T_CLUBSRow rowT_CLUBSRow = ((T_CLUBSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        TMC_ID,
+                        null,
                         null,
                         null};
                 if ((parentCLUBSRowByFK_T_CLUBS_CLUBS != null)) {
@@ -4524,6 +4573,7 @@ namespace Football_AdoNet {
                 base.Columns.Add(this.columnTMC_TournamentID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTMC_ID}, true));
+                this.columnTMC_ID.AutoIncrement = true;
                 this.columnTMC_ID.AllowDBNull = false;
                 this.columnTMC_ID.Unique = true;
             }
@@ -6321,6 +6371,298 @@ namespace Football_AdoNet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTTournamentsClubsDataTable : global::System.Data.TypedTableBase<DTTournamentsClubsRow> {
+            
+            private global::System.Data.DataColumn columnTMC_TournamentID;
+            
+            private global::System.Data.DataColumn columnTMC_ClubID;
+            
+            private global::System.Data.DataColumn columnTMC_ID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsDataTable() {
+                this.TableName = "DTTournamentsClubs";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DTTournamentsClubsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected DTTournamentsClubsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TMC_TournamentIDColumn {
+                get {
+                    return this.columnTMC_TournamentID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TMC_ClubIDColumn {
+                get {
+                    return this.columnTMC_ClubID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TMC_IDColumn {
+                get {
+                    return this.columnTMC_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow this[int index] {
+                get {
+                    return ((DTTournamentsClubsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTTournamentsClubsRowChangeEventHandler DTTournamentsClubsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTTournamentsClubsRowChangeEventHandler DTTournamentsClubsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTTournamentsClubsRowChangeEventHandler DTTournamentsClubsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DTTournamentsClubsRowChangeEventHandler DTTournamentsClubsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddDTTournamentsClubsRow(DTTournamentsClubsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow AddDTTournamentsClubsRow(TOURNAMENTSRow parentTOURNAMENTSRowByFK_T_CLUBS_TOURNAMENTS1, CLUBSRow parentCLUBSRowByFK_T_CLUBS_CLUBS2, int TMC_ID) {
+                DTTournamentsClubsRow rowDTTournamentsClubsRow = ((DTTournamentsClubsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        TMC_ID};
+                if ((parentTOURNAMENTSRowByFK_T_CLUBS_TOURNAMENTS1 != null)) {
+                    columnValuesArray[0] = parentTOURNAMENTSRowByFK_T_CLUBS_TOURNAMENTS1[0];
+                }
+                if ((parentCLUBSRowByFK_T_CLUBS_CLUBS2 != null)) {
+                    columnValuesArray[1] = parentCLUBSRowByFK_T_CLUBS_CLUBS2[0];
+                }
+                rowDTTournamentsClubsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTTournamentsClubsRow);
+                return rowDTTournamentsClubsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow FindByTMC_ID(int TMC_ID) {
+                return ((DTTournamentsClubsRow)(this.Rows.Find(new object[] {
+                            TMC_ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTTournamentsClubsDataTable cln = ((DTTournamentsClubsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTTournamentsClubsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnTMC_TournamentID = base.Columns["TMC_TournamentID"];
+                this.columnTMC_ClubID = base.Columns["TMC_ClubID"];
+                this.columnTMC_ID = base.Columns["TMC_ID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnTMC_TournamentID = new global::System.Data.DataColumn("TMC_TournamentID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTMC_TournamentID);
+                this.columnTMC_ClubID = new global::System.Data.DataColumn("TMC_ClubID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTMC_ClubID);
+                this.columnTMC_ID = new global::System.Data.DataColumn("TMC_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTMC_ID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTMC_ID}, true));
+                this.columnTMC_ID.AllowDBNull = false;
+                this.columnTMC_ID.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow NewDTTournamentsClubsRow() {
+                return ((DTTournamentsClubsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTTournamentsClubsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTTournamentsClubsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTTournamentsClubsRowChanged != null)) {
+                    this.DTTournamentsClubsRowChanged(this, new DTTournamentsClubsRowChangeEvent(((DTTournamentsClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTTournamentsClubsRowChanging != null)) {
+                    this.DTTournamentsClubsRowChanging(this, new DTTournamentsClubsRowChangeEvent(((DTTournamentsClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTTournamentsClubsRowDeleted != null)) {
+                    this.DTTournamentsClubsRowDeleted(this, new DTTournamentsClubsRowChangeEvent(((DTTournamentsClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTTournamentsClubsRowDeleting != null)) {
+                    this.DTTournamentsClubsRowDeleting(this, new DTTournamentsClubsRowChangeEvent(((DTTournamentsClubsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveDTTournamentsClubsRow(DTTournamentsClubsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FootballDataSet ds = new FootballDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTTournamentsClubsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ASSOCIATIONSRow : global::System.Data.DataRow {
@@ -6501,6 +6843,17 @@ namespace Football_AdoNet {
                 }
                 else {
                     return ((T_CLUBSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_T_CLUBS_TOURNAMENTS"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow[] GetDTTournamentsClubsRows() {
+                if ((this.Table.ChildRelations["FK_T_CLUBS_TOURNAMENTS1"] == null)) {
+                    return new DTTournamentsClubsRow[0];
+                }
+                else {
+                    return ((DTTournamentsClubsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_T_CLUBS_TOURNAMENTS1"])));
                 }
             }
         }
@@ -6847,6 +7200,17 @@ namespace Football_AdoNet {
                 }
                 else {
                     return ((T_CLUBSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_T_CLUBS_CLUBS"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow[] GetDTTournamentsClubsRows() {
+                if ((this.Table.ChildRelations["FK_T_CLUBS_CLUBS2"] == null)) {
+                    return new DTTournamentsClubsRow[0];
+                }
+                else {
+                    return ((DTTournamentsClubsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_T_CLUBS_CLUBS2"])));
                 }
             }
         }
@@ -8389,6 +8753,111 @@ namespace Football_AdoNet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTTournamentsClubsRow : global::System.Data.DataRow {
+            
+            private DTTournamentsClubsDataTable tableDTTournamentsClubs;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DTTournamentsClubsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTTournamentsClubs = ((DTTournamentsClubsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int TMC_TournamentID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTTournamentsClubs.TMC_TournamentIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TMC_TournamentID\' в таблице \'DTTournamentsClubs\' равно DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTTournamentsClubs.TMC_TournamentIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int TMC_ClubID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTTournamentsClubs.TMC_ClubIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TMC_ClubID\' в таблице \'DTTournamentsClubs\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTTournamentsClubs.TMC_ClubIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int TMC_ID {
+                get {
+                    return ((int)(this[this.tableDTTournamentsClubs.TMC_IDColumn]));
+                }
+                set {
+                    this[this.tableDTTournamentsClubs.TMC_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public CLUBSRow CLUBSRow {
+                get {
+                    return ((CLUBSRow)(this.GetParentRow(this.Table.ParentRelations["FK_T_CLUBS_CLUBS2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_T_CLUBS_CLUBS2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TOURNAMENTSRow TOURNAMENTSRow {
+                get {
+                    return ((TOURNAMENTSRow)(this.GetParentRow(this.Table.ParentRelations["FK_T_CLUBS_TOURNAMENTS1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_T_CLUBS_TOURNAMENTS1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTMC_TournamentIDNull() {
+                return this.IsNull(this.tableDTTournamentsClubs.TMC_TournamentIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTMC_TournamentIDNull() {
+                this[this.tableDTTournamentsClubs.TMC_TournamentIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTMC_ClubIDNull() {
+                return this.IsNull(this.tableDTTournamentsClubs.TMC_ClubIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTMC_ClubIDNull() {
+                this[this.tableDTTournamentsClubs.TMC_ClubIDColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -8918,6 +9387,40 @@ namespace Football_AdoNet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DTSearchTournamentsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class DTTournamentsClubsRowChangeEvent : global::System.EventArgs {
+            
+            private DTTournamentsClubsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRowChangeEvent(DTTournamentsClubsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DTTournamentsClubsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -15357,6 +15860,380 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class DTTournamentsClubsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public DTTournamentsClubsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "DTTournamentsClubs";
+            tableMapping.ColumnMappings.Add("TMC_TournamentID", "TMC_TournamentID");
+            tableMapping.ColumnMappings.Add("TMC_ClubID", "TMC_ClubID");
+            tableMapping.ColumnMappings.Add("TMC_ID", "TMC_ID");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [T_CLUBS] WHERE (((@IsNull_TMC_TournamentID = 1 AND [TMC_TournamentID] IS NULL) OR ([TMC_TournamentID] = @Original_TMC_TournamentID)) AND ((@IsNull_TMC_ClubID = 1 AND [TMC_ClubID] IS NULL) OR ([TMC_ClubID] = @Original_TMC_ClubID)) AND ([TMC_ID] = @Original_TMC_ID))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TMC_TournamentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TMC_TournamentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TMC_ClubID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ClubID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TMC_ClubID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ClubID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TMC_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [T_CLUBS] ([TMC_TournamentID], [TMC_ClubID], [TMC_ID]) VALUES (@TMC_T" +
+                "ournamentID, @TMC_ClubID, @TMC_ID);\r\nSELECT TMC_TournamentID, TMC_ClubID, TMC_ID" +
+                " FROM T_CLUBS WHERE (TMC_ID = @TMC_ID)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_TournamentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_ClubID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ClubID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [T_CLUBS] SET [TMC_TournamentID] = @TMC_TournamentID, [TMC_ClubID] = @TMC_ClubID, [TMC_ID] = @TMC_ID WHERE (((@IsNull_TMC_TournamentID = 1 AND [TMC_TournamentID] IS NULL) OR ([TMC_TournamentID] = @Original_TMC_TournamentID)) AND ((@IsNull_TMC_ClubID = 1 AND [TMC_ClubID] IS NULL) OR ([TMC_ClubID] = @Original_TMC_ClubID)) AND ([TMC_ID] = @Original_TMC_ID));
+SELECT TMC_TournamentID, TMC_ClubID, TMC_ID FROM T_CLUBS WHERE (TMC_ID = @TMC_ID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_TournamentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_ClubID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ClubID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TMC_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TMC_TournamentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TMC_TournamentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TMC_ClubID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ClubID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TMC_ClubID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ClubID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TMC_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Football_AdoNet.Properties.Settings.Default.FootballConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT T_CLUBS.TMC_TournamentID, T_CLUBS.TMC_ClubID, T_CLUBS.TMC_ID\r\nFROM T_CLUBS" +
+                "\r\nWHERE (T_CLUBS.TMC_TournamentID = @t_id)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@t_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TMC_TournamentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int FillByExactTournament(FootballDataSet.DTTournamentsClubsDataTable dataTable, global::System.Nullable<int> t_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((t_id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(t_id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FootballDataSet.DTTournamentsClubsDataTable GetDataByExactTournament(global::System.Nullable<int> t_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((t_id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(t_id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            FootballDataSet.DTTournamentsClubsDataTable dataTable = new FootballDataSet.DTTournamentsClubsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(FootballDataSet.DTTournamentsClubsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(FootballDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "DTTournamentsClubs");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(global::System.Nullable<int> Original_TMC_TournamentID, global::System.Nullable<int> Original_TMC_ClubID, int Original_TMC_ID) {
+            if ((Original_TMC_TournamentID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_TMC_TournamentID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TMC_ClubID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_TMC_ClubID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_TMC_ID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> TMC_TournamentID, global::System.Nullable<int> TMC_ClubID, int TMC_ID) {
+            if ((TMC_TournamentID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TMC_TournamentID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((TMC_ClubID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(TMC_ClubID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(TMC_ID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> TMC_TournamentID, global::System.Nullable<int> TMC_ClubID, int TMC_ID, global::System.Nullable<int> Original_TMC_TournamentID, global::System.Nullable<int> Original_TMC_ClubID, int Original_TMC_ID) {
+            if ((TMC_TournamentID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TMC_TournamentID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((TMC_ClubID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(TMC_ClubID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(TMC_ID));
+            if ((Original_TMC_TournamentID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_TMC_TournamentID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TMC_ClubID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_TMC_ClubID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_TMC_ID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> TMC_TournamentID, global::System.Nullable<int> TMC_ClubID, global::System.Nullable<int> Original_TMC_TournamentID, global::System.Nullable<int> Original_TMC_ClubID, int Original_TMC_ID) {
+            return this.Update(TMC_TournamentID, TMC_ClubID, Original_TMC_ID, Original_TMC_TournamentID, Original_TMC_ClubID, Original_TMC_ID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.IDbCommand[] _commandCollection;
@@ -15994,6 +16871,8 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         
         private T_TYPESTableAdapter _t_TYPESTableAdapter;
         
+        private DTTournamentsClubsTableAdapter _dTTournamentsClubsTableAdapter;
+        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -16193,6 +17072,20 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public DTTournamentsClubsTableAdapter DTTournamentsClubsTableAdapter {
+            get {
+                return this._dTTournamentsClubsTableAdapter;
+            }
+            set {
+                this._dTTournamentsClubsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -16262,6 +17155,10 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                             && (this._t_TYPESTableAdapter.Connection != null))) {
                     return this._t_TYPESTableAdapter.Connection;
                 }
+                if (((this._dTTournamentsClubsTableAdapter != null) 
+                            && (this._dTTournamentsClubsTableAdapter.Connection != null))) {
+                    return this._dTTournamentsClubsTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -16312,6 +17209,9 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                     count = (count + 1);
                 }
                 if ((this._t_TYPESTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._dTTournamentsClubsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -16406,21 +17306,21 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tOURNAMENTSTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TOURNAMENTS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tOURNAMENTSTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._pLAYERSTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.PLAYERS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._pLAYERSTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tOURNAMENTSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TOURNAMENTS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tOURNAMENTSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16439,6 +17339,15 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._t_CLUBSTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._dTTournamentsClubsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.DTTournamentsClubs.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._dTTournamentsClubsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16524,19 +17433,19 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tOURNAMENTSTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TOURNAMENTS.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tOURNAMENTSTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._pLAYERSTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.PLAYERS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._pLAYERSTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tOURNAMENTSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TOURNAMENTS.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tOURNAMENTSTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16556,6 +17465,14 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._dTTournamentsClubsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.DTTournamentsClubs.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._dTTournamentsClubsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -16566,6 +17483,14 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(FootballDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._dTTournamentsClubsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.DTTournamentsClubs.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._dTTournamentsClubsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._t_CLUBSTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.T_CLUBS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16582,19 +17507,19 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pLAYERSTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PLAYERS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pLAYERSTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._tOURNAMENTSTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TOURNAMENTS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tOURNAMENTSTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pLAYERSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PLAYERS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pLAYERSTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16774,6 +17699,11 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
+            if (((this._dTTournamentsClubsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._dTTournamentsClubsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -16923,6 +17853,15 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._t_TYPESTableAdapter.Adapter);
                     }
                 }
+                if ((this._dTTournamentsClubsTableAdapter != null)) {
+                    revertConnections.Add(this._dTTournamentsClubsTableAdapter, this._dTTournamentsClubsTableAdapter.Connection);
+                    this._dTTournamentsClubsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._dTTournamentsClubsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._dTTournamentsClubsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._dTTournamentsClubsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._dTTournamentsClubsTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -17032,6 +17971,10 @@ WHERE (T_TYPES.TT_Name LIKE @t_findname)";
                 if ((this._t_TYPESTableAdapter != null)) {
                     this._t_TYPESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._t_TYPESTableAdapter]));
                     this._t_TYPESTableAdapter.Transaction = null;
+                }
+                if ((this._dTTournamentsClubsTableAdapter != null)) {
+                    this._dTTournamentsClubsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dTTournamentsClubsTableAdapter]));
+                    this._dTTournamentsClubsTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

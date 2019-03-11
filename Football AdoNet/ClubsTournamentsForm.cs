@@ -23,8 +23,8 @@ namespace Football_AdoNet
         public ClubsTournamentsForm(int id)
         {
             InitializeComponent();
-            t_CLUBSTableAdapter1.Fill(footballDataSet1.T_CLUBS);
             this.id = id;
+            t_CLUBSTableAdapter1.Fill(footballDataSet1.T_CLUBS);
         }
 
         private void ClubsTournamentsForm_Load(object sender, EventArgs e)
@@ -33,7 +33,6 @@ namespace Football_AdoNet
             this.tOURNAMENTSTableAdapter.Fill(this.footballDataSet1.TOURNAMENTS);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "footballDataSet1.CLUBS". При необходимости она может быть перемещена или удалена.
             this.cLUBSTableAdapter.Fill(this.footballDataSet1.CLUBS);
-
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

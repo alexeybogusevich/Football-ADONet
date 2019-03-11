@@ -29,11 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchClubsForm));
             this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dtSearchClubsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.DTSearchClubsTableAdapter();
             this.dataGridViewSearchClubs = new System.Windows.Forms.DataGridView();
+            this.CStextBoxCountry = new System.Windows.Forms.TextBox();
+            this.CStextBoxTournament = new System.Windows.Forms.TextBox();
+            this.CStextBoxDate = new System.Windows.Forms.TextBox();
+            this.buttonSearchClubs = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.cNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNTRYNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,13 +66,6 @@
             this.hCIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CStextBoxCountry = new System.Windows.Forms.TextBox();
-            this.CStextBoxTournament = new System.Windows.Forms.TextBox();
-            this.CStextBoxDate = new System.Windows.Forms.TextBox();
-            this.buttonSearchClubs = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchClubs)).BeginInit();
@@ -110,9 +117,78 @@
             this.dataGridViewSearchClubs.Size = new System.Drawing.Size(703, 329);
             this.dataGridViewSearchClubs.TabIndex = 0;
             // 
+            // CStextBoxCountry
+            // 
+            this.CStextBoxCountry.Location = new System.Drawing.Point(13, 50);
+            this.CStextBoxCountry.Name = "CStextBoxCountry";
+            this.CStextBoxCountry.Size = new System.Drawing.Size(140, 20);
+            this.CStextBoxCountry.TabIndex = 1;
+            // 
+            // CStextBoxTournament
+            // 
+            this.CStextBoxTournament.Location = new System.Drawing.Point(188, 50);
+            this.CStextBoxTournament.Name = "CStextBoxTournament";
+            this.CStextBoxTournament.Size = new System.Drawing.Size(140, 20);
+            this.CStextBoxTournament.TabIndex = 2;
+            // 
+            // CStextBoxDate
+            // 
+            this.CStextBoxDate.Location = new System.Drawing.Point(363, 50);
+            this.CStextBoxDate.Name = "CStextBoxDate";
+            this.CStextBoxDate.Size = new System.Drawing.Size(140, 20);
+            this.CStextBoxDate.TabIndex = 3;
+            // 
+            // buttonSearchClubs
+            // 
+            this.buttonSearchClubs.BackColor = System.Drawing.Color.Navy;
+            this.buttonSearchClubs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearchClubs.ForeColor = System.Drawing.Color.White;
+            this.buttonSearchClubs.Location = new System.Drawing.Point(605, 10);
+            this.buttonSearchClubs.Name = "buttonSearchClubs";
+            this.buttonSearchClubs.Size = new System.Drawing.Size(111, 91);
+            this.buttonSearchClubs.TabIndex = 4;
+            this.buttonSearchClubs.Text = "Знайти";
+            this.buttonSearchClubs.UseVisualStyleBackColor = false;
+            this.buttonSearchClubs.Click += new System.EventHandler(this.buttonSearchClubs_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(63, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Країна";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(235, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Турнір";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(360, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "      Рік заснування";
+            // 
             // cNameDataGridViewTextBoxColumn
             // 
             this.cNameDataGridViewTextBoxColumn.DataPropertyName = "C_Name";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.cNameDataGridViewTextBoxColumn.HeaderText = "Назва";
             this.cNameDataGridViewTextBoxColumn.Name = "cNameDataGridViewTextBoxColumn";
             this.cNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -120,6 +196,8 @@
             // cTNameDataGridViewTextBoxColumn
             // 
             this.cTNameDataGridViewTextBoxColumn.DataPropertyName = "CT_Name";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cTNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.cTNameDataGridViewTextBoxColumn.HeaderText = "Місто";
             this.cTNameDataGridViewTextBoxColumn.Name = "cTNameDataGridViewTextBoxColumn";
             this.cTNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -127,6 +205,8 @@
             // cNTRYNameDataGridViewTextBoxColumn
             // 
             this.cNTRYNameDataGridViewTextBoxColumn.DataPropertyName = "CNTRY_Name";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.cNTRYNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.cNTRYNameDataGridViewTextBoxColumn.HeaderText = "Країна";
             this.cNTRYNameDataGridViewTextBoxColumn.Name = "cNTRYNameDataGridViewTextBoxColumn";
             this.cNTRYNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -134,6 +214,8 @@
             // lNameDataGridViewTextBoxColumn
             // 
             this.lNameDataGridViewTextBoxColumn.DataPropertyName = "L_Name";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.lNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.lNameDataGridViewTextBoxColumn.HeaderText = "Ліга";
             this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
             this.lNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -141,6 +223,8 @@
             // hCNameDataGridViewTextBoxColumn
             // 
             this.hCNameDataGridViewTextBoxColumn.DataPropertyName = "HC_Name";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.hCNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.hCNameDataGridViewTextBoxColumn.HeaderText = "Тренер";
             this.hCNameDataGridViewTextBoxColumn.Name = "hCNameDataGridViewTextBoxColumn";
             this.hCNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -148,6 +232,8 @@
             // prNameDataGridViewTextBoxColumn
             // 
             this.prNameDataGridViewTextBoxColumn.DataPropertyName = "Pr_Name";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.prNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.prNameDataGridViewTextBoxColumn.HeaderText = "Президент";
             this.prNameDataGridViewTextBoxColumn.Name = "prNameDataGridViewTextBoxColumn";
             this.prNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -155,6 +241,8 @@
             // cDateOfFoundationDataGridViewTextBoxColumn
             // 
             this.cDateOfFoundationDataGridViewTextBoxColumn.DataPropertyName = "C_DateOfFoundation";
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.cDateOfFoundationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.cDateOfFoundationDataGridViewTextBoxColumn.HeaderText = "Рік заснування";
             this.cDateOfFoundationDataGridViewTextBoxColumn.Name = "cDateOfFoundationDataGridViewTextBoxColumn";
             this.cDateOfFoundationDataGridViewTextBoxColumn.ReadOnly = true;
@@ -248,73 +336,6 @@
             this.lIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.lIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // CStextBoxCountry
-            // 
-            this.CStextBoxCountry.Location = new System.Drawing.Point(13, 50);
-            this.CStextBoxCountry.Name = "CStextBoxCountry";
-            this.CStextBoxCountry.Size = new System.Drawing.Size(140, 20);
-            this.CStextBoxCountry.TabIndex = 1;
-            // 
-            // CStextBoxTournament
-            // 
-            this.CStextBoxTournament.Location = new System.Drawing.Point(188, 50);
-            this.CStextBoxTournament.Name = "CStextBoxTournament";
-            this.CStextBoxTournament.Size = new System.Drawing.Size(140, 20);
-            this.CStextBoxTournament.TabIndex = 2;
-            // 
-            // CStextBoxDate
-            // 
-            this.CStextBoxDate.Location = new System.Drawing.Point(363, 50);
-            this.CStextBoxDate.Name = "CStextBoxDate";
-            this.CStextBoxDate.Size = new System.Drawing.Size(140, 20);
-            this.CStextBoxDate.TabIndex = 3;
-            // 
-            // buttonSearchClubs
-            // 
-            this.buttonSearchClubs.BackColor = System.Drawing.Color.Navy;
-            this.buttonSearchClubs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSearchClubs.ForeColor = System.Drawing.Color.White;
-            this.buttonSearchClubs.Location = new System.Drawing.Point(605, 10);
-            this.buttonSearchClubs.Name = "buttonSearchClubs";
-            this.buttonSearchClubs.Size = new System.Drawing.Size(111, 91);
-            this.buttonSearchClubs.TabIndex = 4;
-            this.buttonSearchClubs.Text = "Знайти";
-            this.buttonSearchClubs.UseVisualStyleBackColor = false;
-            this.buttonSearchClubs.Click += new System.EventHandler(this.buttonSearchClubs_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(63, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Країна";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(235, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Турнір";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(360, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "      Рік заснування";
-            // 
             // SearchClubsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,6 +368,13 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private FootballDataSetTableAdapters.DTSearchClubsTableAdapter dtSearchClubsTableAdapter1;
         private System.Windows.Forms.DataGridView dataGridViewSearchClubs;
+        private System.Windows.Forms.TextBox CStextBoxCountry;
+        private System.Windows.Forms.TextBox CStextBoxTournament;
+        private System.Windows.Forms.TextBox CStextBoxDate;
+        private System.Windows.Forms.Button buttonSearchClubs;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNTRYNameDataGridViewTextBoxColumn;
@@ -365,12 +393,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hCIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox CStextBoxCountry;
-        private System.Windows.Forms.TextBox CStextBoxTournament;
-        private System.Windows.Forms.TextBox CStextBoxDate;
-        private System.Windows.Forms.Button buttonSearchClubs;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
     }
 }
