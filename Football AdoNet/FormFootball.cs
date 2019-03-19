@@ -55,7 +55,7 @@ namespace Football_AdoNet
 
         private void buttonDeletePlayers_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Буде також видалено рейтингову картку гравця!"); ////////////////
+            MessageBox.Show("Буде також видалено рейтингову картку гравця!"); 
             int id = (int)dataGridViewPlayers.CurrentRow.Cells["pIDDataGridViewTextBoxColumn"].Value;
             queriesTableAdapter1.DeleteQueryFIFA_RATINGofThePLAYER(id);
             pLAYERSBindingSource.RemoveCurrent();
@@ -72,9 +72,15 @@ namespace Football_AdoNet
             {
                 int id = (int)dataGridViewClubs.CurrentRow.Cells["cIDDataGridViewTextBoxColumn"].Value;
                 int c_count = (int)queriesTableAdapter1.ScalarQueryClubsInPlayers(id);
+                int ct_count = (int)queriesTableAdapter1.ScalarQueryCLUBSinT_CLUBS(id);
 
-                if (c_count == 0)
+                if (c_count == 0 && ct_count == 0)
                 {
+                    cLUBSBindingSource.RemoveCurrent();
+                }
+                else if(ct_count != 0 && c_count == 0)
+                {
+                    queriesTableAdapter1.DeleteQueryT_Clubs(id);
                     cLUBSBindingSource.RemoveCurrent();
                 }
                 else
@@ -234,6 +240,52 @@ namespace Football_AdoNet
             PlayersCardForm cardForm = new PlayersCardForm(id);
             cardForm.ShowDialog(this);
             cardForm.Dispose();
+        }
+
+        private void FormFootball_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Зберегти зміни?", "Програма", MessageBoxButtons.YesNoCancel);
+            if (dialogResult == DialogResult.Yes)
+            {
+                pLAYERSTableAdapter.Update(footballDataSet.PLAYERS);
+                cLUBSTableAdapter.Update(footballDataSet.CLUBS);
+                tOURNAMENTSTableAdapter.Update(footballDataSet.TOURNAMENTS);
+                this.Dispose();
+            }
+            else if (dialogResult == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                this.Dispose();
+            }
+        }
+
+        private void dataGridViewPlayers_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewPlayers.CurrentCell.ColumnIndex == 3)
+            {
+                int number = (int)dataGridViewPlayers.CurrentRow.Cells["pNumberDataGridViewTextBoxColumn"].Value;
+                if(number <= 0 || number > 100)
+                {
+                    MessageBox.Show("Номер гравця має бути в діапазоні від 1 до 100!", "Помилка");
+                    dataGridViewPlayers.CurrentRow.Cells["pNumberDataGridViewTextBoxColumn"].Value = System.DBNull.Value;
+                }
+            }
+        }
+
+        private void dataGridViewClubs_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewClubs.CurrentCell.ColumnIndex == 5)
+            {
+                int founded = (int)dataGridViewClubs.CurrentRow.Cells["cDateOfFoundationDataGridViewTextBoxColumn"].Value;
+                if (founded <= 1870 || founded > 2019)
+                {
+                    MessageBox.Show("Рік заснування неможливий!", "Помилка");
+                    dataGridViewClubs.CurrentRow.Cells["cDateOfFoundationDataGridViewTextBoxColumn"].Value = System.DBNull.Value;
+                }
+            }
         }
     }
 }

@@ -218,7 +218,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "ClubsTournamentsForm";
-            this.Text = "ClubsTournamentsForm";
+            this.Text = "Команди-учасники";
             this.Load += new System.EventHandler(this.ClubsTournamentsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTclubs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLUBSBindingSource)).EndInit();

@@ -229,6 +229,8 @@
             // 
             // dataGridViewPlayers
             // 
+            this.dataGridViewPlayers.AllowUserToResizeColumns = false;
+            this.dataGridViewPlayers.AllowUserToResizeRows = false;
             this.dataGridViewPlayers.AutoGenerateColumns = false;
             this.dataGridViewPlayers.BackgroundColor = System.Drawing.Color.Navy;
             this.dataGridViewPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -250,6 +252,7 @@
             this.dataGridViewPlayers.Size = new System.Drawing.Size(696, 265);
             this.dataGridViewPlayers.TabIndex = 0;
             this.dataGridViewPlayers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPlayers_CellDoubleClick);
+            this.dataGridViewPlayers.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPlayers_CellEndEdit);
             this.dataGridViewPlayers.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewPlayers_DataError);
             // 
             // pNameDataGridViewTextBoxColumn
@@ -500,6 +503,8 @@
             // 
             // dataGridViewClubs
             // 
+            this.dataGridViewClubs.AllowUserToResizeColumns = false;
+            this.dataGridViewClubs.AllowUserToResizeRows = false;
             this.dataGridViewClubs.AutoGenerateColumns = false;
             this.dataGridViewClubs.BackgroundColor = System.Drawing.Color.Navy;
             this.dataGridViewClubs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -523,6 +528,7 @@
             this.dataGridViewClubs.RowHeadersWidth = 20;
             this.dataGridViewClubs.Size = new System.Drawing.Size(693, 265);
             this.dataGridViewClubs.TabIndex = 0;
+            this.dataGridViewClubs.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClubs_CellEndEdit);
             this.dataGridViewClubs.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewClubs_DataError);
             // 
             // cNameDataGridViewTextBoxColumn
@@ -733,6 +739,8 @@
             // 
             // dataGridViewTournaments
             // 
+            this.dataGridViewTournaments.AllowUserToResizeColumns = false;
+            this.dataGridViewTournaments.AllowUserToResizeRows = false;
             this.dataGridViewTournaments.AutoGenerateColumns = false;
             this.dataGridViewTournaments.BackgroundColor = System.Drawing.Color.Navy;
             this.dataGridViewTournaments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -897,6 +905,7 @@
             this.MaximizeBox = false;
             this.Name = "FormFootball";
             this.Text = "Футбол";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormFootball_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.PLAYERS.ResumeLayout(false);

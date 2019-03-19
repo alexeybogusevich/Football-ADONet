@@ -36,10 +36,10 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lEAGUESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lCountryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lEAGUESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lEAGUESBindingSource)).BeginInit();
@@ -95,11 +95,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(359, 242);
             this.dataGridView1.TabIndex = 2;
             // 
-            // lEAGUESBindingSource
-            // 
-            this.lEAGUESBindingSource.DataMember = "LEAGUES";
-            this.lEAGUESBindingSource.DataSource = this.footballDataSet1;
-            // 
             // lNameDataGridViewTextBoxColumn
             // 
             this.lNameDataGridViewTextBoxColumn.DataPropertyName = "L_Name";
@@ -125,6 +120,11 @@
             this.lIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.lIDDataGridViewTextBoxColumn.Visible = false;
             // 
+            // lEAGUESBindingSource
+            // 
+            this.lEAGUESBindingSource.DataMember = "LEAGUES";
+            this.lEAGUESBindingSource.DataSource = this.footballDataSet1;
+            // 
             // AddLeagueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,7 +137,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "AddLeagueForm";
-            this.Text = "AddLeagueForm";
+            this.Text = "Ліги";
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lEAGUESBindingSource)).EndInit();

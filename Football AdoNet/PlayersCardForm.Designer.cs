@@ -64,6 +64,7 @@
             // comboBoxPAC
             // 
             this.comboBoxPAC.BackColor = System.Drawing.Color.White;
+            this.comboBoxPAC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPAC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxPAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxPAC.FormattingEnabled = true;
@@ -175,6 +176,7 @@
             // 
             // comboBoxSHO
             // 
+            this.comboBoxSHO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSHO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSHO.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSHO.FormattingEnabled = true;
@@ -286,6 +288,7 @@
             // 
             // comboBoxPAS
             // 
+            this.comboBoxPAS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPAS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxPAS.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxPAS.FormattingEnabled = true;
@@ -397,6 +400,7 @@
             // 
             // comboBoxDRI
             // 
+            this.comboBoxDRI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDRI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxDRI.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxDRI.FormattingEnabled = true;
@@ -508,6 +512,7 @@
             // 
             // comboBoxDEF
             // 
+            this.comboBoxDEF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDEF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxDEF.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxDEF.FormattingEnabled = true;
@@ -619,6 +624,7 @@
             // 
             // comboBoxPHY
             // 
+            this.comboBoxPHY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPHY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxPHY.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxPHY.FormattingEnabled = true;
@@ -916,7 +922,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "PlayersCardForm";
-            this.Text = "PlayersCardForm";
+            this.Text = "Картка гравця";
             this.Load += new System.EventHandler(this.PlayersCardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fIFARATINGSBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).EndInit();

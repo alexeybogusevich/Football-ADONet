@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:ASSOCIATIONS" ZOrder="26" X="343" Y="404" Height="54" Width="241" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="64" SplitterPosition="24" />
     <Shape ID="DesignTable:TOURNAMENTS" ZOrder="25" X="239" Y="332" Height="54" Width="246" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="102" SplitterPosition="24" />
-    <Shape ID="DesignTable:CITIES" ZOrder="1" X="820" Y="153" Height="113" Width="188" AdapterExpanded="false" DataTableExpanded="true" OldAdapterHeight="45" OldDataTableHeight="24" SplitterPosition="83" />
+    <Shape ID="DesignTable:CITIES" ZOrder="1" X="820" Y="153" Height="54" Width="188" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="83" SplitterPosition="24" />
     <Shape ID="DesignTable:CLUBS" ZOrder="12" X="495" Y="264" Height="54" Width="189" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="197" SplitterPosition="24" />
     <Shape ID="DesignTable:COUNTRIES" ZOrder="24" X="804" Y="90" Height="54" Width="220" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="64" SplitterPosition="24" />
     <Shape ID="DesignTable:FIFA_RATINGS" ZOrder="2" X="541" Y="165" Height="55" Width="300" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="120" OldDataTableHeight="159" SplitterPosition="25" />
@@ -78,7 +78,7 @@
       <RoutePoints>
         <Point>
           <X>837</X>
-          <Y>266</Y>
+          <Y>207</Y>
         </Point>
         <Point>
           <X>837</X>

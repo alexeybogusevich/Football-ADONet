@@ -144,7 +144,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "AddPresidentForm";
-            this.Text = "AddPresidentForm";
+            this.Text = "Президенти";
             this.Load += new System.EventHandler(this.AddPresidentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPresidents)).EndInit();

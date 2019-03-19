@@ -177,7 +177,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "AddCityForm";
-            this.Text = "AddCityForm";
+            this.Text = "Міста";
             this.Load += new System.EventHandler(this.AddCityForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddCity)).EndInit();
