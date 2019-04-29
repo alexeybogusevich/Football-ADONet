@@ -44,7 +44,23 @@ namespace Football_AdoNet
 
         private void buttonNeural_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("В розробці...", "Додатково");
+            playersTableAdapter1.Fill(footballDataSet1.PLAYERS);
+            leaguesTableAdapter1.Fill(footballDataSet1.LEAGUES);
+            headcoachesTableAdapter1.Fill(footballDataSet1.HEADCOACHES);
+            fifA_RATINGSTableAdapter1.Fill(footballDataSet1.FIFA_RATINGS);
+            countriesTableAdapter1.Fill(footballDataSet1.COUNTRIES);
+            clubsTableAdapter1.Fill(footballDataSet1.CLUBS);
+            citiesTableAdapter1.Fill(footballDataSet1.CITIES);
+            associationsTableAdapter1.Fill(footballDataSet1.ASSOCIATIONS);
+            positionsTableAdapter1.Fill(footballDataSet1.POSITIONS);
+            presidentsTableAdapter1.Fill(footballDataSet1.PRESIDENTS);
+            tournamentsTableAdapter1.Fill(footballDataSet1.TOURNAMENTS);
+            t_CLUBSTableAdapter1.Fill(footballDataSet1.T_CLUBS);
+            t_TYPESTableAdapter1.Fill(footballDataSet1.T_TYPES);
+
+            footballDataSet1.WriteXml("tables.xml");
+
+            MessageBox.Show("Всі дані збережено в xml-файл.", "XML");
         }
     }
 }

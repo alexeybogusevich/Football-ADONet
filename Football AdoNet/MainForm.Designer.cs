@@ -32,6 +32,21 @@
             this.buttonFormFootball = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonNeural = new System.Windows.Forms.Button();
+            this.footballDataSet1 = new Football_AdoNet.FootballDataSet();
+            this.associationsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.ASSOCIATIONSTableAdapter();
+            this.citiesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.CITIESTableAdapter();
+            this.clubsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.CLUBSTableAdapter();
+            this.countriesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.COUNTRIESTableAdapter();
+            this.fifA_RATINGSTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.FIFA_RATINGSTableAdapter();
+            this.headcoachesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.HEADCOACHESTableAdapter();
+            this.leaguesTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.LEAGUESTableAdapter();
+            this.playersTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.PLAYERSTableAdapter();
+            this.positionsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.POSITIONSTableAdapter();
+            this.presidentsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.PRESIDENTSTableAdapter();
+            this.t_CLUBSTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.T_CLUBSTableAdapter();
+            this.t_TYPESTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.T_TYPESTableAdapter();
+            this.tournamentsTableAdapter1 = new Football_AdoNet.FootballDataSetTableAdapters.TOURNAMENTSTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFormFootball
@@ -72,9 +87,66 @@
             this.buttonNeural.Name = "buttonNeural";
             this.buttonNeural.Size = new System.Drawing.Size(250, 60);
             this.buttonNeural.TabIndex = 2;
-            this.buttonNeural.Text = "Додатково";
+            this.buttonNeural.Text = "XML";
             this.buttonNeural.UseVisualStyleBackColor = false;
             this.buttonNeural.Click += new System.EventHandler(this.buttonNeural_Click);
+            // 
+            // footballDataSet1
+            // 
+            this.footballDataSet1.DataSetName = "FootballDataSet";
+            this.footballDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // associationsTableAdapter1
+            // 
+            this.associationsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // citiesTableAdapter1
+            // 
+            this.citiesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // clubsTableAdapter1
+            // 
+            this.clubsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // countriesTableAdapter1
+            // 
+            this.countriesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // fifA_RATINGSTableAdapter1
+            // 
+            this.fifA_RATINGSTableAdapter1.ClearBeforeFill = true;
+            // 
+            // headcoachesTableAdapter1
+            // 
+            this.headcoachesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // leaguesTableAdapter1
+            // 
+            this.leaguesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // playersTableAdapter1
+            // 
+            this.playersTableAdapter1.ClearBeforeFill = true;
+            // 
+            // positionsTableAdapter1
+            // 
+            this.positionsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // presidentsTableAdapter1
+            // 
+            this.presidentsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // t_CLUBSTableAdapter1
+            // 
+            this.t_CLUBSTableAdapter1.ClearBeforeFill = true;
+            // 
+            // t_TYPESTableAdapter1
+            // 
+            this.t_TYPESTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tournamentsTableAdapter1
+            // 
+            this.tournamentsTableAdapter1.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -89,6 +161,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Головна";
+            ((System.ComponentModel.ISupportInitialize)(this.footballDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -98,5 +171,19 @@
         private System.Windows.Forms.Button buttonFormFootball;
         private System.Windows.Forms.Button buttonInfo;
         private System.Windows.Forms.Button buttonNeural;
+        private FootballDataSet footballDataSet1;
+        private FootballDataSetTableAdapters.ASSOCIATIONSTableAdapter associationsTableAdapter1;
+        private FootballDataSetTableAdapters.CITIESTableAdapter citiesTableAdapter1;
+        private FootballDataSetTableAdapters.CLUBSTableAdapter clubsTableAdapter1;
+        private FootballDataSetTableAdapters.COUNTRIESTableAdapter countriesTableAdapter1;
+        private FootballDataSetTableAdapters.FIFA_RATINGSTableAdapter fifA_RATINGSTableAdapter1;
+        private FootballDataSetTableAdapters.HEADCOACHESTableAdapter headcoachesTableAdapter1;
+        private FootballDataSetTableAdapters.LEAGUESTableAdapter leaguesTableAdapter1;
+        private FootballDataSetTableAdapters.PLAYERSTableAdapter playersTableAdapter1;
+        private FootballDataSetTableAdapters.POSITIONSTableAdapter positionsTableAdapter1;
+        private FootballDataSetTableAdapters.PRESIDENTSTableAdapter presidentsTableAdapter1;
+        private FootballDataSetTableAdapters.T_CLUBSTableAdapter t_CLUBSTableAdapter1;
+        private FootballDataSetTableAdapters.T_TYPESTableAdapter t_TYPESTableAdapter1;
+        private FootballDataSetTableAdapters.TOURNAMENTSTableAdapter tournamentsTableAdapter1;
     }
 }
